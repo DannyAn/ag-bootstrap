@@ -1,0 +1,83 @@
+npm WARN deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated emojis-list@1.0.3: Use v2.x, it's content all emojis on the world and webpack support.
+npm WARN deprecated minimatch@2.0.10: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated minimatch@0.4.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated graceful-fs@1.2.3: graceful-fs v3.0.0 and before will fail on node releases >= v7.0. Please update to graceful-fs@^4.0.0 as soon as possible. Use 'npm ls graceful-fs' to find it in the tree.
+
+gulp-clang-format不能全局安装，否则无法找到clang-format
+"gulp-clang-format": "^1.0.23",
+
+
+npm install gulp-clang-format --save-dev
+更新npm版本从5.3.0到5.6.0
+npm i -g npm
+
+npm install -g clang-format
+突然就提示lint无法通过，好奇怪,建议将每行的长度调整为180而不是140
+17:35:27] Starting 'lint'...
+index.ts[20, 1]: Exceeds maximum line length of 140
+index.ts[25, 1]: Exceeds maximum line length of 140
+index.ts[35, 1]: Exceeds maximum line length of 140
+
+accordion/accordion.ts[1, 1]: Exceeds maximum line length of 140
+
+alert/alert.ts[1, 73]: missing whitespace
+
+carousel/carousel.ts[1, 1]: Exceeds maximum line length of 140
+
+dropdown/dropdown.ts[1, 1]: Exceeds maximum line length of 140
+
+datepicker/datepicker-input.ts[1, 1]: Exceeds maximum line length of 140
+
+datepicker/datepicker.ts[1, 1]: Exceeds maximum line length of 140
+
+modal/modal-stack.ts[1, 1]: Exceeds maximum line length of 140
+
+popover/popover.ts[1, 1]: Exceeds maximum line length of 140
+
+rating/rating.ts[1, 1]: Exceeds maximum line length of 140
+
+tabset/tabset.ts[1, 1]: Exceeds maximum line length of 140
+
+tooltip/tooltip.ts[1, 1]: Exceeds maximum line length of 140
+
+typeahead/typeahead.ts[1, 1]: Exceeds maximum line length of 140
+
+util/popup.ts[1, 1]: Exceeds maximum line length of 140
+
+[17:35:42] 'lint' errored after 14 s
+[17:35:42] Error in plugin 'gulp-tslint'
+Message:
+    Failed to lint: 16 errors.
+
+"max-line-length": [
+      true,
+      180
+    ],
+
+末尾多一个逗号，tlint会提示whitespace错误
+    import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output,} from '@angular/core';
+
+LLVM A style complying with the LLVM coding standards
+Google A style complying with Google’s C++ style guide
+Chromium A style complying with Chromium’s style guide
+Mozilla A style complying with Mozilla’s style guide
+WebKit A style complying with WebKit’s style guide
+tlint.json:新增
+"import-spacing": true,
+自定义bootstrap样式时引入必须引入functions，然后报错，提示缺少node-sass
+npm install --save-dev node-sass
+为什么只能将样式挂载到app.scss，自定义的名称为什么不行
+How to include stylesheets with names other than app.scss in the styles directory 
+
+页签之前的标记意思
+T:template
+C:class
+为项目添加CLI支持，可以全局安装
+"npm install --save-dev @angular/cli@latest"
+
+"npm install -g @angular/cli@latest"
+
+webpack的相互依赖关系
+https://www.cnblogs.com/ww03/p/6037710.html

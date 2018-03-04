@@ -1,0 +1,39 @@
+    <nz-table #nzTable [nzDataSource]="data" [nzPageSize]="10">
+      <thead nz-thead>
+        <tr>
+          <th nz-th [nzWidth]="'25%'"><span>name</span></th>
+          <th nz-th [nzWidth]="'15%'"><span>age</span></th>
+          <th nz-th [nzWidth]="'40%'"><span>address</span></th>
+          <th nz-th><span>action</span></th>
+        </tr>
+      </thead>
+      <tbody nz-tbody>
+        <tr nz-tbody-tr *ngFor="let data of nzTable.data">
+          <td nz-td>
+            <span *ngIf="editRow!==data.key">{{data.name}}</span>
+            <span *ngIf="editRow===data.key">
+              <nz-input [(ngModel)]="tempEditObject[data.key].name"></nz-input>
+            </span>
+          </td>
+          <td nz-td>
+            <span *ngIf="editRow!==data.key">{{data.age}}</span>
+            <span *ngIf="editRow===data.key">
+              <nz-input [(ngModel)]="tempEditObject[data.key].age"></nz-input>
+            </span>
+          </td>
+          <td nz-td>{{data.address}}</td>
+          <td nz-td>
+            <span *ngIf="editRow!==data.key">
+              <button class="btn btn-link" (click)="edit(data)">Edit</button>
+            </span>
+            <span *ngIf="editRow===data.key">
+              <button class="btn btn-link" (click)="save(data)">Save</button>
+              <span nz-table-divider></span>
+                <nz-popconfirm [nzTitle]="'Sure to cancel?'" (nzOnConfirm)="cancel(data)">
+                  <button class="btn btn-link" nz-popconfirm>Cancel</button>
+                </nz-popconfirm>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>

@@ -1,0 +1,58 @@
+//from datepicker-customday.ts
+.custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+
+
+ 
+  .focused {
+    background-color: #e6e6e6;
+  }
+  
+  
+  @include border-radius($border-radius);
+}
+.custom-day.range, .custom-day:hover {
+    background-color: rgb(2, 117, 216);
+    color: white;
+  }
+  .custom-day.faded {
+    background-color: rgba(2, 117, 216, 0.5);
+  }
+.ngb-dp-day{
+    .btn-light{
+        @include border-radius($border-radius);
+    }
+}
+
+.ngb-dp-navigation-select .custom-select{
+        @include border-radius($border-radius);
+    }  
+.ngb-dp-navigation-select select{
+        @include border-radius($border-radius);
+}
+
+  //from customday.ts
+//   .custom-day {      
+//     text-align: center;
+//     padding: 0.185rem 0.25rem;
+//     border-radius: 0.25rem;
+//     display: inline-block;
+//     width: 2rem;
+//   }
+//   .custom-day:hover, .custom-day.focused {
+//     background-color: #e6e6e6;
+//   }
+
+// .custom-day {
+//     @include border-radius($border-radius);
+// }
+
+.weekend {
+  background-color: #f0ad4e;
+  border-radius: 1rem;
+  color: white;
+}
