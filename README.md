@@ -1,5 +1,5 @@
-# NG Bootstrap - [Angular](http://angular.io/) directives specific to [Bootstrap 4](https://getbootstrap.com/)
-
+# AG Bootstrap - [Angular](http://angular.io/) directives specific to [Bootstrap 4](https://getbootstrap.com/)
+##Enriched the components from Ant Design.
 [![npm version](https://badge.fury.io/js/%40ng-bootstrap%2Fng-bootstrap.svg)](https://badge.fury.io/js/%40ng-bootstrap%2Fng-bootstrap)
 [![Build Status](https://travis-ci.org/ag-bootstrap/ag-bootstrap.svg?branch=master)](https://travis-ci.org/ag-bootstrap/ag-bootstrap)
 [![devDependency Status](https://david-dm.org/ag-bootstrap/ag-bootstrap/dev-status.svg?branch=master)](https://david-dm.org/ag-bootstrap/ag-bootstrap#info=devDependencies)
