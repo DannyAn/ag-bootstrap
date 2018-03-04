@@ -1,8 +1,8 @@
 # NG Bootstrap - [Angular](http://angular.io/) directives specific to [Bootstrap 4](https://getbootstrap.com/)
 
 [![npm version](https://badge.fury.io/js/%40ng-bootstrap%2Fng-bootstrap.svg)](https://badge.fury.io/js/%40ng-bootstrap%2Fng-bootstrap)
-[![Build Status](https://travis-ci.org/ng-bootstrap/ng-bootstrap.svg?branch=master)](https://travis-ci.org/ng-bootstrap/ng-bootstrap)
-[![devDependency Status](https://david-dm.org/ng-bootstrap/ng-bootstrap/dev-status.svg?branch=master)](https://david-dm.org/ng-bootstrap/ng-bootstrap#info=devDependencies)
+[![Build Status](https://travis-ci.org/ag-bootstrap/ag-bootstrap.svg?branch=master)](https://travis-ci.org/ag-bootstrap/ag-bootstrap)
+[![devDependency Status](https://david-dm.org/ag-bootstrap/ag-bootstrap/dev-status.svg?branch=master)](https://david-dm.org/ag-bootstrap/ag-bootstrap#info=devDependencies)
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/pkozlowski.svg)](https://saucelabs.com/u/pkozlowski)
 
 Welcome to the Angular version of the [Angular UI Bootstrap](https://github.com/angular-ui/bootstrap) library.
@@ -10,7 +10,7 @@ This library is being built from scratch by the [ui-bootstrap team](https://gith
 We are using TypeScript and targeting the Bootstrap 4 CSS framework.
 
 As with Bootstrap 4, this library is a work in progress. Please check out our list of
-[issues](https://github.com/ng-bootstrap/ng-bootstrap/issues) to see all the things we are implementing.
+[issues](https://github.com/ag-bootstrap/ag-bootstrap/issues) to see all the things we are implementing.
 Feel free to make comments there.
 
 ## Table of Contents
@@ -27,16 +27,16 @@ Feel free to make comments there.
 
 ## Demo
 
-View all the directives in action at https://ng-bootstrap.github.io
+View all the directives in action at https://ag-bootstrap.github.io
 
 ## Dependencies
 * [Angular](https://angular.io) (tested with 5.0.2)
 * [Bootstrap 4](https://www.getbootstrap.com) (tested with 4.0.0-beta.3)
 
 ## Installation
-After installing the above dependencies, install `ng-bootstrap` via:
+After installing the above dependencies, install `ag-bootstrap` via:
 ```shell
-npm install --save @ng-bootstrap/ng-bootstrap
+npm install --save @ag-bootstrap/ag-bootstrap
 ```
 Once installed you need to import our main module:
 ```js
@@ -72,10 +72,10 @@ export class OtherModule {
 ### SystemJS
 If you are using SystemJS, you should also adjust your configuration to point to the UMD bundle.
 
-In your systemjs config file, `map` needs to tell the System loader where to look for `ng-bootstrap`:
+In your systemjs config file, `map` needs to tell the System loader where to look for `ag-bootstrap`:
 ```js
 map: {
-  '@ng-bootstrap/ng-bootstrap': 'node_modules/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
+  '@ag-bootstrap/ag-bootstrap': 'node_modules/@ag-bootstrap/ag-bootstrap/bundles/ag-bootstrap.js',
 }
 ```
 ## Supported browsers
@@ -97,7 +97,7 @@ Please check the [CONTRIBUTING.md](CONTRIBUTING.md) doc for contribution guideli
 
 ## Getting Help
 
-Please, do not open issues for the general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [StackOverflow](http://stackoverflow.com/questions/tagged/ng-bootstrap) where maintainers are looking at questions tagged with `ng-bootstrap`.
+Please, do not open issues for the general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [StackOverflow](http://stackoverflow.com/questions/tagged/ag-bootstrap) where maintainers are looking at questions tagged with `ag-bootstrap`.
 
 StackOverflow is a much better place to ask questions since:
 * there are hundreds of people willing to help on StackOverflow
@@ -115,7 +115,7 @@ Oh, we are ashamed and want to fix it ASAP! But before fixing a bug we need to r
 * and most importantly - a use-case that fails
 
 A minimal reproduce scenario using http://plnkr.co/ allows us to quickly confirm a bug (or point out coding problem) as well as confirm that we are fixing the right problem.
-The best part is that you do not need to create plunks from scratch - you can fork one from our [demo page](https://ng-bootstrap.github.io/#/components).
+The best part is that you do not need to create plunks from scratch - you can fork one from our [demo page](https://ag-bootstrap.github.io/#/components).
 
 We will be insisting on a minimal reproduce scenario in order to save maintainers time and ultimately be able to fix more bugs. Interestingly, from our experience users often find coding problems themselves while preparing a minimal plunk. We understand that sometimes it might be hard to extract essentials bits of code from a larger code-base but we really need to isolate the problem before we can fix it.
 
