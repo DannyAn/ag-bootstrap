@@ -4,21 +4,7 @@
  */
 import {DOWN_ARROW, ENTER, TAB} from '@angular/cdk/keycodes';
 import {CdkConnectedOverlay, ConnectedOverlayPositionChange} from '@angular/cdk/overlay';
-import {
-  AfterContentChecked,
-  AfterContentInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  HostListener,
-  Input,
-  OnInit,
-  Output,
-  Renderer2,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterContentChecked, AfterContentInit, Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, OnInit, Output, Renderer2, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {dropDownAnimation} from '../core/animation/dropdown-animations';
@@ -151,8 +137,7 @@ import {NzOptionPipe} from './nz-option.pipe';
     </ng-template>`,
   styleUrls: []
 })
-export class NzSelectComponent implements OnInit,
-    AfterContentInit, AfterContentChecked, ControlValueAccessor {
+export class NzSelectComponent implements OnInit, AfterContentInit, AfterContentChecked, ControlValueAccessor {
   private _allowClear = false;
   private _disabled = false;
   private _isTags = false;
@@ -168,7 +153,7 @@ export class NzSelectComponent implements OnInit,
   _selectionClassMap;
   _selectionPrefixCls = `${this._prefixCls}-selection`;
   _size: string;
-  _value: string[] | string;
+  _value: string[]|string;
   _placeholder = 'placeholder';
   _notFoundContent = this._locale.translate('Select.notFoundContent');
   _searchText = '';
@@ -182,11 +167,11 @@ export class NzSelectComponent implements OnInit,
   _tagsOptions: NzOptionComponent[] = [];
   _activeFilterOption: NzOptionComponent;
   _isMultiInit = false;
-  _dropDownPosition: 'top' | 'center' | 'bottom' = 'bottom';
+  _dropDownPosition: 'top'|'center'|'bottom' = 'bottom';
   _composing = false;
   _mode;
   // ngModel Access
-  onChange: (value: string | string[]) => void = () => null;
+  onChange: (value: string|string[]) => void = () => null;
   onTouched: () => void = () => null;
   @ViewChild('searchInput') searchInputElementRef;
   @ViewChild('trigger') trigger: ElementRef;
@@ -203,14 +188,18 @@ export class NzSelectComponent implements OnInit,
     this._allowClear = toBoolean(value);
   }
 
-  get nzAllowClear(): boolean { return this._allowClear; }
+  get nzAllowClear(): boolean {
+    return this._allowClear;
+  }
 
   @Input()
   set nzKeepUnListOptions(value: boolean) {
     this._keepUnListOptions = toBoolean(value);
   }
 
-  get nzKeepUnListOptions(): boolean { return this._keepUnListOptions; }
+  get nzKeepUnListOptions(): boolean {
+    return this._keepUnListOptions;
+  }
 
   @Input()
   set nzMode(value: string) {
@@ -232,21 +221,27 @@ export class NzSelectComponent implements OnInit,
     }
   }
 
-  get nzMultiple(): boolean { return this._isMultiple; }
+  get nzMultiple(): boolean {
+    return this._isMultiple;
+  }
 
   @Input()
   set nzPlaceHolder(value: string) {
     this._placeholder = value;
   }
 
-  get nzPlaceHolder(): string { return this._placeholder; }
+  get nzPlaceHolder(): string {
+    return this._placeholder;
+  }
 
   @Input()
   set nzNotFoundContent(value: string) {
     this._notFoundContent = value;
   }
 
-  get nzNotFoundContent(): string { return this._notFoundContent; }
+  get nzNotFoundContent(): string {
+    return this._notFoundContent;
+  }
 
   @Input()
   set nzSize(value: string) {
@@ -254,14 +249,18 @@ export class NzSelectComponent implements OnInit,
     this.setClassMap();
   }
 
-  get nzSize(): string { return this._size; }
+  get nzSize(): string {
+    return this._size;
+  }
 
   @Input()
   set nzShowSearch(value: boolean) {
     this._showSearch = toBoolean(value);
   }
 
-  get nzShowSearch(): boolean { return this._showSearch; }
+  get nzShowSearch(): boolean {
+    return this._showSearch;
+  }
 
   @Input()
   set nzTags(value: boolean) {
@@ -270,7 +269,9 @@ export class NzSelectComponent implements OnInit,
     this.nzMultiple = isTags;
   }
 
-  get nzTags(): boolean { return this._isTags; }
+  get nzTags(): boolean {
+    return this._isTags;
+  }
 
   @Input()
   set nzDisabled(value: boolean) {
@@ -279,7 +280,9 @@ export class NzSelectComponent implements OnInit,
     this.setClassMap();
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   @Input()
   set nzOpen(value: boolean) {
@@ -295,11 +298,15 @@ export class NzSelectComponent implements OnInit,
     this.nzOpenChange.emit(this._isOpen);
     this.setClassMap();
     if (this._isOpen) {
-      setTimeout(() => { this.checkDropDownScroll(); });
+      setTimeout(() => {
+        this.checkDropDownScroll();
+      });
     }
   }
 
-  get nzOpen(): boolean { return this._isOpen; }
+  get nzOpen(): boolean {
+    return this._isOpen;
+  }
 
   /** new nz-option insert or new tags insert */
   addOption =
@@ -327,9 +334,13 @@ export class NzSelectComponent implements OnInit,
     this._dropDownPosition = position.connectionPair.originY;
   }
 
-  compositionStart(): void { this._composing = true; }
+  compositionStart(): void {
+    this._composing = true;
+  }
 
-  compositionEnd(): void { this._composing = false; }
+  compositionEnd(): void {
+    this._composing = false;
+  }
 
   /** clear single selected option */
   clearSelect($event?: MouseEvent): void {
@@ -380,7 +391,9 @@ export class NzSelectComponent implements OnInit,
   updateWidth(element: HTMLInputElement, text: string): void {
     if (text) {
       /** wait for scroll width change */
-      setTimeout(_ => { this._renderer.setStyle(element, 'width', `${element.scrollWidth}px`); });
+      setTimeout(_ => {
+        this._renderer.setStyle(element, 'width', `${element.scrollWidth}px`);
+      });
     } else {
       this._renderer.removeStyle(element, 'width');
     }
@@ -442,13 +455,14 @@ export class NzSelectComponent implements OnInit,
   }
 
   /** update selected option when add remove option etc */
-  updateSelectedOption(currentModelValue: string | string[], triggerByNgModel: boolean = false): void {
+  updateSelectedOption(currentModelValue: string|string[], triggerByNgModel: boolean = false): void {
     if (currentModelValue == null) {
       return;
     }
     if (this.nzMultiple) {
-      const selectedOptions = this._options.filter(
-          (item) => { return (item != null) && (currentModelValue.indexOf(item.nzValue) !== -1); });
+      const selectedOptions = this._options.filter((item) => {
+        return (item != null) && (currentModelValue.indexOf(item.nzValue) !== -1);
+      });
       if ((this.nzKeepUnListOptions || this.nzTags) && (!triggerByNgModel)) {
         const _selectedOptions = Array.from(this._selectedOptions);
         selectedOptions.forEach(option => {
@@ -459,27 +473,38 @@ export class NzSelectComponent implements OnInit,
         });
       } else {
         this._selectedOptions = new Set();
-        selectedOptions.forEach(option => { this._selectedOptions.add(option); });
+        selectedOptions.forEach(option => {
+          this._selectedOptions.add(option);
+        });
       }
 
     } else {
-      const selectedOption =
-          this._options.filter((item) => { return (item != null) && (item.nzValue === currentModelValue); });
+      const selectedOption = this._options.filter((item) => {
+        return (item != null) && (item.nzValue === currentModelValue);
+      });
       this.chooseOption(selectedOption[0]);
     }
   }
 
-  forceUpdateSelectedOption(value: string | string[]): void {
+  forceUpdateSelectedOption(value: string|string[]): void {
     /** trigger dirty check */
-    setTimeout(_ => { this.updateSelectedOption(value); });
+    setTimeout(_ => {
+      this.updateSelectedOption(value);
+    });
   }
 
-  get nzValue(): string | string[] { return this._value; }
+  get nzValue(): string|string[] {
+    return this._value;
+  }
 
-  set nzValue(value: string | string[]) { this._updateValue(value); }
+  set nzValue(value: string|string[]) {
+    this._updateValue(value);
+  }
 
   clearAllSelectedOption(emitChange: boolean = true): void {
-    this._selectedOptions.forEach(item => { this.unSelectMultipleOption(item, null, emitChange); });
+    this._selectedOptions.forEach(item => {
+      this.unSelectMultipleOption(item, null, emitChange);
+    });
   }
 
   handleKeyEnterEvent(event: KeyboardEvent): void {
@@ -552,7 +577,9 @@ export class NzSelectComponent implements OnInit,
     }
   }
 
-  onSearchChange(searchValue: string): void { this.nzSearchChange.emit(searchValue); }
+  onSearchChange(searchValue: string): void {
+    this.nzSearchChange.emit(searchValue);
+  }
 
   @HostListener('click', ['$event'])
   onClick(e: MouseEvent): void {
@@ -561,7 +588,9 @@ export class NzSelectComponent implements OnInit,
       this.nzOpen = !this.nzOpen;
       if (this.nzShowSearch) {
         /** wait for search display */
-        setTimeout(_ => { this.searchInputElementRef.nativeElement.focus(); });
+        setTimeout(_ => {
+          this.searchInputElementRef.nativeElement.focus();
+        });
       }
     }
   }
@@ -581,7 +610,9 @@ export class NzSelectComponent implements OnInit,
       this.nzOpen = true;
       if (this.nzShowSearch) {
         /** wait for search display */
-        setTimeout(_ => { this.searchInputElementRef.nativeElement.focus(); });
+        setTimeout(_ => {
+          this.searchInputElementRef.nativeElement.focus();
+        });
       }
     }
   }
@@ -599,14 +630,20 @@ export class NzSelectComponent implements OnInit,
   }
 
   setClassMap(): void {
-    this._classList.forEach(_className => { this._renderer.removeClass(this._el, _className); });
+    this._classList.forEach(_className => {
+      this._renderer.removeClass(this._el, _className);
+    });
     this._classList = [
       this._prefixCls, (this._mode === 'combobox') && `${this._prefixCls}-combobox`,
       (!this._disabled) && `${this._prefixCls}-enabled`, (this._disabled) && `${this._prefixCls}-disabled`,
       this._isOpen && `${this._prefixCls}-open`, this._showSearch && `${this._prefixCls}-show-search`,
       this._size && `${this._prefixCls}-${this._size}`
-    ].filter((item) => { return !!item; });
-    this._classList.forEach(_className => { this._renderer.addClass(this._el, _className); });
+    ].filter((item) => {
+      return !!item;
+    });
+    this._classList.forEach(_className => {
+      this._renderer.addClass(this._el, _className);
+    });
     this._selectionClassMap = {
       [this._selectionPrefixCls]: true,
       [`${this._selectionPrefixCls}--single`]: !this.nzMultiple,
@@ -660,15 +697,25 @@ export class NzSelectComponent implements OnInit,
     }
   }
 
-  _getTriggerRect(): ClientRect { return this.trigger.nativeElement.getBoundingClientRect(); }
+  _getTriggerRect(): ClientRect {
+    return this.trigger.nativeElement.getBoundingClientRect();
+  }
 
-  writeValue(value: string | string[]): void { this._updateValue(value, false); }
+  writeValue(value: string|string[]): void {
+    this._updateValue(value, false);
+  }
 
-  registerOnChange(fn: (value: string | string[]) => void): void { this.onChange = fn; }
+  registerOnChange(fn: (value: string|string[]) => void): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => void): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 
-  setDisabledState(isDisabled: boolean): void { this.nzDisabled = isDisabled; }
+  setDisabledState(isDisabled: boolean): void {
+    this.nzDisabled = isDisabled;
+  }
 
   dropDownScroll(ul: HTMLUListElement): void {
     if (ul && (ul.scrollHeight - ul.scrollTop === ul.clientHeight)) {
@@ -709,7 +756,7 @@ export class NzSelectComponent implements OnInit,
     }
   }
 
-  private _updateValue(value: string[] | string, emitChange: boolean = true): void {
+  private _updateValue(value: string[]|string, emitChange: boolean = true): void {
     if (this._value === value) {
       return;
     }

@@ -55,7 +55,10 @@ function calculateNodeStyling(node: Element, useCache: boolean = false):
   const sizingStyle = SIZING_STYLE.map(name => `${name}:${style.getPropertyValue(name)}`).join(';');
 
   const nodeInfo = {
-      sizingStyle, paddingSize, borderSize, boxSizing,
+    sizingStyle,
+    paddingSize,
+    borderSize,
+    boxSizing,
   };
 
   if (useCache && nodeRef) {
@@ -67,8 +70,11 @@ function calculateNodeStyling(node: Element, useCache: boolean = false):
 
 // TODO: reconsider function name, it's not general
 export default function calculateNodeHeight(
-    uiTextNode: HTMLTextAreaElement, useCache: boolean = false, minRows: number | null = null,
-    maxRows: number | null = null, ): {height: number, minHeight: number, maxHeight: number, overflowY: string} {
+    uiTextNode: HTMLTextAreaElement,
+    useCache: boolean = false,
+    minRows: number|null = null,
+    maxRows: number|null = null,
+    ): {height: number, minHeight: number, maxHeight: number, overflowY: string} {
   if (!hiddenTextarea) {
     hiddenTextarea = document.createElement('textarea');
     document.body.appendChild(hiddenTextarea);
@@ -85,7 +91,10 @@ export default function calculateNodeHeight(
   // Copy all CSS properties that have an impact on the height of the content in
   // the textbox
   const {
-      paddingSize, borderSize, boxSizing, sizingStyle,
+    paddingSize,
+    borderSize,
+    boxSizing,
+    sizingStyle,
   } = calculateNodeStyling(uiTextNode, useCache);
 
   // Need to have the overflow attribute to hide the scrollbar otherwise

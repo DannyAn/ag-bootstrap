@@ -15,8 +15,8 @@ export class NgbDatepickerConfig {
   markDisabled: (date: NgbDateStruct, current: {year: number, month: number}) => boolean;
   minDate: NgbDateStruct;
   maxDate: NgbDateStruct;
-  navigation: 'select' | 'arrows' | 'none' = 'select';
-  outsideDays: 'visible' | 'collapsed' | 'hidden' = 'visible';
+  navigation: 'select'|'arrows'|'none' = 'select';
+  outsideDays: 'visible'|'collapsed'|'hidden' = 'visible';
   showWeekdays = true;
   showWeekNumbers = false;
   startDate: {year: number, month: number};

@@ -6,27 +6,27 @@ import { NgbdTransferCanMove } from './can-move/transfer-can-move';
 import { NgbdTransferSearch } from './search/transfer-search';
 
 export const DEMO_DIRECTIVES =
-[NgbdTransferAdvanced,NgbdTransferBasic,NgbdTransferCustomItem,NgbdTransferCanMove,NgbdTransferCanMove,NgbdTransferSearch];
+    [NgbdTransferAdvanced, NgbdTransferBasic, NgbdTransferCustomItem, NgbdTransferCanMove, NgbdTransferCanMove, NgbdTransferSearch];
 
 export const DEMO_SNIPPETS = {
-'basic': {
-'code': require('!!prismjs-loader?lang=typescript!./basic/transfer-basic'),
-'markup': require('!!prismjs-loader?lang=markup!./basic/transfer-basic.html')
-},
-'advanced': {
-    'code': require('!!prismjs-loader?lang=typescript!./advanced/transfer-advanced'),
-    'markup': require('!!prismjs-loader?lang=markup!./advanced/transfer-advanced.html')
+    'basic': {
+        'code': require('!!prismjs-loader?lang=typescript!./basic/transfer-basic'),
+        'markup': require('!!prismjs-loader?lang=markup!./basic/transfer-basic.html')
     },
-'custom-item': {
-    'code': require('!!prismjs-loader?lang=typescript!./custom-item/transfer-custom-item'),
-    'markup': require('!!prismjs-loader?lang=markup!./custom-item/transfer-custom-item.html')
+    'advanced': {
+        'code': require('!!prismjs-loader?lang=typescript!./advanced/transfer-advanced'),
+        'markup': require('!!prismjs-loader?lang=markup!./advanced/transfer-advanced.html')
     },
-'can-move': {
-    'code': require('!!prismjs-loader?lang=typescript!./can-move/transfer-can-move'),
-    'markup': require('!!prismjs-loader?lang=markup!./can-move/transfer-can-move.html')
+    'custom-item': {
+        'code': require('!!prismjs-loader?lang=typescript!./custom-item/transfer-custom-item'),
+        'markup': require('!!prismjs-loader?lang=markup!./custom-item/transfer-custom-item.html')
     },
-'search': {
-    'code': require('!!prismjs-loader?lang=typescript!./search/transfer-search'),
-    'markup': require('!!prismjs-loader?lang=markup!./search/transfer-search.html')
+    'can-move': {
+        'code': require('!!prismjs-loader?lang=typescript!./can-move/transfer-can-move'),
+        'markup': require('!!prismjs-loader?lang=markup!./can-move/transfer-can-move.html')
+    },
+    'search': {
+        'code': require('!!prismjs-loader?lang=typescript!./search/transfer-search'),
+        'markup': require('!!prismjs-loader?lang=markup!./search/transfer-search.html')
     }
 };

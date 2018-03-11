@@ -14,5 +14,4 @@ import {NzDropDownDirective} from './nz-dropdown.directive';
   declarations: [NzDropDownComponent, NzDropDownButtonComponent, NzDropDownDirective],
   exports: [NzDropDownComponent, NzDropDownButtonComponent, NzDropDownDirective]
 })
-export class NzDropDownModule {
-}
+export class NzDropDownModule {}

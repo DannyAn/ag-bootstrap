@@ -30,7 +30,9 @@ describe('ngb-progressbar', () => {
   describe('business logic', () => {
     let progressCmp: NgbProgressbar;
 
-    beforeEach(() => { progressCmp = new NgbProgressbar(new NgbProgressbarConfig()); });
+    beforeEach(() => {
+      progressCmp = new NgbProgressbar(new NgbProgressbarConfig());
+    });
 
     it('should initialize inputs with default values', () => {
       const defaultConfig = new NgbProgressbarConfig();
@@ -120,14 +122,12 @@ describe('ngb-progressbar', () => {
       expect(getBarWidth(fixture.nativeElement)).toBe('5%');
     });
 
-
     it('accepts a value and max value above default values', () => {
       const html = '<ngb-progressbar [value]="150" [max]="150"></ngb-progressbar>';
       const fixture = createTestComponent(html);
 
       expect(getBarWidth(fixture.nativeElement)).toBe('100%');
     });
-
 
     it('accepts a custom type', () => {
       const html = '<ngb-progressbar [value]="value" [type]="type"></ngb-progressbar>';
@@ -151,7 +151,6 @@ describe('ngb-progressbar', () => {
       expect(getProgressbar(fixture.nativeElement)).not.toHaveCssClass('progress-bar-animated');
     });
 
-
     it('accepts striped as normal attr', () => {
       const html = '<ngb-progressbar [value]="value" [striped]="striped"></ngb-progressbar>';
       const fixture = createTestComponent(html);
@@ -162,7 +161,6 @@ describe('ngb-progressbar', () => {
       fixture.detectChanges();
       expect(getProgressbar(fixture.nativeElement)).not.toHaveCssClass('progress-bar-striped');
     });
-
 
     it('should not add "false" CSS class', () => {
       const html = '<ngb-progressbar [value]="value" [striped]="striped"></ngb-progressbar>';
@@ -218,7 +216,9 @@ describe('ngb-progressbar', () => {
   describe('Custom config', () => {
     let config: NgbProgressbarConfig;
 
-    beforeEach(() => { TestBed.configureTestingModule({imports: [NgbProgressbarModule.forRoot()]}); });
+    beforeEach(() => {
+      TestBed.configureTestingModule({imports: [NgbProgressbarModule.forRoot()]});
+    });
 
     beforeEach(inject([NgbProgressbarConfig], (c: NgbProgressbarConfig) => {
       config = c;

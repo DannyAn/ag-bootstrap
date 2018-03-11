@@ -1,17 +1,4 @@
-import {
-  AfterContentChecked,
-  Component,
-  ContentChildren,
-  Directive,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output,
-  QueryList,
-  TemplateRef
-} from '@angular/core';
+import {AfterContentChecked, Component, ContentChildren, Directive, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, TemplateRef} from '@angular/core';
 
 import {NgbCarouselConfig} from './carousel-config';
 
@@ -65,8 +52,7 @@ export class NgbSlide {
     </a>
     `
 })
-export class NgbCarousel implements AfterContentChecked,
-    OnDestroy, OnInit, OnChanges {
+export class NgbCarousel implements AfterContentChecked, OnDestroy, OnInit, OnChanges {
   @ContentChildren(NgbSlide) slides: QueryList<NgbSlide>;
   private _slideChangeInterval;
 
@@ -107,7 +93,9 @@ export class NgbCarousel implements AfterContentChecked,
     this.activeId = activeSlide ? activeSlide.id : (this.slides.length ? this.slides.first.id : null);
   }
 
-  ngOnInit() { this._startTimer(); }
+  ngOnInit() {
+    this._startTimer();
+  }
 
   ngOnChanges(changes) {
     if ('interval' in changes && !changes['interval'].isFirstChange()) {
@@ -115,7 +103,9 @@ export class NgbCarousel implements AfterContentChecked,
     }
   }
 
-  ngOnDestroy() { clearInterval(this._slideChangeInterval); }
+  ngOnDestroy() {
+    clearInterval(this._slideChangeInterval);
+  }
 
   /**
    * Navigate to a slide with the specified identifier.
@@ -144,16 +134,24 @@ export class NgbCarousel implements AfterContentChecked,
   /**
    * Stops the carousel from cycling through items.
    */
-  pause() { this._stopTimer(); }
+  pause() {
+    this._stopTimer();
+  }
 
   /**
    * Restarts cycling through the carousel slides from left to right.
    */
-  cycle() { this._startTimer(); }
+  cycle() {
+    this._startTimer();
+  }
 
-  cycleToNext() { this.cycleToSelected(this._getNextSlide(this.activeId), NgbSlideEventDirection.LEFT); }
+  cycleToNext() {
+    this.cycleToSelected(this._getNextSlide(this.activeId), NgbSlideEventDirection.LEFT);
+  }
 
-  cycleToPrev() { this.cycleToSelected(this._getPrevSlide(this.activeId), NgbSlideEventDirection.RIGHT); }
+  cycleToPrev() {
+    this.cycleToSelected(this._getPrevSlide(this.activeId), NgbSlideEventDirection.RIGHT);
+  }
 
   cycleToSelected(slideIdx: string, direction: NgbSlideEventDirection) {
     let selectedSlide = this._getSlideById(slideIdx);
@@ -191,11 +189,15 @@ export class NgbCarousel implements AfterContentChecked,
 
   private _startTimer() {
     if (this.interval > 0) {
-      this._slideChangeInterval = setInterval(() => { this.cycleToNext(); }, this.interval);
+      this._slideChangeInterval = setInterval(() => {
+        this.cycleToNext();
+      }, this.interval);
     }
   }
 
-  private _stopTimer() { clearInterval(this._slideChangeInterval); }
+  private _stopTimer() {
+    clearInterval(this._slideChangeInterval);
+  }
 
   private _getSlideById(slideId: string): NgbSlide {
     let slideWithId: NgbSlide[] = this.slides.filter(slide => slide.id === slideId);

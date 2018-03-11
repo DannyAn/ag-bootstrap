@@ -11,5 +11,4 @@ import {NzPaginationComponent} from './nz-pagination.component';
   imports: [CommonModule, FormsModule, NzSelectModule, NzLocaleModule]
 })
 
-export class NzPaginationModule {
-}
+export class NzPaginationModule {}

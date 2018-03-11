@@ -1,18 +1,8 @@
-import {
-  Component,
-  EventEmitter,
-  Host,
-  HostBinding,
-  HostListener,
-  Input,
-  Optional,
-  Output,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, EventEmitter, Host, HostBinding, HostListener, Input, Optional, Output, ViewEncapsulation,} from '@angular/core';
 import {toBoolean} from '../util/convert';
 import {NzLayoutComponent} from './nz-layout.component';
 
-export type NzBreakPoinit = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type NzBreakPoinit = 'xs'|'sm'|'md'|'lg'|'xl';
 
 @Component({
   selector: 'nz-sider',
@@ -50,22 +40,27 @@ export class NzSiderComponent {
     this._trigger = toBoolean(value);
   }
 
-  get nzTrigger(): boolean { return this._trigger; }
+  get nzTrigger(): boolean {
+    return this._trigger;
+  }
 
   @Input()
   set nzCollapsible(value: boolean) {
     this._collapsible = toBoolean(value);
   }
 
-  get nzCollapsible(): boolean { return this._collapsible; }
+  get nzCollapsible(): boolean {
+    return this._collapsible;
+  }
 
-  @Input()
-  @HostBinding('class.ant-layout-sider-collapsed')
+  @Input() @HostBinding('class.ant-layout-sider-collapsed')
   set nzCollapsed(value: boolean) {
     this._collapsed = toBoolean(value);
   }
 
-  get nzCollapsed(): boolean { return this._collapsed; }
+  get nzCollapsed(): boolean {
+    return this._collapsed;
+  }
 
   @Output() nzCollapsedChange = new EventEmitter();
 
@@ -85,7 +80,7 @@ export class NzSiderComponent {
 
   // TODO: unify the type of nzCollapsedWidth and nzWidth
   @HostBinding('style.width.px')
-      get setWidth(): number | string {
+  get setWidth(): number|string {
     if (this.nzCollapsed) {
       return this.nzCollapsedWidth;
     } else {
@@ -116,7 +111,9 @@ export class NzSiderComponent {
       const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
         return {
           media: mediaQuery,
-          matches: false, addListener(): void{}, removeListener(): void{},
+          matches: false,
+          addListener(): void{},
+          removeListener(): void{},
         };
       };
       window.matchMedia = window.matchMedia || matchMediaPolyfill;
@@ -128,5 +125,7 @@ export class NzSiderComponent {
         ((this.nzBreakpoint && this._below) || (!this.nzBreakpoint));
   }
 
-  get _isSiderTrgger(): boolean { return this.nzCollapsible && this.nzTrigger && (this.nzCollapsedWidth !== 0); }
+  get _isSiderTrgger(): boolean {
+    return this.nzCollapsible && this.nzTrigger && (this.nzCollapsedWidth !== 0);
+  }
 }

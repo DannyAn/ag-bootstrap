@@ -2,7 +2,6 @@ import {Component, DebugElement, ViewChild} from '@angular/core';
 import {async, ComponentFixture, ComponentFixtureAutoDetect, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {FormsModule} from '@angular/forms';
 import {By} from '@angular/platform-browser';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
 
@@ -64,7 +63,7 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-function getListItemElemens(el: HTMLElement, count: number = 2, direction: 'left' | 'right' = 'left'): HTMLLIElement[] {
+function getListItemElemens(el: HTMLElement, count: number = 2, direction: 'left'|'right' = 'left'): HTMLLIElement[] {
   const find = el.querySelectorAll(`[data-direction="${direction}"] .ant-transfer-list-content-item`);
   const ret: HTMLLIElement[] = [];
   for (let i = 0, len = find.length; i < len; i++) {
@@ -86,7 +85,7 @@ describe('NzTransferModule', () => {
   function createTestModule(html: string): void {
     TestBed.configureTestingModule({
       declarations: [TestTransferComponent],
-      imports: [NzTransferModule, FormsModule, NzButtonModule, NoopAnimationsModule],
+      imports: [NzTransferModule, FormsModule, NzButtonModule],
       providers: [{provide: ComponentFixtureAutoDetect, useValue: true}]
     });
     TestBed.overrideComponent(TestTransferComponent, {set: {template: html}});
@@ -104,7 +103,9 @@ describe('NzTransferModule', () => {
   }
 
   describe('[default]', () => {
-    beforeEach(() => { createTestModule(DEFAULT); });
+    beforeEach(() => {
+      createTestModule(DEFAULT);
+    });
 
     it('should be inited', () => {
       expect(context).not.toBeNull();
@@ -171,7 +172,9 @@ describe('NzTransferModule', () => {
   });
 
   describe('#template', () => {
-    beforeEach(() => { createTestModule(RENDER); });
+    beforeEach(() => {
+      createTestModule(RENDER);
+    });
 
     it('should be custom render', () => {
       const els = getListItemElemens(el, 1);
@@ -190,7 +193,9 @@ describe('NzTransferModule', () => {
   });
 
   describe('#canMove', () => {
-    beforeEach(() => { createTestModule(CANMOVE); });
+    beforeEach(() => {
+      createTestModule(CANMOVE);
+    });
 
     it('should be', () => {
       context.list = [...DATA].map((item, idx) => {
@@ -224,6 +229,6 @@ class TestTransferComponent {
     if (arg.direction === 'right' && arg.list.length > 0) arg.list.splice(0, 1);
     // or
     // if (arg.direction === 'right' && arg.list.length > 0) delete arg.list[0];
-    return of(arg.list);
+    return of (arg.list);
   }
 }

@@ -1,13 +1,4 @@
-import {
-  Component,
-  HostListener,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  ViewChild,
-  ViewEncapsulation
-} from '@angular/core';
+import {Component, HostListener, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ViewEncapsulation} from '@angular/core';
 // import { NzToolTipComponent } from '../tooltip/nz-tooltip.component';
 import {toBoolean} from '../util/convert';
 import {NzSliderComponent} from './nz-slider.component';
@@ -77,11 +68,13 @@ export class NzSliderHandleComponent implements OnChanges {
   }
 
   private _updateTooltipPosition(): void {  // [For tooltip]
-    // if (this.tooltip) {
-    //   window.setTimeout(() => this.tooltip.updatePosition(), 0); // MAY use ngAfterViewChecked? but this will be
-    //   called so many times.
-    // }
+                                            // if (this.tooltip) {
+                                            //   window.setTimeout(() => this.tooltip.updatePosition(), 0); // MAY use
+                                            //   ngAfterViewChecked? but this will be called so many times.
+                                            // }
   }
 
-  private _updateStyle(): void { this.style[this.nzVertical ? 'bottom' : 'left'] = `${this.nzOffset}%`; }
+  private _updateStyle(): void {
+    this.style[this.nzVertical ? 'bottom' : 'left'] = `${this.nzOffset}%`;
+  }
 }

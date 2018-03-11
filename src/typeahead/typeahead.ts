@@ -1,20 +1,4 @@
-import {
-  ComponentFactoryResolver,
-  ComponentRef,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  Injector,
-  Input,
-  NgZone,
-  OnDestroy,
-  OnInit,
-  Output,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import {ComponentFactoryResolver, ComponentRef, Directive, ElementRef, EventEmitter, forwardRef, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, TemplateRef, ViewContainerRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
@@ -85,8 +69,7 @@ let nextWindowId = 0;
   },
   providers: [NGB_TYPEAHEAD_VALUE_ACCESSOR]
 })
-export class NgbTypeahead implements ControlValueAccessor,
-    OnInit, OnDestroy {
+export class NgbTypeahead implements ControlValueAccessor, OnInit, OnDestroy {
   private _popupService: PopupService<NgbTypeaheadWindow>;
   private _subscription: Subscription;
   private _inputValueBackup: string;
@@ -94,7 +77,6 @@ export class NgbTypeahead implements ControlValueAccessor,
   private _resubscribeTypeahead: BehaviorSubject<any>;
   private _windowRef: ComponentRef<NgbTypeaheadWindow>;
   private _zoneSubscription: any;
-
 
   /**
    * A selector specifying the element the tooltip should be appended to.
@@ -207,11 +189,17 @@ export class NgbTypeahead implements ControlValueAccessor,
     this._zoneSubscription.unsubscribe();
   }
 
-  registerOnChange(fn: (value: any) => any): void { this._onChange = fn; }
+  registerOnChange(fn: (value: any) => any): void {
+    this._onChange = fn;
+  }
 
-  registerOnTouched(fn: () => any): void { this._onTouched = fn; }
+  registerOnTouched(fn: () => any): void {
+    this._onTouched = fn;
+  }
 
-  writeValue(value) { this._writeInputValue(this._formatItemForInput(value)); }
+  writeValue(value) {
+    this._writeInputValue(this._formatItemForInput(value));
+  }
 
   setDisabledState(isDisabled: boolean): void {
     this._renderer.setProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
@@ -236,7 +224,9 @@ export class NgbTypeahead implements ControlValueAccessor,
   /**
    * Returns true if the typeahead popup window is displayed
    */
-  isPopupOpen() { return this._windowRef != null; }
+  isPopupOpen() {
+    return this._windowRef != null;
+  }
 
   handleBlur() {
     this._resubscribeTypeahead.next(null);
@@ -301,7 +291,12 @@ export class NgbTypeahead implements ControlValueAccessor,
 
   private _selectResult(result: any) {
     let defaultPrevented = false;
-    this.selectItem.emit({item: result, preventDefault: () => { defaultPrevented = true; }});
+    this.selectItem.emit({
+      item: result,
+      preventDefault: () => {
+        defaultPrevented = true;
+      }
+    });
     this._resubscribeTypeahead.next(null);
 
     if (!defaultPrevented) {

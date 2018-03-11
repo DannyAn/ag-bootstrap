@@ -1,0 +1,5 @@
+    <nz-select style="width: 120px;" [(ngModel)]="selectedOption" nzAllowClear>
+      <nz-option *ngFor="let option of options" [nzLabel]="option.label" [nzValue]="option">
+        <ng-template #nzOptionTemplate><i class="anticon" [ngClass]="'anticon-'+option.label"></i> {{option.label}}</ng-template>
+      </nz-option>
+    </nz-select>

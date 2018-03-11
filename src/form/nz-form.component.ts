@@ -26,14 +26,22 @@ export class NzFormComponent implements OnInit {
   }
 
   setClassMap(): void {
-    this._classList.forEach(_className => { this._renderer.removeClass(this._el, _className); });
-    this._classList = [this.nzType && `${this._prefixCls}-${this.nzType}`].filter((item) => { return !!item; });
-    this._classList.forEach(_className => { this._renderer.addClass(this._el, _className); });
+    this._classList.forEach(_className => {
+      this._renderer.removeClass(this._el, _className);
+    });
+    this._classList = [this.nzType && `${this._prefixCls}-${this.nzType}`].filter((item) => {
+      return !!item;
+    });
+    this._classList.forEach(_className => {
+      this._renderer.addClass(this._el, _className);
+    });
   }
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
     this._el = this._elementRef.nativeElement;
   }
 
-  ngOnInit(): void { this.setClassMap(); }
+  ngOnInit(): void {
+    this.setClassMap();
+  }
 }

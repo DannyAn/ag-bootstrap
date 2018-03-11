@@ -23,36 +23,38 @@ export * from './switch';
 export * from './menu';
 export * from './nzdropdown';
 export * from './transfer';
+export * from './select';
 
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
-import {NgbdSharedModule} from '../shared';
+import { NgbdSharedModule } from '../shared';
 
-import {NgbdAccordionModule} from './accordion';
-import {NgbdAlertModule} from './alert';
-import {NgbdButtonsModule} from './buttons';
-import {NgbdCarouselModule} from './carousel';
-import {NgbdCollapseModule} from './collapse';
-import {NgbdDatepickerModule} from './datepicker';
-import {NgbdDropdownModule} from './dropdown';
-import {NgbdModalModule} from './modal';
-import {NgbdPaginationModule} from './pagination';
-import {NgbdPopoverModule} from './popover';
-import {NgbdProgressbarModule} from './progressbar';
-import {NgbdRatingModule} from './rating';
-import {NgbdTabsModule} from './tabset';
-import {NgbdTimepickerModule} from './timepicker';
-import {NgbdTooltipModule} from './tooltip';
-import {NgbdTypeaheadModule} from './typeahead';
+import { NgbdAccordionModule } from './accordion';
+import { NgbdAlertModule } from './alert';
+import { NgbdButtonsModule } from './buttons';
+import { NgbdCarouselModule } from './carousel';
+import { NgbdCollapseModule } from './collapse';
+import { NgbdDatepickerModule } from './datepicker';
+import { NgbdDropdownModule } from './dropdown';
+import { NgbdModalModule } from './modal';
+import { NgbdPaginationModule } from './pagination';
+import { NgbdPopoverModule } from './popover';
+import { NgbdProgressbarModule } from './progressbar';
+import { NgbdRatingModule } from './rating';
+import { NgbdTabsModule } from './tabset';
+import { NgbdTimepickerModule } from './timepicker';
+import { NgbdTooltipModule } from './tooltip';
+import { NgbdTypeaheadModule } from './typeahead';
 
-import {NgbdCheckboxModule} from './checkbox';
-import {NgbdRadioModule} from './radio';
+import { NgbdCheckboxModule } from './checkbox';
+import { NgbdRadioModule } from './radio';
 import { NgbdGridModule } from './grid';
-import {NgbdTableModule} from './table';
+import { NgbdTableModule } from './table';
 import { NgbdSwitchModule } from './switch';
 import { NgbdMenuModule } from './menu';
-import {NgbdTransferModule } from './transfer';
-import {NgbdDropDownExtModule} from './nzdropdown';
+import { NgbdTransferModule } from './transfer';
+import { NgbdDropDownExtModule } from './nzdropdown';
+import { NgbdSelectModule } from './select';
 
 @NgModule({
   imports: [
@@ -80,7 +82,8 @@ import {NgbdDropDownExtModule} from './nzdropdown';
     NgbdSwitchModule,
     NgbdMenuModule,
     NgbdDropDownExtModule,
-    NgbdTransferModule
+    NgbdTransferModule,
+    NgbdSelectModule
   ],
   exports: [
     NgbdAccordionModule,
@@ -106,7 +109,8 @@ import {NgbdDropDownExtModule} from './nzdropdown';
     NgbdSwitchModule,
     NgbdMenuModule,
     NgbdDropDownExtModule,
-    NgbdTransferModule
+    NgbdTransferModule,
+    NgbdSelectModule
   ]
 })
-export class NgbdDemoModule {}
+export class NgbdDemoModule { }

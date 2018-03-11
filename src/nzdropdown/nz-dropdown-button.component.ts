@@ -1,14 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, ViewEncapsulation,} from '@angular/core';
 import {dropDownAnimation} from '../core/animation/dropdown-animations';
 import {toBoolean} from '../util/convert';
 import {NzDropDownComponent} from './nz-dropdown.component';
@@ -62,8 +52,7 @@ import {NzDropDownDirective} from './nz-dropdown.directive';
   styleUrls: []
 })
 
-export class NzDropDownButtonComponent extends NzDropDownComponent implements OnInit,
-    OnDestroy, AfterViewInit {
+export class NzDropDownButtonComponent extends NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
   _disabled = false;
   @Input() nzSize = 'default';
   @Input() nzType = 'default';
@@ -76,7 +65,9 @@ export class NzDropDownButtonComponent extends NzDropDownComponent implements On
     this._disabled = toBoolean(value);
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   _onVisibleChange =
       (visible: boolean) => {

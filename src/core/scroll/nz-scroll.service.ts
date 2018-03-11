@@ -19,10 +19,12 @@ export class NzScrollService {
   private doc: Document;
 
   /* tslint:disable-next-line:no-any */
-  constructor(@Inject(DOCUMENT) doc: any) { this.doc = doc; }
+  constructor(@Inject(DOCUMENT) doc: any) {
+    this.doc = doc;
+  }
 
   /** 设置 `el` 滚动条位置 */
-  setScrollTop(el: Element | Window, topValue: number = 0): void {
+  setScrollTop(el: Element|Window, topValue: number = 0): void {
     if (el === window) {
       this.doc.body.scrollTop = topValue;
       this.doc.documentElement.scrollTop = topValue;
@@ -51,7 +53,7 @@ export class NzScrollService {
 
   /** 获取 `el` 滚动条位置 */
   // TODO: remove '| Window' as the fallback already happens here
-  getScroll(el?: Element | Window, top: boolean = true): number {
+  getScroll(el?: Element|Window, top: boolean = true): number {
     const target = el ? el : window;
     const prop = top ? 'pageYOffset' : 'pageXOffset';
     const method = top ? 'scrollTop' : 'scrollLeft';
@@ -71,7 +73,7 @@ export class NzScrollService {
    * @param easing 动作算法，默认：`easeInOutCubic`
    * @param callback 动画结束后回调
    */
-  scrollTo(containerEl: Element | Window, targetTopValue: number = 0, easing?: EasyingFn, callback?: () => void): void {
+  scrollTo(containerEl: Element|Window, targetTopValue: number = 0, easing?: EasyingFn, callback?: () => void): void {
     const target = containerEl ? containerEl : window;
     const scrollTop = this.getScroll(target);
     const startTime = Date.now();

@@ -1,11 +1,4 @@
-import {
-  Component,
-  ContentChild,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, ContentChild, Input, OnDestroy, OnInit, ViewEncapsulation,} from '@angular/core';
 
 import {toBoolean} from '../util/convert';
 import {NzSelectComponent} from './nz-select.component';
@@ -18,8 +11,7 @@ import {NzSelectComponent} from './nz-select.component';
   `,
   styleUrls: []
 })
-export class NzOptionComponent implements OnDestroy,
-    OnInit {
+export class NzOptionComponent implements OnDestroy, OnInit {
   private _disabled = false;
 
   _value: string;
@@ -34,7 +26,9 @@ export class NzOptionComponent implements OnDestroy,
     this._value = value;
   }
 
-  get nzValue(): string { return this._value; }
+  get nzValue(): string {
+    return this._value;
+  }
 
   @Input()
   set nzLabel(value: string) {
@@ -44,18 +38,26 @@ export class NzOptionComponent implements OnDestroy,
     this._label = value;
   }
 
-  get nzLabel(): string { return this._label; }
+  get nzLabel(): string {
+    return this._label;
+  }
 
   @Input()
   set nzDisabled(value: boolean) {
     this._disabled = toBoolean(value);
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   constructor(private _nzSelect: NzSelectComponent) {}
 
-  ngOnInit(): void { this._nzSelect.addOption(this); }
+  ngOnInit(): void {
+    this._nzSelect.addOption(this);
+  }
 
-  ngOnDestroy(): void { this._nzSelect.removeOption(this); }
+  ngOnDestroy(): void {
+    this._nzSelect.removeOption(this);
+  }
 }

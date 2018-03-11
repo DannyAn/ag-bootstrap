@@ -9,5 +9,4 @@ import {NzRowComponent} from './nz-row.component';
   exports: [NzRowComponent, NzColDirective, NzColComponent],
   imports: [CommonModule]
 })
-export class NzGridModule {
-}
+export class NzGridModule {}

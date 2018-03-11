@@ -1,11 +1,4 @@
-import {
-  animate,
-  AnimationTriggerMetadata,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import {animate, AnimationTriggerMetadata, state, style, transition, trigger,} from '@angular/animations';
 
 export const tagAnimation: AnimationTriggerMetadata = trigger('tagAnimation', [
   state('*', style({opacity: 1, transform: 'scale(1)'})),

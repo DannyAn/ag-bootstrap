@@ -1,20 +1,5 @@
 // tslint:disable:member-ordering
-import {
-  Component,
-  ContentChild,
-  DoCheck,
-  ElementRef,
-  EventEmitter,
-  Input,
-  IterableDiffer,
-  IterableDiffers,
-  OnChanges,
-  OnInit,
-  Output,
-  Renderer2,
-  SimpleChanges,
-  TemplateRef
-} from '@angular/core';
+import {Component, ContentChild, DoCheck, ElementRef, EventEmitter, Input, IterableDiffer, IterableDiffers, OnChanges, OnInit, Output, Renderer2, SimpleChanges, TemplateRef} from '@angular/core';
 import {toBoolean} from '../util/convert';
 import {TransferItem} from './transfer-item';
 
@@ -56,8 +41,7 @@ import {TransferItem} from './transfer-item';
     </div>
   `
 })
-export class NzTransferListComponent implements OnChanges,
-    OnInit, DoCheck {
+export class NzTransferListComponent implements OnChanges, OnInit, DoCheck {
   private _showSearch = false;
 
   // region: fields
@@ -76,7 +60,9 @@ export class NzTransferListComponent implements OnChanges,
     this._showSearch = toBoolean(value);
   }
 
-  get showSearch(): boolean { return this._showSearch; }
+  get showSearch(): boolean {
+    return this._showSearch;
+  }
 
   @Input() searchPlaceholder: string;
   @Input() notFoundContent: string;
@@ -138,12 +124,16 @@ export class NzTransferListComponent implements OnChanges,
 
   handleFilter(value: string): void {
     this.filter = value;
-    this.dataSource.forEach(item => { item._hiden = value.length > 0 && !this.matchFilter(value, item); });
+    this.dataSource.forEach(item => {
+      item._hiden = value.length > 0 && !this.matchFilter(value, item);
+    });
     this.stat.shownCount = this.dataSource.filter(w => !w._hiden).length;
     this.filterChange.emit({direction: this.direction, value});
   }
 
-  handleClear(): void { this.handleFilter(''); }
+  handleClear(): void {
+    this.handleFilter('');
+  }
 
   private matchFilter(text: string, item: TransferItem): boolean {
     if (this.filterOption) {
@@ -165,7 +155,9 @@ export class NzTransferListComponent implements OnChanges,
     }
   }
 
-  ngOnInit(): void { this._setClassMap(); }
+  ngOnInit(): void {
+    this._setClassMap();
+  }
 
   ngDoCheck(): void {
     const change = this._listDiffer.diff(this.dataSource);

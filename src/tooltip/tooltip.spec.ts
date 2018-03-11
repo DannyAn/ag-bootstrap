@@ -8,14 +8,16 @@ import {NgbTooltip, NgbTooltipWindow} from './tooltip';
 import {NgbTooltipConfig} from './tooltip-config';
 import {NgbTooltipModule} from './tooltip.module';
 
-const createTestComponent =
-    (html: string) => <ComponentFixture<TestComponent>>createGenericTestComponent(html, TestComponent);
+const createTestComponent = (html: string) =>
+    <ComponentFixture<TestComponent>>createGenericTestComponent(html, TestComponent);
 
-const createOnPushTestComponent =
-    (html: string) => <ComponentFixture<TestOnPushComponent>>createGenericTestComponent(html, TestOnPushComponent);
+const createOnPushTestComponent = (html: string) =>
+    <ComponentFixture<TestOnPushComponent>>createGenericTestComponent(html, TestOnPushComponent);
 
 describe('ngb-tooltip-window', () => {
-  beforeEach(() => { TestBed.configureTestingModule({imports: [NgbTooltipModule.forRoot()]}); });
+  beforeEach(() => {
+    TestBed.configureTestingModule({imports: [NgbTooltipModule.forRoot()]});
+  });
 
   it('should render tooltip on top by default', () => {
     const fixture = TestBed.createComponent(NgbTooltipWindow);
@@ -40,7 +42,9 @@ describe('ngb-tooltip', () => {
         {declarations: [TestComponent, TestOnPushComponent], imports: [NgbTooltipModule.forRoot()]});
   });
 
-  function getWindow(element) { return element.querySelector('ngb-tooltip-window'); }
+  function getWindow(element) {
+    return element.querySelector('ngb-tooltip-window');
+  }
 
   describe('basic functionality', () => {
     it('should open and close a tooltip - default settings and content as string', () => {
@@ -89,7 +93,8 @@ describe('ngb-tooltip', () => {
     });
 
     it('should open and close a tooltip - default settings, content from a template and context supplied', () => {
-      const fixture = createTestComponent(`<ng-template #t let-name="name">Hello, {{name}}!</ng-template><div [ngbTooltip]="t"></div>`);
+      const fixture = createTestComponent(
+          `<ng-template #t let-name="name">Hello, {{name}}!</ng-template><div [ngbTooltip]="t"></div>`);
       const directive = fixture.debugElement.query(By.directive(NgbTooltip));
 
       directive.context.tooltip.open({name: 'John'});
@@ -152,7 +157,8 @@ describe('ngb-tooltip', () => {
     });
 
     it('should not leave dangling tooltips in the DOM', () => {
-      const fixture = createTestComponent(`<ng-template [ngIf]="show"><div ngbTooltip="Great tip!"></div></ng-template>`);
+      const fixture =
+          createTestComponent(`<ng-template [ngIf]="show"><div ngbTooltip="Great tip!"></div></ng-template>`);
       const directive = fixture.debugElement.query(By.directive(NgbTooltip));
 
       directive.triggerEventHandler('mouseenter', {});
@@ -519,5 +525,4 @@ export class TestComponent {
 }
 
 @Component({selector: 'test-onpush-cmpt', changeDetection: ChangeDetectionStrategy.OnPush, template: ``})
-export class TestOnPushComponent {
-}
+export class TestOnPushComponent {}

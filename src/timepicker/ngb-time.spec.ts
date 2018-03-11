@@ -216,6 +216,7 @@ describe('NgbTime', () => {
     expect(new NgbTime(null, null, null).isValid()).toBeFalsy();
   });
 
-  it('should have a validity flag with optional seconds checking',
-     () => { expect(new NgbTime(11, 0).isValid(false)).toBeTruthy(); });
+  it('should have a validity flag with optional seconds checking', () => {
+    expect(new NgbTime(11, 0).isValid(false)).toBeTruthy();
+  });
 });

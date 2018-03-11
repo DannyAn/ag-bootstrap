@@ -40,7 +40,11 @@ export class NgbDate {
     }
   }
 
-  toStruct() { return {year: this.year, month: this.month, day: this.day}; }
+  toStruct() {
+    return {year: this.year, month: this.month, day: this.day};
+  }
 
-  toString() { return `${this.year}-${this.month}-${this.day}`; }
+  toString() {
+    return `${this.year}-${this.month}-${this.day}`;
+  }
 }

@@ -1,10 +1,4 @@
-import {
-  ComponentFactoryResolver,
-  Directive,
-  ElementRef,
-  Renderer2,
-  ViewContainerRef,
-} from '@angular/core';
+import {ComponentFactoryResolver, Directive, ElementRef, Renderer2, ViewContainerRef,} from '@angular/core';
 import {NzTooltipDirective} from '../nztooltip/nz-tooltip.directive';
 import {NzPopconfirmComponent} from './nz-popconfirm.component';
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { NzMessageService } from '../../../index.showcase';
 
 @Component({
   selector: 'ngbd-transfer-advanced',
@@ -37,5 +36,5 @@ export class NgbdTransferAdvanced implements OnInit {
     console.log('nzChange', ret);
   }
 
- // constructor(public msg: NzMessageService) {}
+  // constructor(public msg: NzMessageService) {}
 }

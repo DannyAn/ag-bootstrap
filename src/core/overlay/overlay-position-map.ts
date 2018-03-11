@@ -65,7 +65,7 @@ export const POSITION_MAP: {[key: string]: ConnectionPositionPair} = {
     overlayX: 'end',
     overlayY: 'bottom',
   },
-} as{};
+} as {};
 // as{
 //   [key: string]: ConnectionPositionPair
 // };
@@ -101,10 +101,12 @@ function arrayMap<T, S>(array: T[], iteratee: (item: T, index: number, arr: T[])
   return result;
 }
 
-function baseValues<T>(object: {[key: string]: T} | T[], props: string[]): T[] {
-  return arrayMap(props, (key) => { return object[key]; });
+function baseValues<T>(object: {[key: string]: T}|T[], props: string[]): T[] {
+  return arrayMap(props, (key) => {
+    return object[key];
+  });
 }
 
-function _objectValues<T>(object: {[key: string]: T} | T[]): T[] {
+function _objectValues<T>(object: {[key: string]: T}|T[]): T[] {
   return object == null ? [] : baseValues(object, Object.keys(object));
 }

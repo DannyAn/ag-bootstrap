@@ -1,21 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ComponentFactoryResolver,
-  ComponentRef,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Injector,
-  Input,
-  NgZone,
-  OnDestroy,
-  OnInit,
-  Output,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ComponentFactoryResolver, ComponentRef, Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, TemplateRef, ViewContainerRef} from '@angular/core';
 
 import {PopupService} from '../util/popup';
 import {Placement, PlacementArray, positionElements} from '../util/positioning';
@@ -95,7 +78,7 @@ export class NgbPopover implements OnInit, OnDestroy {
   /**
    * Content to be displayed as popover.
    */
-  @Input() ngbPopover: string | TemplateRef<any>;
+  @Input() ngbPopover: string|TemplateRef<any>;
   /**
    * Title of a popover.
    */
@@ -143,10 +126,9 @@ export class NgbPopover implements OnInit, OnDestroy {
 
     this._zoneSubscription = ngZone.onStable.subscribe(() => {
       if (this._windowRef) {
-        this._windowRef.instance.applyPlacement(
-            positionElements(
-                this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
-                this.container === 'body'));
+        this._windowRef.instance.applyPlacement(positionElements(
+            this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
+            this.container === 'body'));
       }
     });
   }
@@ -172,10 +154,9 @@ export class NgbPopover implements OnInit, OnDestroy {
       this._windowRef.changeDetectorRef.markForCheck();
 
       // position popover along the element
-      this._windowRef.instance.applyPlacement(
-          positionElements(
-              this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
-              this.container === 'body'));
+      this._windowRef.instance.applyPlacement(positionElements(
+          this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
+          this.container === 'body'));
 
       this.shown.emit();
     }
@@ -207,7 +188,9 @@ export class NgbPopover implements OnInit, OnDestroy {
   /**
    * Returns whether or not the popover is currently being shown
    */
-  isOpen(): boolean { return this._windowRef != null; }
+  isOpen(): boolean {
+    return this._windowRef != null;
+  }
 
   ngOnInit() {
     this._unregisterListenersFn = listenToTriggers(

@@ -127,7 +127,9 @@ export class NgbCalendarIslamicCivil extends NgbCalendarHijri {
     }
   }
 
-  getPrev(date: NgbDate, period: NgbPeriod = 'd', number = 1) { return this.getNext(date, period, -number); }
+  getPrev(date: NgbDate, period: NgbPeriod = 'd', number = 1) {
+    return this.getNext(date, period, -number);
+  }
 
   getWeekday(date: NgbDate) {
     const day = this.toGregorian(date).getDay();
@@ -151,5 +153,7 @@ export class NgbCalendarIslamicCivil extends NgbCalendarHijri {
     return Math.floor(Math.round((time - MuhDate.getTime()) / 86400000) / 7) + 1;
   }
 
-  getToday(): NgbDate { return this.fromGregorian(new Date()); }
+  getToday(): NgbDate {
+    return this.fromGregorian(new Date());
+  }
 }

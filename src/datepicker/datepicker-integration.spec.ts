@@ -15,7 +15,9 @@ describe('ngb-datepicker integration', () => {
 
   it('should allow overriding datepicker calendar', () => {
     class FixedTodayCalendar extends NgbCalendarGregorian {
-      getToday() { return new NgbDate(2000, 7, 1); }
+      getToday() {
+        return new NgbDate(2000, 7, 1);
+      }
     }
 
     TestBed.overrideComponent(TestComponent, {
@@ -35,7 +37,9 @@ describe('ngb-datepicker integration', () => {
     const MONTHS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'];
 
     class AlphabetMonthsI18n extends NgbDatepickerI18nDefault {
-      getMonthShortName(month: number) { return MONTHS[month - 1]; }
+      getMonthShortName(month: number) {
+        return MONTHS[month - 1];
+      }
     }
 
     TestBed.overrideComponent(TestComponent, {
@@ -55,5 +59,4 @@ describe('ngb-datepicker integration', () => {
 });
 
 @Component({selector: 'test-cmp', template: ''})
-class TestComponent {
-}
+class TestComponent {}

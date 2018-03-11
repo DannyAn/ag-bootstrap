@@ -1,15 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  forwardRef,
-  HostBinding,
-  HostListener,
-  Input,
-  OnInit,
-  Optional,
-  Renderer2,
-  ViewEncapsulation
-} from '@angular/core';
+import {Component, ElementRef, forwardRef, HostBinding, HostListener, Input, OnInit, Optional, Renderer2, ViewEncapsulation} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {toBoolean} from '../util/convert';
@@ -28,8 +17,7 @@ import {NzRadioGroupComponent} from './nz-radio-group.component';
   `,
   providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NzRadioComponent), multi: true}]
 })
-export class NzRadioComponent implements OnInit,
-    ControlValueAccessor {
+export class NzRadioComponent implements OnInit, ControlValueAccessor {
   private _focused = false;
   _checked = false;
   _disabled = false;
@@ -43,14 +31,15 @@ export class NzRadioComponent implements OnInit,
   onChange: (_: boolean) => void = () => null;
   onTouched: () => void = () => null;
 
-  @Input()
-  @HostBinding('class.ant-radio-wrapper-checked')
+  @Input() @HostBinding('class.ant-radio-wrapper-checked')
   set nzChecked(value: boolean) {
     this._checked = toBoolean(value);
     this.setClassMap();
   }
 
-  get nzChecked(): boolean { return this._checked; }
+  get nzChecked(): boolean {
+    return this._checked;
+  }
 
   @Input()
   get nzValue(): string {
@@ -64,14 +53,15 @@ export class NzRadioComponent implements OnInit,
     this._value = value;
   }
 
-  @Input()
-  @HostBinding('class.ant-radio-wrapper-disabled')
+  @Input() @HostBinding('class.ant-radio-wrapper-disabled')
   set nzDisabled(value: boolean) {
     this._disabled = toBoolean(value);
     this.setClassMap();
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   @HostListener('click', ['$event'])
   onClick(e: MouseEvent): void {
@@ -139,8 +129,12 @@ export class NzRadioComponent implements OnInit,
     this.setClassMap();
   }
 
-  registerOnChange(fn: (_: boolean) => {}): void { this.onChange = fn; }
+  registerOnChange(fn: (_: boolean) => {}): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => {}): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => {}): void {
+    this.onTouched = fn;
+  }
   // endregion
 }

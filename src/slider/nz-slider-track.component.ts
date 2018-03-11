@@ -23,14 +23,18 @@ export class NzSliderTrackComponent implements OnChanges {
     this._vertical = toBoolean(value);
   }
 
-  get nzVertical(): boolean { return this._vertical; }
+  get nzVertical(): boolean {
+    return this._vertical;
+  }
 
   @Input()
   set nzIncluded(value: boolean) {
     this._included = toBoolean(value);
   }
 
-  get nzIncluded(): boolean { return this._included; }
+  get nzIncluded(): boolean {
+    return this._included;
+  }
 
   style: {bottom?: string, height?: string, left?: string, width?: string, visibility?: string} = {};
 

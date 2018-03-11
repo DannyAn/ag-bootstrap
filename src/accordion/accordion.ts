@@ -1,15 +1,4 @@
-import {
-  AfterContentChecked,
-  Component,
-  ContentChild,
-  ContentChildren,
-  Directive,
-  EventEmitter,
-  Input,
-  Output,
-  QueryList,
-  TemplateRef
-} from '@angular/core';
+import {AfterContentChecked, Component, ContentChild, ContentChildren, Directive, EventEmitter, Input, Output, QueryList, TemplateRef} from '@angular/core';
 
 import {isString} from '../util/util';
 
@@ -124,7 +113,7 @@ export class NgbAccordion implements AfterContentChecked {
   /**
    * An array or comma separated strings of panel identifiers that should be opened
    */
-  @Input() activeIds: string | string[] = [];
+  @Input() activeIds: string|string[] = [];
 
   /**
    *  Whether the other panels should be closed when a panel is opened
@@ -161,8 +150,13 @@ export class NgbAccordion implements AfterContentChecked {
     if (panel && !panel.disabled) {
       let defaultPrevented = false;
 
-      this.panelChange.emit(
-          {panelId: panelId, nextState: !panel.isOpen, preventDefault: () => { defaultPrevented = true; }});
+      this.panelChange.emit({
+        panelId: panelId,
+        nextState: !panel.isOpen,
+        preventDefault: () => {
+          defaultPrevented = true;
+        }
+      });
 
       if (!defaultPrevented) {
         panel.isOpen = !panel.isOpen;

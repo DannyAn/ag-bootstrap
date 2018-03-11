@@ -404,7 +404,6 @@ describe('ngb-dropdown-toggle', () => {
     expect(compiled).not.toBeShown();
   });
 
-
   it('should close on other dropdown click', () => {
     const html = `
       <div ngbDropdown>

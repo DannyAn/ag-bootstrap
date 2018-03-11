@@ -19,5 +19,4 @@ import {NzSliderService} from './nz-slider.service';
   imports: [CommonModule],
   providers: [NzSliderService]
 })
-export class NzSliderModule {
-}
+export class NzSliderModule {}

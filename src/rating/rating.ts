@@ -1,17 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  EventEmitter,
-  forwardRef,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-  TemplateRef
-} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, EventEmitter, forwardRef, Input, OnChanges, OnInit, Output, SimpleChanges, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {getValueInRange, toString} from '../util/util';
@@ -78,12 +65,10 @@ const NGB_RATING_VALUE_ACCESSOR = {
   `,
   providers: [NGB_RATING_VALUE_ACCESSOR]
 })
-export class NgbRating implements ControlValueAccessor,
-    OnInit, OnChanges {
+export class NgbRating implements ControlValueAccessor, OnInit, OnChanges {
   contexts: StarTemplateContext[] = [];
   disabled = false;
   nextRate: number;
-
 
   /**
    * Maximal rating that can be given using this widget.
@@ -137,7 +122,9 @@ export class NgbRating implements ControlValueAccessor,
     this.readonly = config.readonly;
   }
 
-  ariaValueText() { return `${this.nextRate} out of ${this.max}`; }
+  ariaValueText() {
+    return `${this.nextRate} out of ${this.max}`;
+  }
 
   enter(value: number): void {
     if (!this.readonly && !this.disabled) {
@@ -146,9 +133,13 @@ export class NgbRating implements ControlValueAccessor,
     this.hover.emit(value);
   }
 
-  handleBlur() { this.onTouched(); }
+  handleBlur() {
+    this.onTouched();
+  }
 
-  handleClick(value: number) { this.update(this.resettable && this.rate === value ? 0 : value); }
+  handleClick(value: number) {
+    this.update(this.resettable && this.rate === value ? 0 : value);
+  }
 
   handleKeyDown(event: KeyboardEvent) {
     if (Key[toString(event.which)]) {
@@ -184,16 +175,22 @@ export class NgbRating implements ControlValueAccessor,
     this._updateState(this.rate);
   }
 
-  registerOnChange(fn: (value: any) => any): void { this.onChange = fn; }
+  registerOnChange(fn: (value: any) => any): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => any): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => any): void {
+    this.onTouched = fn;
+  }
 
   reset(): void {
     this.leave.emit(this.nextRate);
     this._updateState(this.rate);
   }
 
-  setDisabledState(isDisabled: boolean) { this.disabled = isDisabled; }
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+  }
 
   update(value: number, internalChange = true): void {
     const newRate = getValueInRange(value, this.max, 0);

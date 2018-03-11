@@ -1,15 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Host,
-  HostBinding,
-  Input,
-  OnChanges,
-  OnInit,
-  Optional,
-  Renderer2,
-  SimpleChange,
-} from '@angular/core';
+import {Component, ElementRef, Host, HostBinding, Input, OnChanges, OnInit, Optional, Renderer2, SimpleChange,} from '@angular/core';
 import {isNotNil} from '../util/check';
 import {NzRowComponent} from './nz-row.component';
 
@@ -28,8 +17,7 @@ export abstract class EmbeddedProperty {
   `,
   styles: []
 })
-export class NzColComponent implements OnInit,
-    OnChanges {
+export class NzColComponent implements OnInit, OnChanges {
   _classList: string[] = [];
   _el: HTMLElement;
   _prefixCls = 'ant-col';
@@ -49,15 +37,17 @@ export class NzColComponent implements OnInit,
   @Input() nzOffset: number;
   @Input() nzPush: number;
   @Input() nzPull: number;
-  @Input() nzXs: number | EmbeddedProperty;
-  @Input() nzSm: number | EmbeddedProperty;
-  @Input() nzMd: number | EmbeddedProperty;
-  @Input() nzLg: number | EmbeddedProperty;
-  @Input() nzXl: number | EmbeddedProperty;
+  @Input() nzXs: number|EmbeddedProperty;
+  @Input() nzSm: number|EmbeddedProperty;
+  @Input() nzMd: number|EmbeddedProperty;
+  @Input() nzLg: number|EmbeddedProperty;
+  @Input() nzXl: number|EmbeddedProperty;
 
   /** temp solution since no method add classMap to host https://github.com/angular/angular/issues/7289*/
   setClassMap(): void {
-    this._classList.forEach(_className => { this._renderer.removeClass(this._el, _className); });
+    this._classList.forEach(_className => {
+      this._renderer.removeClass(this._el, _className);
+    });
     this._classList = [
       isNotNil(this.nzSpan) && `${this._prefixCls}-${this.nzSpan}`,
       isNotNil(this.nzOrder) && `${this._prefixCls}-order-${this.nzOrder}`,
@@ -65,8 +55,12 @@ export class NzColComponent implements OnInit,
       isNotNil(this.nzPull) && `${this._prefixCls}-pull-${this.nzPull}`,
       isNotNil(this.nzPush) && `${this._prefixCls}-push-${this.nzPush}`, ...this.generateClass()
     ];
-    this._classList = this._classList.filter((item) => { return !!item; });
-    this._classList.forEach(_className => { this._renderer.addClass(this._el, _className); });
+    this._classList = this._classList.filter((item) => {
+      return !!item;
+    });
+    this._classList.forEach(_className => {
+      this._renderer.addClass(this._el, _className);
+    });
   }
 
   generateClass(): string[] {
@@ -75,7 +69,7 @@ export class NzColComponent implements OnInit,
     listOfSizeInputName.forEach(name => {
       const sizeName = name.replace('nz', '').toLowerCase();
       if (isNotNil(this[name])) {
-        if ((typeof(this[name]) === 'number') || (typeof(this[name]) === 'string')) {
+        if ((typeof (this[name]) === 'number') || (typeof (this[name]) === 'string')) {
           listOfClassName.push(`${this._prefixCls}-${sizeName}-${this[name]}`);
         } else {
           listOfClassName.push(
@@ -95,7 +89,9 @@ export class NzColComponent implements OnInit,
     return listOfClassName;
   }
 
-  ngOnChanges(changes: {[propertyName: string]: SimpleChange}): void { this.setClassMap(); }
+  ngOnChanges(changes: {[propertyName: string]: SimpleChange}): void {
+    this.setClassMap();
+  }
 
   constructor(
       private _elementRef: ElementRef, @Optional() @Host() public _nzRow: NzRowComponent,
@@ -103,5 +99,7 @@ export class NzColComponent implements OnInit,
     this._el = this._elementRef.nativeElement;
   }
 
-  ngOnInit(): void { this.setClassMap(); }
+  ngOnInit(): void {
+    this.setClassMap();
+  }
 }

@@ -10,5 +10,4 @@ import {NzRadioComponent} from './nz-radio.component';
   exports: [NzRadioComponent, NzRadioButtonComponent, NzRadioGroupComponent],
   declarations: [NzRadioComponent, NzRadioButtonComponent, NzRadioGroupComponent]
 })
-export class NzRadioModule {
-}
+export class NzRadioModule {}

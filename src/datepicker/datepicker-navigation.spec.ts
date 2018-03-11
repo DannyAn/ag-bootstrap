@@ -128,7 +128,9 @@ describe('ngb-datepicker-navigation', () => {
         [maxDate]="maxDate"></ngb-datepicker-navigation>`);
 
     const links = getNavigationLinks(fixture.nativeElement);
-    links.forEach((link) => { expect(link.getAttribute('type')).toBe('button'); });
+    links.forEach((link) => {
+      expect(link.getAttribute('type')).toBe('button');
+    });
   });
 });
 

@@ -11,5 +11,7 @@ const NGB_TABSET_DIRECTIVES = [NgbTabset, NgbTab, NgbTabContent, NgbTabTitle];
 
 @NgModule({declarations: NGB_TABSET_DIRECTIVES, exports: NGB_TABSET_DIRECTIVES, imports: [CommonModule]})
 export class NgbTabsetModule {
-  static forRoot(): ModuleWithProviders { return {ngModule: NgbTabsetModule, providers: [NgbTabsetConfig]}; }
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NgbTabsetModule, providers: [NgbTabsetConfig]};
+  }
 }

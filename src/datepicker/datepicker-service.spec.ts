@@ -42,9 +42,13 @@ describe('ngb-datepicker-service', () => {
         service.select$.subscribe(mockSelect.onNext), service.select$.subscribe(d => selectDate = d));
   });
 
-  afterEach(() => { subscriptions.forEach(s => s.unsubscribe()); });
+  afterEach(() => {
+    subscriptions.forEach(s => s.unsubscribe());
+  });
 
-  it(`should be possible to instantiate`, () => { expect(service).toBeTruthy(); });
+  it(`should be possible to instantiate`, () => {
+    expect(service).toBeTruthy();
+  });
 
   it(`should not return anything upon subscription`, () => {
     expect(model).toBeUndefined();
@@ -870,8 +874,9 @@ describe('ngb-datepicker-service', () => {
       expect(service.toValidDate(new NgbDate(275760, 9, 14))).toEqual(today);
     });
 
-    it('should return today if default value is undefined',
-       () => { expect(service.toValidDate(null, undefined)).toEqual(calendar.getToday()); });
+    it('should return today if default value is undefined', () => {
+      expect(service.toValidDate(null, undefined)).toEqual(calendar.getToday());
+    });
 
     it('should return default value for an invalid NgbDate if provided', () => {
       expect(service.toValidDate(null, new NgbDate(1066, 6, 6))).toEqual(new NgbDate(1066, 6, 6));

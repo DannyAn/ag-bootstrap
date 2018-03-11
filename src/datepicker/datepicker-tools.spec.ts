@@ -1,13 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 
-import {
-  buildMonth,
-  buildMonths,
-  checkDateInRange,
-  dateComparator,
-  getFirstViewDate,
-  isDateSelectable
-} from './datepicker-tools';
+import {buildMonth, buildMonths, checkDateInRange, dateComparator, getFirstViewDate, isDateSelectable} from './datepicker-tools';
 import {NgbMarkDisabled} from './datepicker-view-model';
 import {NgbCalendar, NgbCalendarGregorian} from './ngb-calendar';
 import {NgbDate} from './ngb-date';
@@ -145,7 +138,6 @@ describe(`datepicker-tools`, () => {
       expect(month.weeks[0].days[1].context.disabled).toBe(true);
       expect(month.weeks[0].days[2].context.disabled).toBe(false);
     });
-
 
     it(`should call 'markDisabled' with correct arguments`, () => {
       const mock = {markDisabled: () => false};
@@ -327,8 +319,9 @@ describe(`datepicker-tools`, () => {
     ];
 
     months.forEach(month => {
-      it(`should return the correct first view date`,
-         () => { expect(getFirstViewDate(calendar, month.date, 1)).toEqual(month.first); });
+      it(`should return the correct first view date`, () => {
+        expect(getFirstViewDate(calendar, month.date, 1)).toEqual(month.first);
+      });
     });
   });
 

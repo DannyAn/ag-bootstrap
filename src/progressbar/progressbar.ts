@@ -66,7 +66,11 @@ export class NgbProgressbar {
     this.height = config.height;
   }
 
-  getValue() { return getValueInRange(this.value, this.max); }
+  getValue() {
+    return getValueInRange(this.value, this.max);
+  }
 
-  getPercentValue() { return 100 * this.getValue() / this.max; }
+  getPercentValue() {
+    return 100 * this.getValue() / this.max;
+  }
 }

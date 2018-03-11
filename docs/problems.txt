@@ -81,3 +81,24 @@ C:class
 
 webpack的相互依赖关系
 https://www.cnblogs.com/ww03/p/6037710.html
+
+WARN [web-server]: 404: /base/node_modules/@angular/platform-browser/bundles/platform-browser.umd.js/animations
+Importing BrowserAnimationsModule Throws 404 - SystemJS Config Issue? #1880
+
+
+ NullInjectorError: No provider for Jsonp!
+ You need to import and declare JsonpModule as shown below,
+
+import { HttpModule, JsonpModule } from '@angular/http';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    JsonpModule
+  ],
+  declarations: [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }

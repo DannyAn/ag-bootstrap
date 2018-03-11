@@ -1,18 +1,5 @@
 // tslint:disable:member-ordering
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-  TemplateRef,
-  ViewEncapsulation
-} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, TemplateRef, ViewEncapsulation} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
 
@@ -21,8 +8,6 @@ import {toBoolean} from '../util/convert';
 
 import {TransferCanMove} from './transfer-can-move';
 import {TransferItem} from './transfer-item';
-
-
 
 export interface TransferChange {
   from: string;
@@ -114,7 +99,9 @@ export class NzTransferComponent implements OnChanges {
     this._showSearch = toBoolean(value);
   }
 
-  get nzShowSearch(): boolean { return this._showSearch; }
+  get nzShowSearch(): boolean {
+    return this._showSearch;
+  }
 
   @Input() nzFilterOption: (inputValue: string, item: TransferItem) => boolean;
   @Input() nzSearchPlaceholder = this._locale.translate('Transfer.searchPlaceholder');
@@ -157,7 +144,7 @@ export class NzTransferComponent implements OnChanges {
   handleLeftSelect = (item: TransferItem) => this.handleSelect('left', item.checked, item);
   handleRightSelect = (item: TransferItem) => this.handleSelect('right', item.checked, item);
 
-  handleSelect(direction: 'left' | 'right', checked: boolean, item?: TransferItem): void {
+  handleSelect(direction: 'left'|'right', checked: boolean, item?: TransferItem): void {
     const list = this.getCheckedData(direction);
     this.updateOperationStatus(direction, list.length);
     this.nzSelectChange.emit({direction, checked, list, item});

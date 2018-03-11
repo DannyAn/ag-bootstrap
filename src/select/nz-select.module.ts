@@ -12,5 +12,4 @@ import {NzSelectComponent} from './nz-select.component';
   declarations: [NzOptionPipe, NzOptionComponent, NzSelectComponent],
   exports: [NzOptionPipe, NzOptionComponent, NzSelectComponent]
 })
-export class NzSelectModule {
-}
+export class NzSelectModule {}

@@ -1,17 +1,9 @@
-import {
-  AfterContentInit,
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, HostListener, Input, Renderer2, ViewEncapsulation,} from '@angular/core';
 import {toBoolean} from '../util/convert';
 
-export type NzButtonType = 'primary' | 'dashed' | 'danger';
-export type NzButtonShape = 'circle' | null;
-export type NzButtonSize = 'small' | 'large' | 'default';
+export type NzButtonType = 'primary'|'dashed'|'danger';
+export type NzButtonShape = 'circle'|null;
+export type NzButtonSize = 'small'|'large'|'default';
 
 @Component({
   selector: '[nz-button]',
@@ -40,7 +32,9 @@ export class NzButtonComponent implements AfterContentInit {
     this._setClassMap();
   }
 
-  get nzGhost(): boolean { return this._ghost; }
+  get nzGhost(): boolean {
+    return this._ghost;
+  }
 
   @Input()
   get nzType(): NzButtonType {
@@ -68,7 +62,9 @@ export class NzButtonComponent implements AfterContentInit {
     this._setClassMap();
   }
 
-  get nzSize(): NzButtonSize { return this._size; }
+  get nzSize(): NzButtonSize {
+    return this._size;
+  }
 
   @Input()
   set nzLoading(value: boolean) {
@@ -77,7 +73,9 @@ export class NzButtonComponent implements AfterContentInit {
     this._setIconDisplay(value);
   }
 
-  get nzLoading(): boolean { return this._loading; }
+  get nzLoading(): boolean {
+    return this._loading;
+  }
 
   /** toggle button clicked animation */
   @HostListener('click')
@@ -99,7 +97,9 @@ export class NzButtonComponent implements AfterContentInit {
 
   /** temp solution since no method add classMap to host https://github.com/angular/angular/issues/7289 */
   _setClassMap(): void {
-    this._classList.forEach(_className => { this._renderer.removeClass(this._el, _className); });
+    this._classList.forEach(_className => {
+      this._renderer.removeClass(this._el, _className);
+    });
     this._classList = [
       this.nzType && `${this._prefixCls}-${this.nzType}`,
       this.nzShape && `${this._prefixCls}-${this.nzShape}`,
@@ -108,8 +108,12 @@ export class NzButtonComponent implements AfterContentInit {
       this._clicked && `${this._prefixCls}-clicked`,
       this._iconOnly && `${this._prefixCls}-icon-only`,
       this.nzGhost && `${this._prefixCls}-background-ghost`,
-    ].filter((item) => { return !!item; });
-    this._classList.forEach(_className => { this._renderer.addClass(this._el, _className); });
+    ].filter((item) => {
+      return !!item;
+    });
+    this._classList.forEach(_className => {
+      this._renderer.addClass(this._el, _className);
+    });
   }
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
@@ -128,5 +132,7 @@ export class NzButtonComponent implements AfterContentInit {
     this._setIconDisplay(this.nzLoading);
   }
 
-  get _innerIElement(): HTMLElement { return this._el.querySelector('i'); }
+  get _innerIElement(): HTMLElement {
+    return this._el.querySelector('i');
+  }
 }

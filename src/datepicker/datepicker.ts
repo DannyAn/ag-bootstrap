@@ -1,18 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output,
-  SimpleChanges,
-  TemplateRef
-} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -155,8 +141,7 @@ export interface NgbDatepickerNavigateEvent {
   `,
   providers: [NGB_DATEPICKER_VALUE_ACCESSOR, NgbDatepickerService, NgbDatepickerKeyMapService]
 })
-export class NgbDatepicker implements OnDestroy,
-    OnChanges, OnInit, ControlValueAccessor {
+export class NgbDatepicker implements OnDestroy, OnChanges, OnInit, ControlValueAccessor {
   model: DatepickerViewModel;
 
   private _subscription: Subscription;
@@ -196,13 +181,13 @@ export class NgbDatepicker implements OnDestroy,
    * Navigation type: `select` (default with select boxes for month and year), `arrows`
    * (without select boxes, only navigation arrows) or `none` (no navigation at all)
    */
-  @Input() navigation: 'select' | 'arrows' | 'none';
+  @Input() navigation: 'select'|'arrows'|'none';
 
   /**
    * The way to display days that don't belong to current month: `visible` (default),
    * `hidden` (not displayed) or `collapsed` (not displayed with empty space collapsed)
    */
-  @Input() outsideDays: 'visible' | 'collapsed' | 'hidden';
+  @Input() outsideDays: 'visible'|'collapsed'|'hidden';
 
   /**
    * Whether to display days of the week
@@ -253,7 +238,9 @@ export class NgbDatepicker implements OnDestroy,
     this.showWeekNumbers = config.showWeekNumbers;
     this.startDate = config.startDate;
 
-    this._selectSubscription = _service.select$.subscribe(date => { this.select.emit(date.toStruct()); });
+    this._selectSubscription = _service.select$.subscribe(date => {
+      this.select.emit(date.toStruct());
+    });
 
     this._subscription = _service.model$.subscribe(model => {
       const newDate = model.firstDate;
@@ -283,7 +270,9 @@ export class NgbDatepicker implements OnDestroy,
   /**
    * Manually focus the datepicker
    */
-  focus() { this._elementRef.nativeElement.focus(); }
+  focus() {
+    this._elementRef.nativeElement.focus();
+  }
 
   /**
    * Navigates current view to provided date.
@@ -331,9 +320,13 @@ export class NgbDatepicker implements OnDestroy,
     this._service.select(date, {emitEvent: true});
   }
 
-  onKeyDown(event: KeyboardEvent) { this._keyMapService.processKey(event); }
+  onKeyDown(event: KeyboardEvent) {
+    this._keyMapService.processKey(event);
+  }
 
-  onNavigateDateSelect(date: NgbDate) { this._service.open(date); }
+  onNavigateDateSelect(date: NgbDate) {
+    this._service.open(date);
+  }
 
   onNavigateEvent(event: NavigationEvent) {
     switch (event) {
@@ -346,15 +339,25 @@ export class NgbDatepicker implements OnDestroy,
     }
   }
 
-  registerOnChange(fn: (value: any) => any): void { this.onChange = fn; }
+  registerOnChange(fn: (value: any) => any): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => any): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => any): void {
+    this.onTouched = fn;
+  }
 
-  setDisabledState(isDisabled: boolean) { this._service.disabled = isDisabled; }
+  setDisabledState(isDisabled: boolean) {
+    this._service.disabled = isDisabled;
+  }
 
-  showFocus(focusVisible: boolean) { this._service.focusVisible = focusVisible; }
+  showFocus(focusVisible: boolean) {
+    this._service.focusVisible = focusVisible;
+  }
 
-  writeValue(value) { this._service.select(NgbDate.from(this._ngbDateAdapter.fromModel(value))); }
+  writeValue(value) {
+    this._service.select(NgbDate.from(this._ngbDateAdapter.fromModel(value)));
+  }
 
   private _setDates() {
     const startDate = this._service.toValidDate(this.startDate, this._calendar.getToday());

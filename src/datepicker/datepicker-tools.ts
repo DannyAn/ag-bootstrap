@@ -123,11 +123,13 @@ export function getFirstViewDate(calendar: NgbCalendar, date: NgbDate, firstDayO
   let today = new NgbDate(date.year, date.month, date.day);
   let yesterday = calendar.getPrev(today);
 
-  const firstDayOfCurrentMonthIsAlsoFirstDayOfWeek =
-      () => { return today.month !== yesterday.month && firstDayOfWeek === calendar.getWeekday(today); };
+  const firstDayOfCurrentMonthIsAlsoFirstDayOfWeek = () => {
+    return today.month !== yesterday.month && firstDayOfWeek === calendar.getWeekday(today);
+  };
 
-  const reachedTheFirstDayOfTheLastWeekOfPreviousMonth =
-      () => { return today.month !== currentMonth && firstDayOfWeek === calendar.getWeekday(today); };
+  const reachedTheFirstDayOfTheLastWeekOfPreviousMonth = () => {
+    return today.month !== currentMonth && firstDayOfWeek === calendar.getWeekday(today);
+  };
 
   // going back in time
   while (!reachedTheFirstDayOfTheLastWeekOfPreviousMonth() && !firstDayOfCurrentMonthIsAlsoFirstDayOfWeek()) {

@@ -3,7 +3,7 @@ import {toBoolean} from '../util/convert';
 import {NzMenuItemComponent} from './nz-menu-item.component';
 import {NzSubMenuComponent} from './nz-submenu.component';
 
-export type NzMode = 'vertical' | 'horizontal' | 'inline';
+export type NzMode = 'vertical'|'horizontal'|'inline';
 
 @Component({
   selector: '[nz-menu]',
@@ -13,8 +13,7 @@ export type NzMode = 'vertical' | 'horizontal' | 'inline';
   styleUrls: []
 })
 
-export class NzMenuComponent implements OnChanges,
-    AfterViewInit {
+export class NzMenuComponent implements OnChanges, AfterViewInit {
   private _clickActive = true;
   private _inlineCollapsed = false;
 
@@ -34,14 +33,16 @@ export class NzMenuComponent implements OnChanges,
   _subMenusOpenIndex = [];
 
   @Input() nzMode: NzMode = 'vertical';
-  @Input() nzTheme: 'light' | 'dark' = 'light';
+  @Input() nzTheme: 'light'|'dark' = 'light';
 
   @Input()
   set nzClickActive(value: boolean) {
     this._clickActive = toBoolean(value);
   }
 
-  get nzClickActive(): boolean { return this._clickActive; }
+  get nzClickActive(): boolean {
+    return this._clickActive;
+  }
 
   @Input()
   set nzInlineCollapsed(value: boolean) {
@@ -51,7 +52,9 @@ export class NzMenuComponent implements OnChanges,
     }
   }
 
-  get nzInlineCollapsed(): boolean { return this._inlineCollapsed; }
+  get nzInlineCollapsed(): boolean {
+    return this._inlineCollapsed;
+  }
 
   updateInlineCollapse(): void {
     if (this._inlineCollapsed) {
@@ -72,8 +75,7 @@ export class NzMenuComponent implements OnChanges,
     return this.isInDropDown;
   }
 
-  @HostBinding('class.ant-menu')
-  @HostBinding('class.ant-menu-root')
+  @HostBinding('class.ant-menu') @HostBinding('class.ant-menu-root')
   get _isNotInDropDownClass(): boolean {
     return !this.isInDropDown;
   }
@@ -138,7 +140,9 @@ export class NzMenuComponent implements OnChanges,
   }
 
   /** trigger when menu item clicked */
-  clearAllSelected(): void { this.menuItems.forEach(menu => menu.nzSelected = false); }
+  clearAllSelected(): void {
+    this.menuItems.forEach(menu => menu.nzSelected = false);
+  }
 
   hideSubMenus(): void {
     this._subMenusOpenIndex = [];
@@ -165,6 +169,8 @@ export class NzMenuComponent implements OnChanges,
   }
 
   setHasSubMenu(value: boolean): void {
-    setTimeout(_ => { this.hasSubMenu = value; });
+    setTimeout(_ => {
+      this.hasSubMenu = value;
+    });
   }
 }

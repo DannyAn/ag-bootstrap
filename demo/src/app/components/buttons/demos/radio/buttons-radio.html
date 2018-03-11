@@ -26,3 +26,23 @@
   </div>
   <hr>
   <pre>{{model}}</pre>
+
+  <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioDemo" [(ngModel)]="modelConfig">
+    <label ngbButtonLabel class="btn-outline-primary">
+      <input ngbButton type="radio" value="keyboard"> keyboard
+    </label>
+    <label ngbButtonLabel class="btn-outline-primary">
+      <input ngbButton type="radio" value="text"> text
+    </label>
+    <label ngbButtonLabel class="btn-outline-primary">
+      <input ngbButton type="radio" value="shortcut"> shortcut
+    </label>
+    <label ngbButtonLabel class="btn-outline-primary">
+      <input ngbButton type="radio" value="input"> input
+    </label>
+    <label ngbButtonLabel class="btn-outline-primary">
+      <input ngbButton type="radio" value="dictation"> dictation
+    </label>
+  </div>
+  <hr>
+  <pre>{{modelConfig}}</pre>

@@ -29,13 +29,14 @@ export class NzInputGroupComponent implements AfterContentInit {
 
   @Input() nzSize: string;
 
-  @Input()
-  @HostBinding(`class.ant-input-group-compact`)
+  @Input() @HostBinding(`class.ant-input-group-compact`)
   set nzCompact(value: boolean) {
     this._compat = toBoolean(value);
   }
 
-  get nzCompact(): boolean { return this._compat; }
+  get nzCompact(): boolean {
+    return this._compat;
+  }
 
   constructor(private _elementRef: ElementRef, private _render: Renderer2) {
     this._el = this._elementRef.nativeElement;

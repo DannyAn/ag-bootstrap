@@ -9,5 +9,7 @@ export {NgbRatingConfig} from './rating-config';
 
 @NgModule({declarations: [NgbRating], exports: [NgbRating], imports: [CommonModule]})
 export class NgbRatingModule {
-  static forRoot(): ModuleWithProviders { return {ngModule: NgbRatingModule, providers: [NgbRatingConfig]}; }
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NgbRatingModule, providers: [NgbRatingConfig]};
+  }
 }

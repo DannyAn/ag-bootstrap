@@ -22,7 +22,9 @@ export class NzTransferSearchComponent {
 
   // endregion
 
-  _handle(): void { this.valueChanged.emit(this.value); }
+  _handle(): void {
+    this.valueChanged.emit(this.value);
+  }
 
   _clear(): void {
     this.value = '';

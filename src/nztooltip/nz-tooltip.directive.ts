@@ -1,15 +1,4 @@
-import {
-  AfterViewInit,
-  ComponentFactoryResolver,
-  Directive,
-  ElementRef,
-  HostBinding,
-  Input,
-  Optional,
-  Renderer2,
-  SimpleChanges,
-  ViewContainerRef,
-} from '@angular/core';
+import {AfterViewInit, ComponentFactoryResolver, Directive, ElementRef, HostBinding, Input, Optional, Renderer2, SimpleChanges, ViewContainerRef,} from '@angular/core';
 import {NzToolTipComponent} from './nz-tooltip.component';
 
 @Directive({
@@ -55,9 +44,9 @@ export class NzTooltipDirective implements AfterViewInit {
           () => this.delayEnterLeave(true, true, this.tooltip.nzMouseEnterDelay));
       this.renderer.listen(this.elementRef.nativeElement, 'mouseleave', () => {
         this.delayEnterLeave(true, false, this.tooltip.nzMouseLeaveDelay);
-        if (this.tooltip.overlay.overlayRef && !overlayElement) {  // NOTE: we bind events under "mouseleave" due to the
-                                                                   // overlayRef is only created after the overlay was
-                                                                   // completely shown up
+        if (this.tooltip.overlay.overlayRef && !overlayElement) {  // NOTE: we bind events under "mouseleave"
+                                                                   // due to the overlayRef is only created
+                                                                   // after the overlay was completely shown up
           overlayElement = this.tooltip.overlay.overlayRef.overlayElement;
           this.renderer.listen(overlayElement, 'mouseenter', () => this.delayEnterLeave(false, true));
           this.renderer.listen(overlayElement, 'mouseleave', () => this.delayEnterLeave(false, false));
@@ -94,8 +83,9 @@ export class NzTooltipDirective implements AfterViewInit {
         isEnter ? this.show() : this.hide();
       }, delay * 1000);
     } else {
-      isEnter && isOrigin ? this.show() : this.hide();  // [Compatible] The "isOrigin" is used due to the tooltip will
-                                                        // not hide immediately (may caused by the fade-out animation)
+      isEnter && isOrigin ? this.show() : this.hide();  // [Compatible] The "isOrigin" is used due to the tooltip
+                                                        // will not hide immediately (may caused by the fade-out
+                                                        // animation)
     }
   }
 }

@@ -22,5 +22,4 @@ import {NzFormComponent} from './nz-form.component';
   ],
   imports: [CommonModule]
 })
-export class NzFormModule {
-}
+export class NzFormModule {}

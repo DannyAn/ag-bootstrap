@@ -109,7 +109,9 @@ export class NgbDatepickerNavigation {
 
   constructor(public i18n: NgbDatepickerI18n, private _calendar: NgbCalendar) {}
 
-  doNavigate(event: NavigationEvent) { this.navigate.emit(event); }
+  doNavigate(event: NavigationEvent) {
+    this.navigate.emit(event);
+  }
 
   nextDisabled() {
     return this.disabled || (this.maxDate && this._calendar.getNext(this.date, 'm').after(this.maxDate));
@@ -120,5 +122,7 @@ export class NgbDatepickerNavigation {
     return this.disabled || (this.minDate && prevDate.year <= this.minDate.year && prevDate.month < this.minDate.month);
   }
 
-  selectDate(date: NgbDate) { this.select.emit(date); }
+  selectDate(date: NgbDate) {
+    this.select.emit(date);
+  }
 }

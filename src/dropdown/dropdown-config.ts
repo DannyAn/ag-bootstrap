@@ -8,6 +8,6 @@ import {PlacementArray} from '../util/positioning';
  */
 @Injectable()
 export class NgbDropdownConfig {
-  autoClose: boolean | 'outside' | 'inside' = true;
+  autoClose: boolean|'outside'|'inside' = true;
   placement: PlacementArray = 'bottom-left';
 }

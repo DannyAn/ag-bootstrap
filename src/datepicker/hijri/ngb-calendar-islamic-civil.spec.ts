@@ -301,8 +301,9 @@ describe('ngb-calendar-islamic-civil', () => {
     DATE_TABLE.forEach(element => {
       let iDate = new NgbDate(element[0], element[1], element[2]);
       let gDate = new Date(element[3], element[4], element[5]);
-      it('should convert correctly from Hijri to Gregorian',
-         () => { expect(calendar.toGregorian(iDate).getTime()).toEqual(gDate.getTime()); });
+      it('should convert correctly from Hijri to Gregorian', () => {
+        expect(calendar.toGregorian(iDate).getTime()).toEqual(gDate.getTime());
+      });
     });
   });
 
@@ -311,13 +312,19 @@ describe('ngb-calendar-islamic-civil', () => {
       let iDate = new NgbDate(element[0], element[1], element[2]);
       const gDate = new Date(element[3], element[4], element[5]);
       let iDate2 = calendar.fromGregorian(gDate);
-      it('should convert correctly from Gregorian to Hijri', () => { expect(iDate2.equals(iDate)).toBeTruthy(); });
+      it('should convert correctly from Gregorian to Hijri', () => {
+        expect(iDate2.equals(iDate)).toBeTruthy();
+      });
     });
   });
 
-  it('should return number of days per week', () => { expect(calendar.getDaysPerWeek()).toBe(7); });
+  it('should return number of days per week', () => {
+    expect(calendar.getDaysPerWeek()).toBe(7);
+  });
 
-  it('should return number of weeks per month', () => { expect(calendar.getWeeksPerMonth()).toBe(6); });
+  it('should return number of weeks per month', () => {
+    expect(calendar.getWeeksPerMonth()).toBe(6);
+  });
 
   it('should return months of a year', () => {
     expect(calendar.getMonths()).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);

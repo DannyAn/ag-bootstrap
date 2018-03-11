@@ -437,7 +437,6 @@ describe('ngbRadioGroup', () => {
            });
      }));
 
-
   it('should add / remove "focus" class on labels', () => {
     const fixture = createTestComponent(`
       <div [(ngModel)]="model" ngbRadioGroup>

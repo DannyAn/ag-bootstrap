@@ -242,7 +242,9 @@ export class NgbCalendarIslamicUmalqura extends NgbCalendarHijri {
     }
   }
 
-  getPrev(date: NgbDate, period: NgbPeriod = 'd', number = 1) { return this.getNext(date, period, -number); }
+  getPrev(date: NgbDate, period: NgbPeriod = 'd', number = 1) {
+    return this.getNext(date, period, -number);
+  }
 
   getWeekday(date: NgbDate) {
     const day = this.toGregorian(date).getDay();
@@ -266,5 +268,7 @@ export class NgbCalendarIslamicUmalqura extends NgbCalendarHijri {
     return Math.floor(Math.round((time - MuhDate.getTime()) / ONE_DAY) / 7) + 1;
   }
 
-  getToday(): NgbDate { return this.fromGregorian(new Date()); }
+  getToday(): NgbDate {
+    return this.fromGregorian(new Date());
+  }
 }

@@ -5,7 +5,9 @@ export class Trigger {
     }
   }
 
-  isManual() { return this.open === 'manual' || this.close === 'manual'; }
+  isManual() {
+    return this.open === 'manual' || this.close === 'manual';
+  }
 }
 
 const DEFAULT_ALIASES = {
@@ -56,5 +58,7 @@ export function listenToTriggers(renderer: any, nativeElement: any, triggers: st
     }
   });
 
-  return () => { listeners.forEach(unsubscribeFn => unsubscribeFn()); };
+  return () => {
+    listeners.forEach(unsubscribeFn => unsubscribeFn());
+  };
 }

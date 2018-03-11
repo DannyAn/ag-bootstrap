@@ -1,14 +1,5 @@
 /* tslint:disable:no-any */
-import {
-  AfterContentInit,
-  Component,
-  ElementRef,
-  forwardRef,
-  Input,
-  OnInit,
-  Renderer,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, forwardRef, Input, OnInit, Renderer, ViewEncapsulation,} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {toBoolean} from '../util/convert';
@@ -43,20 +34,32 @@ export class NzCheckboxGroupComponent implements ControlValueAccessor {
     this._disabled = toBoolean(value);
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
-  _optionChange(): void { this.onChange(this._options); }
+  _optionChange(): void {
+    this.onChange(this._options);
+  }
 
   constructor(private _elementRef: ElementRef, private _render: Renderer) {
     this._el = this._elementRef.nativeElement;
     this._render.setElementClass(this._el, `${this._prefixCls}`, true);
   }
 
-  writeValue(value: any): void { this._options = value; }
+  writeValue(value: any): void {
+    this._options = value;
+  }
 
-  registerOnChange(fn: (_: any) => {}): void { this.onChange = fn; }
+  registerOnChange(fn: (_: any) => {}): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => {}): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => {}): void {
+    this.onTouched = fn;
+  }
 
-  setDisabledState(isDisabled: boolean): void { this.nzDisabled = isDisabled; }
+  setDisabledState(isDisabled: boolean): void {
+    this.nzDisabled = isDisabled;
+  }
 }

@@ -55,7 +55,7 @@ import {DEMO_SNIPPETS} from './demos';
      <ngbd-example-box demoTitle="Table Span" [snippets]="snippets" component="table" demo="span">
        <ngbd-table-colspan-rowspan></ngbd-table-colspan-rowspan>
      </ngbd-example-box>
-     <ngbd-example-box demoTitle="Table Ajax" [snippets]="snippets" component="table" demo="span">
+     <ngbd-example-box demoTitle="Table Ajax" [snippets]="snippets" component="table" demo="ajax">
        <ngbd-table-ajax></ngbd-table-ajax>
      </ngbd-example-box>
     </ngbd-component-wrapper>

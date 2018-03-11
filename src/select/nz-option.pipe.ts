@@ -17,8 +17,12 @@ export class NzOptionPipe implements PipeTransform {
         return _options;
       } else {
         return [{
-          nzValue: value.value, _value: value.value, nzDisabled: value.disabled, _disabled: value.disabled,
-              nzLabel: value.notFoundContent, _label: value.notFoundContent,
+          nzValue: value.value,
+          _value: value.value,
+          nzDisabled: value.disabled,
+          _disabled: value.disabled,
+          nzLabel: value.notFoundContent,
+          _label: value.notFoundContent,
         } as any as NzOptionComponent];
       }
     } else {

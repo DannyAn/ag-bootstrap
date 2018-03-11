@@ -3,6 +3,6 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ngbd-grid-flex',
   templateUrl: 'grid-flex.html',
-  styles  : []
+  styles: []
 })
-export class NgbdGridFlex{ }
+export class NgbdGridFlex { }

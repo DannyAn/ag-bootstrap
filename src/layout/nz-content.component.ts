@@ -8,5 +8,4 @@ import {Component, HostBinding, ViewEncapsulation} from '@angular/core';
   `,
   host: {'[class.ant-layout-content]': 'true'}
 })
-export class NzContentComponent {
-}
+export class NzContentComponent {}

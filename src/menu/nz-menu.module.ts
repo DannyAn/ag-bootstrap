@@ -1,6 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {NzButtonModule} from '../button/nz-button.module';
 import {NzMenuDividerComponent} from '../menu/nz-menu-divider.component';
@@ -10,10 +11,9 @@ import {NzMenuComponent} from '../menu/nz-menu.component';
 import {NzSubMenuComponent} from '../menu/nz-submenu.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NzButtonModule],
+  imports: [CommonModule, FormsModule, NzButtonModule, BrowserAnimationsModule],
   declarations:
       [NzMenuComponent, NzMenuItemComponent, NzSubMenuComponent, NzMenuDividerComponent, NzMenuGroupComponent],
   exports: [NzMenuComponent, NzMenuItemComponent, NzSubMenuComponent, NzMenuDividerComponent, NzMenuGroupComponent]
 })
-export class NzMenuModule {
-}
+export class NzMenuModule {}

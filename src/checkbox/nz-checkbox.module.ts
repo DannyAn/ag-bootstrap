@@ -9,5 +9,4 @@ import {NzCheckboxComponent} from './nz-checkbox.component';
   declarations: [NzCheckboxComponent, NzCheckboxGroupComponent],
   exports: [NzCheckboxComponent, NzCheckboxGroupComponent]
 })
-export class NzCheckboxModule {
-}
+export class NzCheckboxModule {}

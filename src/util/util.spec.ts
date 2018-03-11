@@ -21,7 +21,9 @@ describe('util', () => {
   });
 
   describe('toString', () => {
-    it('should be noop for strings', () => { expect(toString('foo')).toBe('foo'); });
+    it('should be noop for strings', () => {
+      expect(toString('foo')).toBe('foo');
+    });
 
     it('should return empty string for undefined values', () => {
       expect(toString(null)).toBe('');
@@ -35,7 +37,9 @@ describe('util', () => {
   });
 
   describe('getValueInRange', () => {
-    it('should be noop for numbers in range', () => { expect(getValueInRange(5, 10, 0)).toBe(5); });
+    it('should be noop for numbers in range', () => {
+      expect(getValueInRange(5, 10, 0)).toBe(5);
+    });
 
     it('should do corrections in range', () => {
       expect(getValueInRange(11, 10, 0)).toBe(10);

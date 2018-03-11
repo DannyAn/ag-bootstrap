@@ -46,7 +46,9 @@ function webpackCallBack(taskName, gulpDone) {
 
 // Transpiling & Building
 
-gulp.task('clean:build', function() { return del('dist/'); });
+gulp.task('clean:build', function() {
+  return del('dist/');
+});
 
 gulp.task('ngc', function(cb) {
   var executable = path.join(__dirname, platformPath('/node_modules/.bin/ngc'));
@@ -54,7 +56,9 @@ gulp.task('ngc', function(cb) {
     if (e) console.log(e);
     del('./dist/waste');
     cb();
-  }).stdout.on('data', function(data) { console.log(data); });
+  }).stdout.on('data', function(data) {
+    console.log(data);
+  });
 });
 
 gulp.task('umd', function(cb) {
@@ -98,7 +102,9 @@ gulp.task('npm', function() {
 
   targetPkgJson['name'] = '@ag-bootstrap/ag-bootstrap';
 
-  fieldsToCopy.forEach(function(field) { targetPkgJson[field] = pkgJson[field]; });
+  fieldsToCopy.forEach(function(field) {
+    targetPkgJson[field] = pkgJson[field];
+  });
 
   targetPkgJson['main'] = 'bundles/ng-bootstrap.js';
   targetPkgJson['module'] = 'index.js';
@@ -153,22 +159,28 @@ function startKarmaServer(isTddMode, isSaucelabs, done) {
   new karmaServer(config, done).start();
 }
 
-gulp.task('clean:tests', function() { return del(['temp/', 'coverage/']); });
+gulp.task('clean:tests', function() {
+  return del(['temp/', 'coverage/']);
+});
 
 gulp.task('build:tests', ['clean:tests'], (cb) => {
   exec(path.join(__dirname, platformPath('/node_modules/.bin/tsc')), (e) => {
     if (e) console.log(e);
     cb();
-  }).stdout.on('data', function(data) { console.log(data); });
+  }).stdout.on('data', function(data) {
+    console.log(data);
+  });
 });
 
-gulp.task(
-    'ddescribe-iit', function() { return gulp.src(PATHS.specs).pipe(ddescribeIit({allowDisabledTests: false})); });
+gulp.task('ddescribe-iit', function() {
+  return gulp.src(PATHS.specs).pipe(ddescribeIit({allowDisabledTests: false}));
+});
 
 gulp.task('test', ['build:tests'], function(done) {
   startKarmaServer(false, false, () => {
-    asyncDone(
-        () => { return gulp.src(PATHS.coverageJson).pipe(remapIstanbul({reports: {'html': 'coverage/html'}})); }, done);
+    asyncDone(() => {
+      return gulp.src(PATHS.coverageJson).pipe(remapIstanbul({reports: {'html': 'coverage/html'}}));
+    }, done);
   });
 });
 
@@ -183,13 +195,14 @@ gulp.task('tdd', ['clean:tests'], (cb) => {
   exec(`${executable} -w`, (e) => {
     cb(e && e.signal !== 'SIGINT' ? e : undefined);
   }).stdout.on('data', function(data) {
-
     console.log(data);
 
     // starting karma in tdd as soon as 'tsc -w' finishes first compilation
     if (!startedKarma) {
       startedKarma = true;
-      startKarmaServer(true, false, function(err) { process.exit(err ? 1 : 0); });
+      startKarmaServer(true, false, function(err) {
+        process.exit(err ? 1 : 0);
+      });
     }
   });
 });
@@ -210,14 +223,15 @@ gulp.task('lint', function() {
 });
 
 gulp.task('check-format', function() {
-  return doCheckFormat().on(
-      'warning', function(e) { console.log("NOTE: this will be promoted to an ERROR in the continuous build"); });
+  return doCheckFormat().on('warning', function(e) {
+    console.log('NOTE: this will be promoted to an ERROR in the continuous build');
+  });
 });
 
 gulp.task('enforce-format', function() {
   return doCheckFormat().on('warning', function(e) {
-    console.log("ERROR: You forgot to run clang-format on your change.");
-    console.log("See https://github.com/ng-bootstrap/ng-bootstrap/blob/master/DEVELOPER.md#clang-format");
+    console.log('ERROR: You forgot to run clang-format on your change.');
+    console.log('See https://github.com/ng-bootstrap/ng-bootstrap/blob/master/DEVELOPER.md#clang-format');
     process.exit(1);
   });
 });
@@ -254,9 +268,13 @@ gulp.task('generate-plunks', function() {
   return gulpFile(plunks, {src: true}).pipe(gulp.dest('demo/src/public/app/components'));
 });
 
-gulp.task('clean:demo', function() { return del('demo/dist'); });
+gulp.task('clean:demo', function() {
+  return del('demo/dist');
+});
 
-gulp.task('clean:demo-cache', function() { return del('.publish/'); });
+gulp.task('clean:demo-cache', function() {
+  return del('.publish/');
+});
 
 gulp.task(
     'demo-server', ['generate-docs', 'generate-plunks'],
@@ -274,22 +292,29 @@ gulp.task(
 
 gulp.task('demo-push', function() {
   return gulp.src(PATHS.demoDist)
-      .pipe(ghPages({remoteUrl: "https://github.com/ng-bootstrap/ng-bootstrap.github.io.git", branch: "master"}));
+      .pipe(ghPages({remoteUrl: 'https://github.com/ng-bootstrap/ng-bootstrap.github.io.git', branch: 'master'}));
 });
 
 // Public Tasks
 gulp.task('clean', ['clean:build', 'clean:tests', 'clean:demo', 'clean:demo-cache']);
 
 gulp.task('build', function(done) {
-  runSequence('lint', 'enforce-format', 'ddescribe-iit', 'test', 'clean:build', 'ngc', 'umd', 'npm', done);
+  // runSequence('lint', 'enforce-format', 'ddescribe-iit', 'test', 'clean:build', 'ngc', 'umd', 'npm', done);
+  runSequence('enforce-format', 'ddescribe-iit', 'test', 'clean:build', 'ngc', 'umd', 'npm', done);
 });
 
-gulp.task(
-    'deploy-demo', function(done) { runSequence('clean:demo', 'build:demo', 'demo-push', 'clean:demo-cache', done); });
+gulp.task('deploy-demo', function(done) {
+  runSequence('clean:demo', 'build:demo', 'demo-push', 'clean:demo-cache', done);
+});
 
-gulp.task('default', function(done) { runSequence('lint', 'enforce-format', 'ddescribe-iit', 'test', done); });
+gulp.task('default', function(done) {
+  // runSequence('lint', 'enforce-format', 'ddescribe-iit', 'test', done);
+  runSequence('enforce-format', 'ddescribe-iit', 'test', done);
+});
 
-gulp.task('ci', function(done) { runSequence('default', 'build:demo', done); });
+gulp.task('ci', function(done) {
+  runSequence('default', 'build:demo', done);
+});
 
 function getLocalConfig() {
   try {

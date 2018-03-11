@@ -38,8 +38,12 @@ function triggerKeyDown(element: DebugElement, keyCode: number, shiftKey = false
     shiftKey: shiftKey,
     defaultPrevented: false,
     propagationStopped: false,
-    stopPropagation: function() { this.propagationStopped = true; },
-    preventDefault: function() { this.defaultPrevented = true; }
+    stopPropagation: function() {
+      this.propagationStopped = true;
+    },
+    preventDefault: function() {
+      this.defaultPrevented = true;
+    }
   };
   element.triggerEventHandler('keydown', event);
   return event;
@@ -49,7 +53,9 @@ function expectFilteredDaysToBe(
     element: DebugElement, expectedDates: NgbDate[],
     filterFn: (dayView: NgbDatepickerDayView, element: DebugElement) => boolean) {
   const days = element.queryAll(By.directive(NgbDatepickerDayView))
-                   .filter((day: DebugElement) => { return filterFn(day.componentInstance, day); })
+                   .filter((day: DebugElement) => {
+                     return filterFn(day.componentInstance, day);
+                   })
                    .map((value: DebugElement) => NgbDate.from(value.componentInstance.date));
   expect(days).toEqual(expectedDates);
 }
@@ -292,7 +298,6 @@ describe('ngb-datepicker', () => {
   it('should override outside days to "hidden" if there are multiple months displayed', () => {
     const fixture = createTestComponent(
         `<ngb-datepicker [displayMonths]="displayMonths" [outsideDays]="'collapsed'"></ngb-datepicker>`);
-
 
     let months = fixture.debugElement.queryAll(By.directive(NgbDatepickerMonthView));
     expect(months[0].componentInstance.outsideDays).toBe('collapsed');
@@ -891,7 +896,9 @@ describe('ngb-datepicker', () => {
   describe('Custom config', () => {
     let config: NgbDatepickerConfig;
 
-    beforeEach(() => { TestBed.configureTestingModule({imports: [NgbDatepickerModule.forRoot()]}); });
+    beforeEach(() => {
+      TestBed.configureTestingModule({imports: [NgbDatepickerModule.forRoot()]});
+    });
 
     beforeEach(inject([NgbDatepickerConfig], (c: NgbDatepickerConfig) => {
       config = c;
@@ -935,7 +942,9 @@ class TestComponent {
   disabledForm = new FormGroup({control: new FormControl({value: null, disabled: true})});
   model;
   showWeekdays = true;
-  markDisabled = (date: NgbDateStruct) => { return NgbDate.from(date).equals(new NgbDate(2016, 8, 22)); };
+  markDisabled = (date: NgbDateStruct) => {
+    return NgbDate.from(date).equals(new NgbDate(2016, 8, 22));
+  };
   onNavigate = () => {};
   onSelect = () => {};
 }

@@ -56,13 +56,19 @@ describe('NzGrid', () => {
       expect(debugElement_col.nativeElement.classList.contains('ant-col-0')).toBe(true);
 
       testComponent._span = 1 / 3;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._span = -31;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._span = 'custom_string';
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('should apply class based on offset attribute', () => {
@@ -77,7 +83,9 @@ describe('NzGrid', () => {
 
       testComponent._offset1 = 0;
       testComponent._span1 = 8;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
       expect(debugElement_col.nativeElement.classList.contains('ant-col-offset-0')).toBe(true);
 
       testComponent._offset1 = 24;
@@ -86,20 +94,30 @@ describe('NzGrid', () => {
 
       testComponent._offset1 = 100;
       testComponent._span1 = 8;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._offset1 = 8;
       testComponent._span1 = 100;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._offset1 = 4 / 7;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._offset1 = -100;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._offset1 = 'custorm_string';
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('should apply class based on push|pull attribute', () => {
@@ -119,7 +137,9 @@ describe('NzGrid', () => {
       testComponent._push = 'custorm_string';
       testComponent._span2 = 18;
       testComponent._pull = 'custorm_string';
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('should apply class based on responsive attribute', () => {
@@ -137,7 +157,9 @@ describe('NzGrid', () => {
       expect(debugElement_col.nativeElement.classList.contains('ant-col-xl-10')).toBe(true);
 
       testComponent._col1 = {xs: 'custom_string', xm: 4, md: 6, lg: 8, xl: 10};
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('should should not clear previous defined classes', () => {
@@ -190,7 +212,9 @@ describe('NzGrid', () => {
   describe('for rows', () => {
     it('should throw error if rows is not defined', () => {
       const fixture = TestBed.createComponent(GridListWithoutRowsComponent);
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('should apply class based on gutter attribute', () => {
@@ -222,10 +246,14 @@ describe('NzGrid', () => {
       expect(colMR1).toEqual('0px');
 
       testComponent._gutter = -16;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._gutter = 'custorm_string';
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('should apply class based on type|justify|align attribute', () => {
@@ -249,7 +277,9 @@ describe('NzGrid', () => {
       expect(debugElement_row.nativeElement.classList.contains('ant-row-flex-middle')).toBe(true);
 
       testComponent._justify = 'custorm_string';
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
 
       testComponent._type = '';
       testComponent._align = 'top';
@@ -283,7 +313,9 @@ describe('NzGrid', () => {
 
       testComponent._order1 = -2;
       testComponent._order2 = -1;
-      expect(() => { fixture.detectChanges(); }).not.toThrow();
+      expect(() => {
+        fixture.detectChanges();
+      }).not.toThrow();
     });
   });
 });
@@ -294,12 +326,10 @@ function getStyle(el: DebugElement, prop: string): string {
 
 /** Test component that contains an nzGrid. */
 @Component({template: '<div nz-row></div>'})
-class GridListWithoutColsComponent {
-}
+class GridListWithoutColsComponent {}
 
 @Component({template: '<div nz-col></div>'})
-class GridListWithoutRowsComponent {
-}
+class GridListWithoutRowsComponent {}
 
 @Component({
   selector: 'test-span',
@@ -442,5 +472,4 @@ class TestTypeFlexOrderComponent {
     </div>
   `
 })
-class TestTypeEmbeddedComponent {
-}
+class TestTypeEmbeddedComponent {}

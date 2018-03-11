@@ -1,13 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Host,
-  Input,
-  Optional,
-  Output,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, EventEmitter, Host, Input, Optional, Output, Renderer2, ViewEncapsulation,} from '@angular/core';
 import {NzThDirective} from './nz-th.directive';
 
 @Component({

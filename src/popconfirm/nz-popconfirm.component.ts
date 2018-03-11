@@ -1,11 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewEncapsulation,
-} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation,} from '@angular/core';
 import {fadeAnimation} from '../core/animation/fade-animations';
 import {NzLocaleService} from '../locale/index';
 import {NzToolTipComponent} from '../nztooltip/nz-tooltip.component';
@@ -69,12 +62,16 @@ export class NzPopconfirmComponent extends NzToolTipComponent {
     this._condition = toBoolean(value);
   }
 
-  get nzCondition(): boolean { return this._condition; }
+  get nzCondition(): boolean {
+    return this._condition;
+  }
 
   @Output() nzOnCancel: EventEmitter<void> = new EventEmitter();
   @Output() nzOnConfirm: EventEmitter<void> = new EventEmitter();
 
-  constructor(cdr: ChangeDetectorRef, private _locale: NzLocaleService) { super(cdr); }
+  constructor(cdr: ChangeDetectorRef, private _locale: NzLocaleService) {
+    super(cdr);
+  }
 
   show(): void {
     if (!this._condition) {

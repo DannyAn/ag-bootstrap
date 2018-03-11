@@ -1,21 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ComponentFactoryResolver,
-  ComponentRef,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  Injector,
-  Input,
-  NgZone,
-  OnDestroy,
-  OnInit,
-  Output,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ComponentFactoryResolver, ComponentRef, Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, TemplateRef, ViewContainerRef} from '@angular/core';
 
 import {PopupService} from '../util/popup';
 import {Placement, PlacementArray, positionElements} from '../util/positioning';
@@ -112,7 +95,7 @@ export class NgbTooltip implements OnInit, OnDestroy {
    */
   @Output() hidden = new EventEmitter();
 
-  private _ngbTooltip: string | TemplateRef<any>;
+  private _ngbTooltip: string|TemplateRef<any>;
   private _ngbTooltipWindowId = `ngb-tooltip-${nextId++}`;
   private _popupService: PopupService<NgbTooltipWindow>;
   private _windowRef: ComponentRef<NgbTooltipWindow>;
@@ -131,10 +114,9 @@ export class NgbTooltip implements OnInit, OnDestroy {
 
     this._zoneSubscription = ngZone.onStable.subscribe(() => {
       if (this._windowRef) {
-        this._windowRef.instance.applyPlacement(
-            positionElements(
-                this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
-                this.container === 'body'));
+        this._windowRef.instance.applyPlacement(positionElements(
+            this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
+            this.container === 'body'));
       }
     });
   }
@@ -143,14 +125,16 @@ export class NgbTooltip implements OnInit, OnDestroy {
    * Content to be displayed as tooltip. If falsy, the tooltip won't open.
    */
   @Input()
-  set ngbTooltip(value: string | TemplateRef<any>) {
+  set ngbTooltip(value: string|TemplateRef<any>) {
     this._ngbTooltip = value;
     if (!value && this._windowRef) {
       this.close();
     }
   }
 
-  get ngbTooltip() { return this._ngbTooltip; }
+  get ngbTooltip() {
+    return this._ngbTooltip;
+  }
 
   /**
    * Opens an element’s tooltip. This is considered a “manual” triggering of the tooltip.
@@ -174,10 +158,9 @@ export class NgbTooltip implements OnInit, OnDestroy {
       this._windowRef.changeDetectorRef.markForCheck();
 
       // position tooltip along the element
-      this._windowRef.instance.applyPlacement(
-          positionElements(
-              this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
-              this.container === 'body'));
+      this._windowRef.instance.applyPlacement(positionElements(
+          this._elementRef.nativeElement, this._windowRef.location.nativeElement, this.placement,
+          this.container === 'body'));
 
       this.shown.emit();
     }
@@ -209,7 +192,9 @@ export class NgbTooltip implements OnInit, OnDestroy {
   /**
    * Returns whether or not the tooltip is currently being shown
    */
-  isOpen(): boolean { return this._windowRef != null; }
+  isOpen(): boolean {
+    return this._windowRef != null;
+  }
 
   ngOnInit() {
     this._unregisterListenersFn = listenToTriggers(

@@ -1,6 +1,6 @@
 /* tslint:disable:no-any */
 import {Inject, Injectable, Optional, Provider, SkipSelf} from '@angular/core';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 import {LoggerService} from '../util/logger/index';
 import {NzLocale} from './nz-locale.class';
 import {NZ_LOCALE} from './nz-locale.token';
@@ -9,7 +9,9 @@ import {NZ_LOCALE} from './nz-locale.token';
 export class NzLocaleService {
   private _locale: NzLocale;
 
-  constructor(@Inject(NZ_LOCALE) locale: NzLocale, private _logger: LoggerService) { this.setLocale(locale); }
+  constructor(@Inject(NZ_LOCALE) locale: NzLocale, private _logger: LoggerService) {
+    this.setLocale(locale);
+  }
 
   // [NOTE] Performance issue: this method may called by every change detections
   // TODO: cache more deeply paths for performance
@@ -32,13 +34,15 @@ export class NzLocaleService {
    * @param locale The translating letters
    */
   setLocale(locale: NzLocale): void {
-    moment.locale(locale.locale);
+    // moment.locale(locale.locale);
     this._locale = locale;
   }
 
-  getLocale(): NzLocale { return this._locale; }
+  getLocale(): NzLocale {
+    return this._locale;
+  }
 
-  private _getObjectPath(obj: object, path: string): string | object {
+  private _getObjectPath(obj: object, path: string): string|object {
     let res = obj;
     const paths = path.split('.');
     const depth = paths.length;

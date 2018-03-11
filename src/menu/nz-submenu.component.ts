@@ -1,17 +1,5 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ContentChildren,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output
-} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ContentChildren, EventEmitter, HostBinding, HostListener, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {debounceTime} from 'rxjs/operators/debounceTime';
 import {Subject} from 'rxjs/Subject';
 
@@ -82,13 +70,17 @@ export class NzSubMenuComponent implements OnInit, OnDestroy, AfterViewInit {
     this._open = toBoolean(value);
   }
 
-  get nzOpen(): boolean { return this._open; }
+  get nzOpen(): boolean {
+    return this._open;
+  }
 
   get subItemSelected(): boolean {
     return !!this.nzMenuComponent.menuItems.find(e => e.nzSelected && e.nzSubMenuComponent === this);
   }
 
-  get submenuSelected(): boolean { return !!this.subMenus._results.find(e => e !== this && e.subItemSelected); }
+  get submenuSelected(): boolean {
+    return !!this.subMenus._results.find(e => e !== this && e.subItemSelected);
+  }
 
   get expandState(): string {
     if (this.nzOpen && this.nzMenuComponent.nzMode === 'inline') {
@@ -184,7 +176,11 @@ export class NzSubMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.isInDropDown = this.nzMenuComponent.isInDropDown;
     if (this.subMenus.length && (this.nzMenuComponent.nzMode === 'inline')) {
-      this.subMenus.filter(x => x !== this).forEach(menu => { setTimeout(_ => { menu.level = this.level + 1; }); });
+      this.subMenus.filter(x => x !== this).forEach(menu => {
+        setTimeout(_ => {
+          menu.level = this.level + 1;
+        });
+      });
     }
   }
 
@@ -197,5 +193,7 @@ export class NzSubMenuComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  ngOnDestroy(): void { this._$mouseSubject.unsubscribe(); }
+  ngOnDestroy(): void {
+    this._$mouseSubject.unsubscribe();
+  }
 }

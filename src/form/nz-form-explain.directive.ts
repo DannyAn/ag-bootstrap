@@ -10,11 +10,14 @@ import {NzFormItemDirective} from './nz-form-item.directive';
   styles: [],
   host: {'[class.ant-form-explain]': 'true'}
 })
-export class NzFormExplainComponent implements OnDestroy,
-    OnInit {
+export class NzFormExplainComponent implements OnDestroy, OnInit {
   constructor(private _nzFormItem: NzFormItemDirective) {}
 
-  ngOnDestroy(): void { this._nzFormItem.disableHelp(); }
+  ngOnDestroy(): void {
+    this._nzFormItem.disableHelp();
+  }
 
-  ngOnInit(): void { this._nzFormItem.enableHelp(); }
+  ngOnInit(): void {
+    this._nzFormItem.enableHelp();
+  }
 }

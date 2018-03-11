@@ -1,0 +1,26 @@
+    <nz-select
+      style="width: 200px;"
+      nzAllowClear
+      [nzPlaceHolder]="'Select a person'"
+      [(ngModel)]="selectedOption"
+      nzShowSearch>
+      <nz-option
+        *ngFor="let option of searchOptions"
+        [nzLabel]="option.label"
+        [nzValue]="option.value"
+        [nzDisabled]="option.disabled">
+      </nz-option>
+    </nz-select>
+    <nz-select
+      style="width: 200px;"
+      nzAllowClear
+      [nzPlaceHolder]="'Select a person'"
+      [(ngModel)]="selectedOption"
+      nzShowSearch>
+      <nz-option
+        *ngFor="let option of searchOptions"
+        [nzLabel]="option.label"
+        [nzValue]="option.value"
+        [nzDisabled]="option.disabled">
+      </nz-option>
+    </nz-select>

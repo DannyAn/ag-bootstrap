@@ -18,5 +18,7 @@ export {NgbTypeaheadWindow} from './typeahead-window';
   entryComponents: [NgbTypeaheadWindow]
 })
 export class NgbTypeaheadModule {
-  static forRoot(): ModuleWithProviders { return {ngModule: NgbTypeaheadModule, providers: [NgbTypeaheadConfig]}; }
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NgbTypeaheadModule, providers: [NgbTypeaheadConfig]};
+  }
 }

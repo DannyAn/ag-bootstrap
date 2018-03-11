@@ -8,5 +8,4 @@ import {LOGGER_SERVICE_PROVIDER, NZ_LOGGER_STATE} from './logger.service';
     LOGGER_SERVICE_PROVIDER,
   ],
 })
-export class LoggerModule {
-}
+export class LoggerModule {}

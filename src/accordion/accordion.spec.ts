@@ -112,7 +112,6 @@ describe('ngb-accordion', () => {
     expectOpenPanels(el, [true, false, false]);
   });
 
-
   it('should toggle panels independently', () => {
     const fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
@@ -192,7 +191,9 @@ describe('ngb-accordion', () => {
     const titles = getPanelsTitle(compiled);
     expect(titles.length).not.toBe(0);
 
-    titles.forEach((title: HTMLElement, idx: number) => { expect(title.textContent.trim()).toBe(`Panel ${idx + 1}`); });
+    titles.forEach((title: HTMLElement, idx: number) => {
+      expect(title.textContent.trim()).toBe(`Panel ${idx + 1}`);
+    });
   });
 
   it('can use a title without template', () => {
@@ -229,7 +230,9 @@ describe('ngb-accordion', () => {
 
     const titles = getPanelsTitle(fixture.nativeElement);
 
-    titles.forEach((title: HTMLElement, idx: number) => { expect(title.textContent.trim()).toBe(`Panel ${idx + 1}`); });
+    titles.forEach((title: HTMLElement, idx: number) => {
+      expect(title.textContent.trim()).toBe(`Panel ${idx + 1}`);
+    });
   });
 
   it('should have the appropriate content', () => {
@@ -402,7 +405,6 @@ describe('ngb-accordion', () => {
     expect(headingLinks[0].getAttribute('aria-controls')).toBe(panelsContent[0].id);
   });
 
-
   it('should remove collapsed panels content from DOM', () => {
     const fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
@@ -472,7 +474,6 @@ describe('ngb-accordion', () => {
     expectOpenPanels(fixture.nativeElement, [false, false, false]);
   });
 
-
   it('should have specified type of accordion ', () => {
     const testHtml = `
     <ngb-accordion #acc="ngbAccordion" [closeOthers]="closeOthers" [type]="classType">
@@ -525,7 +526,9 @@ describe('ngb-accordion', () => {
   describe('Custom config', () => {
     let config: NgbAccordionConfig;
 
-    beforeEach(() => { TestBed.configureTestingModule({imports: [NgbAccordionModule.forRoot()]}); });
+    beforeEach(() => {
+      TestBed.configureTestingModule({imports: [NgbAccordionModule.forRoot()]});
+    });
 
     beforeEach(inject([NgbAccordionConfig], (c: NgbAccordionConfig) => {
       config = c;
@@ -566,7 +569,7 @@ describe('ngb-accordion', () => {
 
 @Component({selector: 'test-cmp', template: ''})
 class TestComponent {
-  activeIds: string | string[] = [];
+  activeIds: string|string[] = [];
   classType;
   closeOthers = false;
   panels = [

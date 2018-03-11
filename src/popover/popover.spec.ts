@@ -16,8 +16,8 @@ class SpyService {
 const createTestComponent = (html: string) =>
     createGenericTestComponent(html, TestComponent) as ComponentFixture<TestComponent>;
 
-const createOnPushTestComponent =
-    (html: string) => <ComponentFixture<TestOnPushComponent>>createGenericTestComponent(html, TestOnPushComponent);
+const createOnPushTestComponent = (html: string) =>
+    <ComponentFixture<TestOnPushComponent>>createGenericTestComponent(html, TestOnPushComponent);
 
 describe('ngb-popover-window', () => {
   beforeEach(() => {
@@ -52,7 +52,9 @@ describe('ngb-popover', () => {
     });
   });
 
-  function getWindow(element) { return element.querySelector('ngb-popover-window'); }
+  function getWindow(element) {
+    return element.querySelector('ngb-popover-window');
+  }
 
   describe('basic functionality', () => {
     it('should open and close a popover - default settings and content as string', () => {
@@ -191,7 +193,6 @@ describe('ngb-popover', () => {
       expect(getWindow(fixture.nativeElement)).toBeNull();
     });
   });
-
 
   describe('positioning', () => {
     it('should use requested position', () => {
@@ -531,12 +532,13 @@ export class TestComponent {
 }
 
 @Component({selector: 'test-onpush-cmpt', changeDetection: ChangeDetectionStrategy.OnPush, template: ``})
-export class TestOnPushComponent {
-}
+export class TestOnPushComponent {}
 
 @Component({selector: 'destroyable-cmpt', template: 'Some content'})
 export class DestroyableCmpt implements OnDestroy {
   constructor(private _spyService: SpyService) {}
 
-  ngOnDestroy(): void { this._spyService.called = true; }
+  ngOnDestroy(): void {
+    this._spyService.called = true;
+  }
 }

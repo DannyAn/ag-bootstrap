@@ -1,14 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {
-  Component,
-  DebugElement,
-  getDebugNode,
-  Injectable,
-  NgModule,
-  OnDestroy,
-  ReflectiveInjector,
-  ViewChild
-} from '@angular/core';
+import {Component, DebugElement, getDebugNode, Injectable, NgModule, OnDestroy, ReflectiveInjector, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {NgbActiveModal, NgbModal, NgbModalModule, NgbModalRef} from './modal.module';
@@ -201,7 +192,9 @@ describe('ngb-modal', () => {
       fixture.detectChanges();
       expect(fixture.nativeElement).not.toHaveModal();
 
-      fixture.whenStable().then(() => { expect(resolvedResult).toBe('myResult'); });
+      fixture.whenStable().then(() => {
+        expect(resolvedResult).toBe('myResult');
+      });
     });
 
     it('should reject result promise on dismiss', () => {
@@ -214,7 +207,9 @@ describe('ngb-modal', () => {
       fixture.detectChanges();
       expect(fixture.nativeElement).not.toHaveModal();
 
-      fixture.whenStable().then(() => { expect(rejectReason).toBe('myReason'); });
+      fixture.whenStable().then(() => {
+        expect(rejectReason).toBe('myReason');
+      });
     });
 
     it('should add / remove "modal-open" class to body when modal is open', () => {
@@ -366,7 +361,11 @@ describe('ngb-modal', () => {
 
   describe('beforeDismiss options', () => {
     it('should not dismiss when the callback returns false', () => {
-      const modalInstance = fixture.componentInstance.openTplDismiss({beforeDismiss: () => { return false; }});
+      const modalInstance = fixture.componentInstance.openTplDismiss({
+        beforeDismiss: () => {
+          return false;
+        }
+      });
       fixture.detectChanges();
       expect(fixture.nativeElement).toHaveModal();
 
@@ -516,7 +515,6 @@ describe('ngb-modal', () => {
       expect(document.activeElement).toBe(openButtonEl);
     });
 
-
     it('should return focus to body if no element focused prior to modal opening', () => {
       const modalInstance = fixture.componentInstance.open('foo');
       fixture.detectChanges();
@@ -580,14 +578,18 @@ describe('ngb-modal', () => {
 export class CustomInjectorCmpt implements OnDestroy {
   constructor(private _spyService: CustomSpyService) {}
 
-  ngOnDestroy(): void { this._spyService.called = true; }
+  ngOnDestroy(): void {
+    this._spyService.called = true;
+  }
 }
 
 @Component({selector: 'destroyable-cmpt', template: 'Some content'})
 export class DestroyableCmpt implements OnDestroy {
   constructor(private _spyService: SpyService) {}
 
-  ngOnDestroy(): void { this._spyService.called = true; }
+  ngOnDestroy(): void {
+    this._spyService.called = true;
+  }
 }
 
 @Component(
@@ -595,7 +597,9 @@ export class DestroyableCmpt implements OnDestroy {
 export class WithActiveModalCmpt {
   constructor(public activeModal: NgbActiveModal) {}
 
-  close() { this.activeModal.close('from inside'); }
+  close() {
+    this.activeModal.close('from inside');
+  }
 }
 
 @Component({
@@ -645,12 +649,24 @@ class TestComponent {
       this.openedModal.close('ok');
     }
   }
-  openTpl(options?: Object) { return this.modalService.open(this.tplContent, options); }
-  openCmpt(cmptType: any, options?: Object) { return this.modalService.open(cmptType, options); }
-  openDestroyableTpl(options?: Object) { return this.modalService.open(this.tplDestroyableContent, options); }
-  openTplClose(options?: Object) { return this.modalService.open(this.tplContentWithClose, options); }
-  openTplDismiss(options?: Object) { return this.modalService.open(this.tplContentWithDismiss, options); }
-  openTplIf(options?: Object) { return this.modalService.open(this.tplContentWithIf, options); }
+  openTpl(options?: Object) {
+    return this.modalService.open(this.tplContent, options);
+  }
+  openCmpt(cmptType: any, options?: Object) {
+    return this.modalService.open(cmptType, options);
+  }
+  openDestroyableTpl(options?: Object) {
+    return this.modalService.open(this.tplDestroyableContent, options);
+  }
+  openTplClose(options?: Object) {
+    return this.modalService.open(this.tplContentWithClose, options);
+  }
+  openTplDismiss(options?: Object) {
+    return this.modalService.open(this.tplContentWithDismiss, options);
+  }
+  openTplIf(options?: Object) {
+    return this.modalService.open(this.tplContentWithIf, options);
+  }
 }
 
 @NgModule({
@@ -660,5 +676,4 @@ class TestComponent {
   entryComponents: [CustomInjectorCmpt, DestroyableCmpt, WithActiveModalCmpt],
   providers: [SpyService]
 })
-class NgbModalTestModule {
-}
+class NgbModalTestModule {}

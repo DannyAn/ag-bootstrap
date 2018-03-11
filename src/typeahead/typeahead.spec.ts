@@ -111,7 +111,9 @@ describe('ngb-typeahead', () => {
                fixture.detectChanges();
                return fixture.whenStable();
              })
-             .then(() => { expectInputValue(el, '[object Object]'); });
+             .then(() => {
+               expectInputValue(el, '[object Object]');
+             });
        }));
 
     it('should format values with custom formatter provided', async(() => {
@@ -132,7 +134,9 @@ describe('ngb-typeahead', () => {
                fixture.detectChanges();
                return fixture.whenStable();
              })
-             .then(() => { expectInputValue(el, 'TEXT'); });
+             .then(() => {
+               expectInputValue(el, 'TEXT');
+             });
        }));
   });
 
@@ -149,7 +153,9 @@ describe('ngb-typeahead', () => {
 
          fixture.componentInstance.model = 'one';
          fixture.detectChanges();
-         fixture.whenStable().then(() => { expect(getWindow(compiled)).toBeNull(); });
+         fixture.whenStable().then(() => {
+           expect(getWindow(compiled)).toBeNull();
+         });
        }));
 
     it('should be opened when there are results', async(() => {
@@ -205,16 +211,16 @@ describe('ngb-typeahead', () => {
 
       // on IE the focus & blur can be asynchronous, so we need to wait a bit before continuing
       const delay = () => new Promise(resolve => setTimeout(resolve, 25));
-      const focus = async(input) => {
+      const focus = async (input) => {
         input.focus();
         await delay();
       };
-      const blur = async(input) => {
+      const blur = async (input) => {
         input.blur();
         await delay();
       };
 
-      it('should open on focus or click', async(async() => {
+      it('should open on focus or click', async(async () => {
            const fixture = createFixture();
            const compiled = fixture.nativeElement;
            const input = getNativeInput(compiled);
@@ -232,15 +238,17 @@ describe('ngb-typeahead', () => {
              expect(input.value).toBe('');
            };
 
-           const checkWindowIsOpen = () => { expect(getWindow(compiled)).not.toBeNull(); };
+           const checkWindowIsOpen = () => {
+             expect(getWindow(compiled)).not.toBeNull();
+           };
 
            // focusing the input triggers a search and opens the dropdown
            await focus(input);
            checkSearchCount(1, 'on first focus');
            checkWindowIsOpen();
 
-           // clicking again in the input while the dropdown is open doesn't trigger a new search and keeps the dropdown
-           // open
+           // clicking again in the input while the dropdown is open doesn't trigger a new search and keeps the
+           // dropdown open
            input.click();
            checkSearchCount(0, 'on input click when dropdown already open');
            checkWindowIsOpen();
@@ -269,7 +277,7 @@ describe('ngb-typeahead', () => {
          }));
 
       it('should preserve value previously selected with mouse when reopening with focus then closing without selection',
-         async(async() => {
+         async(async () => {
            const fixture = createFixture();
            const compiled = fixture.nativeElement;
            const input = getNativeInput(compiled);
@@ -776,7 +784,9 @@ describe('ngb-typeahead', () => {
          fixture.detectChanges();
          getWindowLinks(fixture.debugElement)[0].triggerEventHandler('click', {});
          fixture.detectChanges();
-         fixture.whenStable().then(() => { expect(fixture.componentInstance.model).toBe('o'); });
+         fixture.whenStable().then(() => {
+           expect(fixture.componentInstance.model).toBe('o');
+         });
        }));
   });
 
@@ -977,7 +987,9 @@ describe('ngb-typeahead', () => {
             TestComponent, {set: {template: '<input type="text" [(ngModel)]="model" [ngbTypeahead]="findAnywhere"/>'}});
       });
 
-      beforeEach(inject([NgbTypeaheadConfig], (c: NgbTypeaheadConfig) => { c.showHint = true; }));
+      beforeEach(inject([NgbTypeaheadConfig], (c: NgbTypeaheadConfig) => {
+        c.showHint = true;
+      }));
 
       it('should initialize inputs with provided config', () => {
         const fixture = TestBed.createComponent(TestComponent);
@@ -1033,22 +1045,31 @@ class TestComponent {
     return this.findOutput$;
   };
 
-  findAnywhere =
-      (text$: Observable<string>) => { return text$.map(text => this._strings.filter(v => v.indexOf(text) > -1)); };
+  findAnywhere = (text$: Observable<string>) => {
+    return text$.map(text => this._strings.filter(v => v.indexOf(text) > -1));
+  };
 
-  findNothing = (text$: Observable<string>) => { return text$.map(text => []); };
+  findNothing = (text$: Observable<string>) => {
+    return text$.map(text => []);
+  };
 
-  findObjects =
-      (text$: Observable<string>) => { return text$.map(text => this._objects.filter(v => v.value.startsWith(text))); };
+  findObjects = (text$: Observable<string>) => {
+    return text$.map(text => this._objects.filter(v => v.value.startsWith(text)));
+  };
 
-  formatter = (obj: {id: number, value: string}) => { return `${obj.id} ${obj.value}`; };
+  formatter = (obj: {id: number, value: string}) => {
+    return `${obj.id} ${obj.value}`;
+  };
 
   uppercaseFormatter = s => s.toUpperCase();
 
-  uppercaseObjFormatter = (obj: {value: string}) => { return obj.value.toUpperCase(); };
+  uppercaseObjFormatter = (obj: {value: string}) => {
+    return obj.value.toUpperCase();
+  };
 
-
-  onSelect($event) { this.selectEventValue = $event; }
+  onSelect($event) {
+    this.selectEventValue = $event;
+  }
 }
 
 @Component({selector: 'test-onpush-cmp', changeDetection: ChangeDetectionStrategy.OnPush, template: ''})

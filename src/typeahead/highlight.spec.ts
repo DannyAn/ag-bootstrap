@@ -124,7 +124,5 @@ describe('ngb-highlight', () => {
   });
 });
 
-
 @Component({selector: 'test-cmp', template: ''})
-class TestComponent {
-}
+class TestComponent {}

@@ -1,24 +1,6 @@
-import {
-  AnimationEvent,
-} from '@angular/animations';
-import {
-  ConnectedOverlayDirective,
-  ConnectedOverlayPositionChange,
-  ConnectionPositionPair,
-  OverlayOrigin,
-} from '@angular/cdk/overlay';
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  EventEmitter,
-  Input,
-  Output,
-  TemplateRef,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AnimationEvent,} from '@angular/animations';
+import {ConnectedOverlayDirective, ConnectedOverlayPositionChange, ConnectionPositionPair, OverlayOrigin,} from '@angular/cdk/overlay';
+import {AfterViewInit, ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewChild, ViewEncapsulation,} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import {fadeAnimation} from '../core/animation/fade-animations';
@@ -80,7 +62,9 @@ export class NzToolTipComponent {
     }
   }
 
-  get nzVisible(): boolean { return this.visibleSource.value; }
+  get nzVisible(): boolean {
+    return this.visibleSource.value;
+  }
 
   visibleSource = new BehaviorSubject<boolean>(false);
   visible$ = this.visibleSource.asObservable();
@@ -90,7 +74,9 @@ export class NzToolTipComponent {
     this._trigger = value;
     this._hasBackdrop = this._trigger === 'click';
   }
-  get nzTrigger(): string { return this._trigger; }
+  get nzTrigger(): string {
+    return this._trigger;
+  }
 
   _prefix = 'ant-tooltip-placement';
   _positions: ConnectionPositionPair[] = [...DEFAULT_4_POSITIONS];
@@ -106,7 +92,9 @@ export class NzToolTipComponent {
     }
   }
 
-  get nzPlacement(): string { return this._placement; }
+  get nzPlacement(): string {
+    return this._placement;
+  }
 
   // Manually force updating current overlay's position
   updatePosition(): void {
@@ -133,7 +121,9 @@ export class NzToolTipComponent {
     }
   }
 
-  hide(): void { this.nzVisible = false; }
+  hide(): void {
+    this.nzVisible = false;
+  }
 
   _afterVisibilityAnimation(e: AnimationEvent): void {
     if (e.toState === 'false' && !this.nzVisible) {
@@ -148,7 +138,9 @@ export class NzToolTipComponent {
     this._classMap = {[this.nzOverlayClassName]: true, [`${this._prefix}-${this._placement}`]: true};
   }
 
-  setOverlayOrigin(origin: OverlayOrigin): void { this.overlayOrigin = origin; }
+  setOverlayOrigin(origin: OverlayOrigin): void {
+    this.overlayOrigin = origin;
+  }
 
   constructor(private _cdr: ChangeDetectorRef) {}
 

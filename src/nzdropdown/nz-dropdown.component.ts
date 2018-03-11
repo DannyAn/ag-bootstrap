@@ -1,19 +1,5 @@
 import {CdkConnectedOverlay, ConnectedOverlayPositionChange, ConnectionPositionPair} from '@angular/cdk/overlay';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  Renderer2,
-  ViewChild,
-  ViewEncapsulation
-} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {fromEvent} from 'rxjs/observable/fromEvent';
 import {debounceTime} from 'rxjs/operators/debounceTime';
@@ -29,7 +15,7 @@ import {toBoolean} from '../util/convert';
 
 import {NzDropDownDirective} from './nz-dropdown.directive';
 
-export type NzPlacement = 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight';
+export type NzPlacement = 'bottomLeft'|'bottomCenter'|'bottomRight'|'topLeft'|'topCenter'|'topRight';
 //[@dropDownAnimation]="_dropDownPosition"
 @Component({
   selector: 'nz-dropdown',
@@ -69,19 +55,18 @@ export type NzPlacement = 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLe
   styleUrls: []
 })
 
-export class NzDropDownComponent implements OnInit,
-    OnDestroy, AfterViewInit {
+export class NzDropDownComponent implements OnInit, OnDestroy, AfterViewInit {
   private _clickHide = true;
   private _visible = false;
   hasFilterButton = false;
   _triggerWidth = 0;
   _placement: NzPlacement = 'bottomLeft';
-  _dropDownPosition: 'top' | 'center' | 'bottom' = 'bottom';
+  _dropDownPosition: 'top'|'center'|'bottom' = 'bottom';
   _positions: ConnectionPositionPair[] = [...DEFAULT_DROPDOWN_POSITIONS];
   _subscription: Subscription;
   @ContentChild(NzDropDownDirective) _nzOrigin;
   @ContentChild(NzMenuComponent) _nzMenu;
-  @Input() nzTrigger: 'click' | 'hover' = 'hover';
+  @Input() nzTrigger: 'click'|'hover' = 'hover';
   @Output() _visibleChange = new Subject<boolean>();
   @Output() nzVisibleChange: EventEmitter<boolean> = new EventEmitter();
   @ViewChild(CdkConnectedOverlay) _cdkOverlay: CdkConnectedOverlay;
@@ -91,14 +76,18 @@ export class NzDropDownComponent implements OnInit,
     this._clickHide = toBoolean(value);
   }
 
-  get nzClickHide(): boolean { return this._clickHide; }
+  get nzClickHide(): boolean {
+    return this._clickHide;
+  }
 
   @Input()
   set nzVisible(value: boolean) {
     this._visible = toBoolean(value);
   }
 
-  get nzVisible(): boolean { return this._visible; }
+  get nzVisible(): boolean {
+    return this._visible;
+  }
 
   @Input()
   set nzPlacement(value: NzPlacement) {
@@ -107,7 +96,9 @@ export class NzDropDownComponent implements OnInit,
     this._positions.unshift(POSITION_MAP[this._placement] as ConnectionPositionPair);
   }
 
-  get nzPlacement(): NzPlacement { return this._placement; }
+  get nzPlacement(): NzPlacement {
+    return this._placement;
+  }
 
   _onClickEvent(): void {
     if (this.nzTrigger === 'click') {
@@ -127,7 +118,9 @@ export class NzDropDownComponent implements OnInit,
     }
   }
 
-  _hide(): void { this._visibleChange.next(false); }
+  _hide(): void {
+    this._visibleChange.next(false);
+  }
 
   _show(): void {
     console.log('dropdown show.');
@@ -191,13 +184,17 @@ export class NzDropDownComponent implements OnInit,
     }
     if (this.nzTrigger === 'click') {
       mouse$ = fromEvent(this._nzOrigin.elementRef.nativeElement, 'click').pipe(mapTo(true));
-      this._renderer.listen(this._nzOrigin.elementRef.nativeElement, 'click', (e) => { e.preventDefault(); });
+      this._renderer.listen(this._nzOrigin.elementRef.nativeElement, 'click', (e) => {
+        e.preventDefault();
+      });
     }
     const observable$ = mouse$.pipe(merge(this._visibleChange));
     this._startSubscribe(observable$);
   }
 
-  get _hasBackdrop(): boolean { return this.nzTrigger === 'click'; }
+  get _hasBackdrop(): boolean {
+    return this.nzTrigger === 'click';
+  }
 
   constructor(private _renderer: Renderer2, protected _changeDetector: ChangeDetectorRef) {}
 }

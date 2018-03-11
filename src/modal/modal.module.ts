@@ -15,5 +15,7 @@ export {NgbActiveModal, NgbModalRef} from './modal-ref';
   providers: [NgbModal]
 })
 export class NgbModalModule {
-  static forRoot(): ModuleWithProviders { return {ngModule: NgbModalModule, providers: [NgbModal, NgbModalStack]}; }
+  static forRoot(): ModuleWithProviders {
+    return {ngModule: NgbModalModule, providers: [NgbModal, NgbModalStack]};
+  }
 }

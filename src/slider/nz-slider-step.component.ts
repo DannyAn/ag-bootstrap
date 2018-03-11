@@ -27,14 +27,18 @@ export class NzSliderStepComponent implements OnChanges {
     this._vertical = toBoolean(value);
   }
 
-  get nzVertical(): boolean { return this._vertical; }
+  get nzVertical(): boolean {
+    return this._vertical;
+  }
 
   @Input()
   set nzIncluded(value: boolean) {
     this._included = toBoolean(value);
   }
 
-  get nzIncluded(): boolean { return this._included; }
+  get nzIncluded(): boolean {
+    return this._included;
+  }
 
   // TODO: using named interface
   attrs: Array<{id: number, value: number, offset: number, classes: {[key: string]: boolean}, style: object}>;

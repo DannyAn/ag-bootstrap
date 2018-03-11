@@ -1,6 +1,6 @@
 import {AfterContentInit, Component, ElementRef, Input, ViewChild, ViewEncapsulation} from '@angular/core';
 
-export type NzButtonGroupSize = 'small' | 'large' | 'default';
+export type NzButtonGroupSize = 'small'|'large'|'default';
 
 @Component({
   selector: 'nz-button-group',

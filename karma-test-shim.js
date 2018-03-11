@@ -41,10 +41,24 @@ System.config({
     '@angular/router/testing': 'npm:@angular/router/bundles/router-testing.umd.js',
     '@angular/forms/testing': 'npm:@angular/forms/bundles/forms-testing.umd.js',
 
+    '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
+    '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
+    '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+    '@angular/cdk/overlay': 'npm:@angular/cdk/bundles/cdk.umd.js',
+    '@angular/cdk/scrolling': 'npm:@angular/cdk/bundles/cdk.umd.js',
+    '@angular/cdk/bidi': 'npm:@angular/cdk/bundles/cdk.umd.js',
+    '@angular/cdk/portal': 'npm:@angular/cdk/bundles/cdk.umd.js',
+    '@angular/cdk/coercion': 'npm:@angular/cdk/bundles/cdk.umd.js',
+    '@angular/cdk/keycodes': 'npm:@angular/cdk/bundles/cdk.umd.js',
+    //'moment': 'npm:moment',
+
     // other libraries
     'rxjs': 'npm:rxjs'
   },
-  packages: {temp: {main: 'core.js', defaultExtension: 'js'}, rxjs: {defaultExtension: 'js'}}
+  packages: {
+    temp: {main: 'core.js', defaultExtension: 'js'},
+    rxjs: {defaultExtension: 'js'},
+  }
 });
 
 System.import('@angular/core/testing')
@@ -54,9 +68,19 @@ System.import('@angular/core/testing')
             browserTesting.BrowserDynamicTestingModule, browserTesting.platformBrowserDynamicTesting());
       });
     })
-    .then(function() { return Promise.all(customMatchers()); })
-    .then(function() { return Promise.all(resolveTestFiles()); })
-    .then(function() { __karma__.start(); }, function(error) { __karma__.error(error.stack || error); });
+    .then(function() {
+      return Promise.all(customMatchers());
+    })
+    .then(function() {
+      return Promise.all(resolveTestFiles());
+    })
+    .then(
+        function() {
+          __karma__.start();
+        },
+        function(error) {
+          __karma__.error(error.stack || error);
+        });
 
 function createPathRecords(pathsMapping, appPath) {
   // creates local module name mapping to global path with karma's fingerprint in path, e.g.:

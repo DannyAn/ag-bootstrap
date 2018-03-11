@@ -46,7 +46,9 @@ describe('ngb-datepicker-keymap-service', () => {
     spyOn(mock, 'focusSelect');
   });
 
-  it('should be instantiated', () => { expect(service).toBeTruthy(); });
+  it('should be instantiated', () => {
+    expect(service).toBeTruthy();
+  });
 
   it('should move focus by 1 day or 1 week with "Arrow" keys', () => {
     service.processKey(event(Key.ArrowUp));

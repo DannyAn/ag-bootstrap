@@ -50,8 +50,9 @@ describe('NgbInputDatepicker', () => {
       expect(fixture.nativeElement.querySelector('ngb-datepicker')).toBeNull();
     });
 
-    it('should support the "position" option',
-       () => { createTestCmpt(`<input ngbDatepicker #d="ngbDatepicker" [placement]="'bottom-right'">`); });
+    it('should support the "position" option', () => {
+      createTestCmpt(`<input ngbDatepicker #d="ngbDatepicker" [placement]="'bottom-right'">`);
+    });
 
     it('should focus the datepicker after opening', () => {
       const fixture = createTestCmpt(`
@@ -269,7 +270,6 @@ describe('NgbInputDatepicker', () => {
          expect(inputDebugEl.classes['ng-touched']).toBeTruthy();
        }));
   });
-
 
   describe('manual data entry', () => {
     it('should reformat value entered by a user when it is valid', fakeAsync(() => {
@@ -669,7 +669,9 @@ class NgbDateNativeAdapter extends NgbDateAdapter<Date> {
                                         null;
   }
 
-  toModel(date: NgbDateStruct): Date { return date ? new Date(date.year, date.month - 1, date.day) : null; }
+  toModel(date: NgbDateStruct): Date {
+    return date ? new Date(date.year, date.month - 1, date.day) : null;
+  }
 }
 
 @Component({selector: 'test-native-cmp', template: ''})
@@ -684,11 +686,17 @@ class TestComponent {
 
   onNavigate() {}
 
-  open(d: NgbInputDatepicker) { d.open(); }
+  open(d: NgbInputDatepicker) {
+    d.open();
+  }
 
-  close(d: NgbInputDatepicker) { d.close(); }
+  close(d: NgbInputDatepicker) {
+    d.close();
+  }
 
-  toggle(d: NgbInputDatepicker) { d.toggle(); }
+  toggle(d: NgbInputDatepicker) {
+    d.toggle();
+  }
 
   noop() {}
 }

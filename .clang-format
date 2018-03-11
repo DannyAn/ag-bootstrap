@@ -1,3 +1,5 @@
 Language:        JavaScript
 BasedOnStyle:    Google
 ColumnLimit:     120
+SpacesBeforeTrailingComments: 2
+ReflowComments: true

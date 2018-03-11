@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  HostBinding,
-  Input,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, ElementRef, HostBinding, Input, Renderer2, ViewEncapsulation,} from '@angular/core';
 import {toBoolean} from '../util/convert';
 import {AutoSizeType} from './nz-input.component';
 
@@ -24,17 +17,18 @@ export class NzInputDirectiveComponent {
 
   size = 'default';
   nativeElement: HTMLElement;
-  _autosize: boolean | AutoSizeType = false;
+  _autosize: boolean|AutoSizeType = false;
 
   @Input()
   get nzSize(): string {
     return this.size;
   }
 
-  set nzSize(value: string) { this.size = {large: 'lg', small: 'sm'}[value]; }
+  set nzSize(value: string) {
+    this.size = {large: 'lg', small: 'sm'}[value];
+  }
 
-  @Input()
-  @HostBinding(`class.ant-input-disabled`)
+  @Input() @HostBinding(`class.ant-input-disabled`)
   set nzDisabled(value: boolean) {
     const disabled = toBoolean(value);
     if (disabled) {
@@ -45,7 +39,9 @@ export class NzInputDirectiveComponent {
     this._disabled = disabled;
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   @Input()
   set nzReadonly(value: boolean) {
@@ -58,10 +54,12 @@ export class NzInputDirectiveComponent {
     this._readonly = readonly;
   }
 
-  get nzReadonly(): boolean { return this._readonly; }
+  get nzReadonly(): boolean {
+    return this._readonly;
+  }
 
   @Input()
-  set nzAutosize(value: string | boolean | AutoSizeType) {
+  set nzAutosize(value: string|boolean|AutoSizeType) {
     if (typeof value === 'string') {
       this._autosize = true;
     } else {
@@ -75,7 +73,9 @@ export class NzInputDirectiveComponent {
     }
   }
 
-  get nzAutosize(): string | boolean | AutoSizeType { return this._autosize; }
+  get nzAutosize(): string|boolean|AutoSizeType {
+    return this._autosize;
+  }
 
   @HostBinding(`class.ant-input-lg`)
   get setLgClass(): boolean {

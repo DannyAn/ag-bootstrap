@@ -852,8 +852,9 @@ describe('ngb-calendar-islamic-umalqura', () => {
     DATE_TABLE.forEach(element => {
       const iDate = new NgbDate(element[3], element[4], element[5]);
       const gDate = new Date(element[0], element[1], element[2]);
-      it('should convert correctly from Hijri to Gregorian',
-         () => { expect(calendar.toGregorian(iDate).getTime()).toEqual(gDate.getTime()); });
+      it('should convert correctly from Hijri to Gregorian', () => {
+        expect(calendar.toGregorian(iDate).getTime()).toEqual(gDate.getTime());
+      });
     });
   });
 
@@ -862,13 +863,19 @@ describe('ngb-calendar-islamic-umalqura', () => {
       const iDate = new NgbDate(element[3], element[4], element[5]);
       const gDate = new Date(element[0], element[1], element[2]);
       const iDate2 = calendar.fromGregorian(gDate);
-      it('should convert correctly from Gregorian to Hijri', () => { expect(iDate2.equals(iDate)).toBeTruthy(); });
+      it('should convert correctly from Gregorian to Hijri', () => {
+        expect(iDate2.equals(iDate)).toBeTruthy();
+      });
     });
   });
 
-  it('should return number of days per week', () => { expect(calendar.getDaysPerWeek()).toBe(7); });
+  it('should return number of days per week', () => {
+    expect(calendar.getDaysPerWeek()).toBe(7);
+  });
 
-  it('should return number of weeks per month', () => { expect(calendar.getWeeksPerMonth()).toBe(6); });
+  it('should return number of weeks per month', () => {
+    expect(calendar.getWeeksPerMonth()).toBe(6);
+  });
 
   it('should return months of a year', () => {
     expect(calendar.getMonths()).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
@@ -876,8 +883,9 @@ describe('ngb-calendar-islamic-umalqura', () => {
 
   describe('getDaysInIslamicMonth', () => {
     MONTH_LENGTH.forEach(element => {
-      it('should return the correct number of days in islamic month',
-         () => { expect(calendar.getDaysInIslamicMonth(element[1], element[0])).toEqual(element[2]); });
+      it('should return the correct number of days in islamic month', () => {
+        expect(calendar.getDaysInIslamicMonth(element[1], element[0])).toEqual(element[2]);
+      });
     });
   });
 

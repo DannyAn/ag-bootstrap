@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'nz-dropdown-basic',
   templateUrl: './nzdropdown-basic.html',
-  styles  : []
+  styles: []
 })
 export class NgbdDropDownBasic { }

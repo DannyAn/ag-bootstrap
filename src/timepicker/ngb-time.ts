@@ -11,7 +11,9 @@ export class NgbTime {
     this.second = toInteger(second);
   }
 
-  changeHour(step = 1) { this.updateHour((isNaN(this.hour) ? 0 : this.hour) + step); }
+  changeHour(step = 1) {
+    this.updateHour((isNaN(this.hour) ? 0 : this.hour) + step);
+  }
 
   updateHour(hour: number) {
     if (isNumber(hour)) {
@@ -21,7 +23,9 @@ export class NgbTime {
     }
   }
 
-  changeMinute(step = 1) { this.updateMinute((isNaN(this.minute) ? 0 : this.minute) + step); }
+  changeMinute(step = 1) {
+    this.updateMinute((isNaN(this.minute) ? 0 : this.minute) + step);
+  }
 
   updateMinute(minute: number) {
     if (isNumber(minute)) {
@@ -32,7 +36,9 @@ export class NgbTime {
     }
   }
 
-  changeSecond(step = 1) { this.updateSecond((isNaN(this.second) ? 0 : this.second) + step); }
+  changeSecond(step = 1) {
+    this.updateSecond((isNaN(this.second) ? 0 : this.second) + step);
+  }
 
   updateSecond(second: number) {
     if (isNumber(second)) {
@@ -47,5 +53,7 @@ export class NgbTime {
     return isNumber(this.hour) && isNumber(this.minute) && (checkSecs ? isNumber(this.second) : true);
   }
 
-  toString() { return `${this.hour || 0}:${this.minute || 0}:${this.second || 0}`; }
+  toString() {
+    return `${this.hour || 0}:${this.minute || 0}:${this.second || 0}`;
+  }
 }

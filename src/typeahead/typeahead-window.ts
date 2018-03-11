@@ -62,8 +62,8 @@ export class NgbTypeaheadWindow implements OnInit {
   @Input() term: string;
 
   /**
-   * A function used to format a given result before display. This function should return a formatted string without any
-   * HTML markup
+   * A function used to format a given result before display. This function should return a formatted string without
+   * any HTML markup
    */
   @Input() formatter = toString;
 
@@ -79,7 +79,9 @@ export class NgbTypeaheadWindow implements OnInit {
 
   @Output('activeChange') activeChangeEvent = new EventEmitter();
 
-  getActive() { return this.results[this.activeIdx]; }
+  getActive() {
+    return this.results[this.activeIdx];
+  }
 
   markActive(activeIdx: number) {
     this.activeIdx = activeIdx;
@@ -106,7 +108,9 @@ export class NgbTypeaheadWindow implements OnInit {
     this._activeChanged();
   }
 
-  select(item) { this.selectEvent.emit(item); }
+  select(item) {
+    this.selectEvent.emit(item);
+  }
 
   ngOnInit() {
     this.activeIdx = this.focusFirst ? 0 : -1;

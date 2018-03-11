@@ -4,9 +4,13 @@ import {Directive, HostBinding} from '@angular/core';
 export class NzFormItemDirective {
   _withHelp = 0;
 
-  enableHelp(): void { this._withHelp++; }
+  enableHelp(): void {
+    this._withHelp++;
+  }
 
-  disableHelp(): void { this._withHelp--; }
+  disableHelp(): void {
+    this._withHelp--;
+  }
 
   @HostBinding(`class.ant-form-item-with-help`)
   get withHelp(): boolean {

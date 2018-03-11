@@ -1,9 +1,13 @@
 // previous version:
 // https://github.com/angular-ui/bootstrap/blob/07c31d0731f7cb068a1932b8e01d2312b796b4ec/src/position/position.js
 export class Positioning {
-  private getAllStyles(element: HTMLElement) { return window.getComputedStyle(element); }
+  private getAllStyles(element: HTMLElement) {
+    return window.getComputedStyle(element);
+  }
 
-  private getStyle(element: HTMLElement, prop: string): string { return this.getAllStyles(element)[prop]; }
+  private getStyle(element: HTMLElement, prop: string): string {
+    return this.getAllStyles(element)[prop];
+  }
 
   private isStaticPositioned(element: HTMLElement): boolean {
     return (this.getStyle(element, 'position') || 'static') === 'static';
@@ -234,7 +238,7 @@ const positionService = new Positioning();
  * In case of auto placement, placements are selected in order 'top', 'bottom', 'left', 'right'.
  * */
 export function positionElements(
-    hostElement: HTMLElement, targetElement: HTMLElement, placement: string | Placement | PlacementArray,
+    hostElement: HTMLElement, targetElement: HTMLElement, placement: string|Placement|PlacementArray,
     appendToBody?: boolean): Placement {
   let placementVals: Array<Placement> = Array.isArray(placement) ? placement : [placement as Placement];
 
@@ -254,7 +258,7 @@ export function positionElements(
   // get available placements
   let availablePlacements = positionService.getAvailablePlacements(hostElement, targetElement);
   // iterate over all the passed placements
-  for (let { item, index } of toItemIndexes(placementVals)) {
+  for (let {item, index} of toItemIndexes(placementVals)) {
     // check if passed placement is present in the available placement or otherwise apply the last placement in the
     // passed placement list
     if ((availablePlacements.find(val => val === item) != null) || (placementVals.length === index + 1)) {
@@ -275,7 +279,7 @@ function toItemIndexes<T>(a: T[]) {
   return a.map((item, index) => ({item, index}));
 }
 
-export type Placement = 'auto' | 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' |
-    'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+export type Placement = 'auto'|'top'|'bottom'|'left'|'right'|'top-left'|'top-right'|'bottom-left'|'bottom-right'|
+    'left-top'|'left-bottom'|'right-top'|'right-bottom';
 
-export type PlacementArray = Placement | Array<Placement>;
+export type PlacementArray = Placement|Array<Placement>;

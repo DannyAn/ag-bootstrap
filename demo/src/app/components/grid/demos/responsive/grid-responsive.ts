@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ngbd-grid-responsive',
   templateUrl: 'grid-responsive.html',
-  styles  : []
+  styles: []
 })
-export class NgbdGridResponsive{ }
+export class NgbdGridResponsive {
+
+}

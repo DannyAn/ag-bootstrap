@@ -12,5 +12,4 @@ import {NzPopconfirmDirective} from './nz-popconfirm.directive';
   imports: [CommonModule, NzButtonModule, OverlayModule, NzLocaleModule]
 })
 
-export class NzPopconfirmModule {
-}
+export class NzPopconfirmModule {}

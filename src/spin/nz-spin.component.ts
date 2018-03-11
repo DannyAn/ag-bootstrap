@@ -1,13 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  ElementRef,
-  HostBinding,
-  Input,
-  Renderer2,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, HostBinding, Input, Renderer2, ViewChild, ViewEncapsulation,} from '@angular/core';
 import {toBoolean} from '../util/convert';
 
 @Component({
@@ -34,14 +25,18 @@ export class NzSpinComponent implements AfterContentInit {
     this._tip = value || '加载中...';
   }
 
-  get nzTip(): string { return this._tip; }
+  get nzTip(): string {
+    return this._tip;
+  }
 
   @Input()
   set nzSpinning(value: boolean) {
     this._spinning = toBoolean(value);
   }
 
-  get nzSpinning(): boolean { return this._spinning; }
+  get nzSpinning(): boolean {
+    return this._spinning;
+  }
 
   @ViewChild('ref') _ref: ElementRef;
 
@@ -59,7 +54,9 @@ export class NzSpinComponent implements AfterContentInit {
     this._size = {large: 'lg', small: 'sm'}[value];
   }
 
-  get nzSize(): string { return this._size; }
+  get nzSize(): string {
+    return this._size;
+  }
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
     this._el = this._elementRef.nativeElement;

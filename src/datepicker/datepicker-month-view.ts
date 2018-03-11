@@ -59,7 +59,7 @@ import {NgbDate} from './ngb-date';
 export class NgbDatepickerMonthView {
   @Input() dayTemplate: TemplateRef<DayTemplateContext>;
   @Input() month: MonthViewModel;
-  @Input() outsideDays: 'visible' | 'hidden' | 'collapsed';
+  @Input() outsideDays: 'visible'|'hidden'|'collapsed';
   @Input() showWeekdays;
   @Input() showWeekNumbers;
 

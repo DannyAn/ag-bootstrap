@@ -1,0 +1,15 @@
+    <nz-select
+      style="width: 200px;"
+      nzAllowClear
+      [nzPlaceHolder]="'input search text'"
+      [nzFilter]="false"
+      [(ngModel)]="selectedOption"
+      (nzSearchChange)="searchChange($event)"
+      [nzNotFoundContent]="'无法找到'"
+      nzShowSearch>
+      <nz-option
+        *ngFor="let option of searchOptions"
+        [nzLabel]="option[0]"
+        [nzValue]="option[0]">
+      </nz-option>
+    </nz-select>

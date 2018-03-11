@@ -1,11 +1,4 @@
-import {
-  Component,
-  forwardRef,
-  HostListener,
-  Input,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, forwardRef, HostListener, Input, OnInit, ViewEncapsulation,} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {toBoolean} from '../util/convert';
@@ -28,8 +21,7 @@ import {toBoolean} from '../util/convert';
   providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NzSwitchComponent), multi: true}],
   styleUrls: []
 })
-export class NzSwitchComponent implements OnInit,
-    ControlValueAccessor {
+export class NzSwitchComponent implements OnInit, ControlValueAccessor {
   private _disabled = false;
   _prefixCls = 'ant-switch';
   _innerPrefixCls = `${this._prefixCls}-inner`;
@@ -47,7 +39,9 @@ export class NzSwitchComponent implements OnInit,
     this.setClassMap();
   }
 
-  get nzSize(): string { return this._size; }
+  get nzSize(): string {
+    return this._size;
+  }
 
   @Input()
   set nzDisabled(value: boolean) {
@@ -55,7 +49,9 @@ export class NzSwitchComponent implements OnInit,
     this.setClassMap();
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   @HostListener('click', ['$event'])
   onClick(e: MouseEvent): void {
@@ -83,13 +79,23 @@ export class NzSwitchComponent implements OnInit,
     };
   }
 
-  writeValue(value: boolean): void { this.updateValue(value); }
+  writeValue(value: boolean): void {
+    this.updateValue(value);
+  }
 
-  registerOnChange(fn: (_: boolean) => void): void { this.onChange = fn; }
+  registerOnChange(fn: (_: boolean) => void): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => void): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 
-  setDisabledState(isDisabled: boolean): void { this.nzDisabled = isDisabled; }
+  setDisabledState(isDisabled: boolean): void {
+    this.nzDisabled = isDisabled;
+  }
 
-  ngOnInit(): void { this.setClassMap(); }
+  ngOnInit(): void {
+    this.setClassMap();
+  }
 }

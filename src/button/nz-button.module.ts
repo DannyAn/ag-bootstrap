@@ -8,5 +8,4 @@ import {NzButtonComponent} from './nz-button.component';
   exports: [NzButtonComponent, NzButtonGroupComponent],
   imports: [CommonModule]
 })
-export class NzButtonModule {
-}
+export class NzButtonModule {}

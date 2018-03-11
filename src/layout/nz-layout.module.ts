@@ -11,5 +11,4 @@ import {NzSiderComponent} from './nz-sider.component';
   exports: [NzLayoutComponent, NzHeaderComponent, NzContentComponent, NzFooterComponent, NzSiderComponent],
   imports: [CommonModule]
 })
-export class NzLayoutModule {
-}
+export class NzLayoutModule {}

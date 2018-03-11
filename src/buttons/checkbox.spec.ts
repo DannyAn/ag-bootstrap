@@ -45,7 +45,6 @@ describe('NgbCheckBox', () => {
          expect(getLabel(fixture.debugElement.nativeElement)).not.toHaveCssClass('active');
        }));
 
-
     it('should mark input as checked / unchecked based on model change (custom values)', fakeAsync(() => {
          const fixture = createTestComponent(`
         <label ngbButtonLabel>

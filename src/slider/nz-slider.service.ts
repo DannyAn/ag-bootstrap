@@ -13,14 +13,18 @@ export class NzSliderService {
     return dotIndex >= 0 ? numStr.length - dotIndex - 1 : 0;
   }
 
-  cloneArray<T>(arr: T[]): T[] { return arr.slice(); }
+  cloneArray<T>(arr: T[]): T[] {
+    return arr.slice();
+  }
 
   isNotTouchEvent(e: TouchEvent): boolean {
     return !e.touches || e.touches.length > 1 || (e.type.toLowerCase() === 'touchend' && e.touches.length > 0);
   }
 
   // convert value to offset in percent
-  valueToOffset(min: number, max: number, value: number): number { return (value - min) / (max - min) * 100; }
+  valueToOffset(min: number, max: number, value: number): number {
+    return (value - min) / (max - min) * 100;
+  }
 
   correctNumLimit(num: number, min: number, max: number): number {
     let res = +num;

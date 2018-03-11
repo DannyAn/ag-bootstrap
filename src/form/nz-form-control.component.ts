@@ -19,7 +19,7 @@ import {toBoolean} from '../util/convert';
 })
 export class NzFormControlComponent {
   private _hasFeedback = false;
-  private _validateStatus: string | NgControl;
+  private _validateStatus: string|NgControl;
   @ContentChild(NgControl) ngControl: NgControl;
 
   @Input()
@@ -27,14 +27,18 @@ export class NzFormControlComponent {
     this._hasFeedback = toBoolean(value);
   }
 
-  get nzHasFeedback(): boolean { return this._hasFeedback; }
+  get nzHasFeedback(): boolean {
+    return this._hasFeedback;
+  }
 
   @Input()
-  set nzValidateStatus(value: string | NgControl) {
+  set nzValidateStatus(value: string|NgControl) {
     this._validateStatus = value;
   }
 
-  get nzValidateStatus(): string | NgControl { return this._validateStatus || this.ngControl; }
+  get nzValidateStatus(): string|NgControl {
+    return this._validateStatus || this.ngControl;
+  }
 
   get isWarning(): boolean {
     return this.nzValidateStatus === 'warning' ||
@@ -61,5 +65,7 @@ export class NzFormControlComponent {
         (this.nzValidateStatus as NgControl).valid;
   }
 
-  get hasFeedBack(): boolean { return this.nzHasFeedback; }
+  get hasFeedBack(): boolean {
+    return this.nzHasFeedback;
+  }
 }

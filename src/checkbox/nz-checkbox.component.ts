@@ -1,15 +1,5 @@
 /* tslint:disable:no-any */
-import {
-  Component,
-  ElementRef,
-  forwardRef,
-  HostListener,
-  Input,
-  OnChanges,
-  OnInit,
-  Renderer2,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, ElementRef, forwardRef, HostListener, Input, OnChanges, OnInit, Renderer2, ViewEncapsulation,} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {toBoolean} from '../util/convert';
@@ -30,8 +20,7 @@ import {toBoolean} from '../util/convert';
   `,
   providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NzCheckboxComponent), multi: true}],
 })
-export class NzCheckboxComponent implements OnInit,
-    ControlValueAccessor, OnChanges {
+export class NzCheckboxComponent implements OnInit, ControlValueAccessor, OnChanges {
   private _disabled = false;
   private _indeterminate = false;
   _el: HTMLElement;
@@ -49,14 +38,18 @@ export class NzCheckboxComponent implements OnInit,
     this._disabled = toBoolean(value);
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   @Input()
   set nzIndeterminate(value: boolean) {
     this._indeterminate = toBoolean(value);
   }
 
-  get nzIndeterminate(): boolean { return this._indeterminate; }
+  get nzIndeterminate(): boolean {
+    return this._indeterminate;
+  }
 
   _classMap = {
     [this._prefixCls]: true,
@@ -88,9 +81,13 @@ export class NzCheckboxComponent implements OnInit,
     this.updateClassMap();
   }
 
-  nzFocus(): void { this._focused = true; }
+  nzFocus(): void {
+    this._focused = true;
+  }
 
-  nzBlur(): void { this._focused = false; }
+  nzBlur(): void {
+    this._focused = false;
+  }
 
   constructor(private _elementRef: ElementRef, private _render: Renderer2) {
     this._el = this._elementRef.nativeElement;
@@ -101,11 +98,17 @@ export class NzCheckboxComponent implements OnInit,
     this.updateClassMap();
   }
 
-  registerOnChange(fn: (_: any) => {}): void { this.onChange = fn; }
+  registerOnChange(fn: (_: any) => {}): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => {}): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => {}): void {
+    this.onTouched = fn;
+  }
 
-  setDisabledState(isDisabled: boolean): void { this.nzDisabled = isDisabled; }
+  setDisabledState(isDisabled: boolean): void {
+    this.nzDisabled = isDisabled;
+  }
 
   updateClassMap(): void {
     this._classMap = {
@@ -122,5 +125,7 @@ export class NzCheckboxComponent implements OnInit,
     this.updateClassMap();
   }
 
-  ngOnChanges(): void { this.updateClassMap(); }
+  ngOnChanges(): void {
+    this.updateClassMap();
+  }
 }

@@ -1,14 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  HostBinding,
-  HostListener,
-  Input,
-  Optional,
-  Renderer2,
-} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostBinding, HostListener, Input, Optional, Renderer2,} from '@angular/core';
 import {toBoolean} from '../util/convert';
 import {NzMenuComponent} from './nz-menu.component';
 import {NzSubMenuComponent} from './nz-submenu.component';
@@ -34,7 +24,9 @@ export class NzMenuItemComponent implements AfterViewInit {
     this._disabled = toBoolean(value);
   }
 
-  get nzDisable(): boolean { return this._disabled; }
+  get nzDisable(): boolean {
+    return this._disabled;
+  }
 
   @Input()
   set nzSelected(value: boolean) {
@@ -50,7 +42,9 @@ export class NzMenuItemComponent implements AfterViewInit {
     }
   }
 
-  get nzSelected(): boolean { return this._selected; }
+  get nzSelected(): boolean {
+    return this._selected;
+  }
 
   /** clear all item selected status except this */
   // TODO: the $event param should be removed if not require
@@ -113,6 +107,8 @@ export class NzMenuItemComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(_ => { this.isInDropDown = this.nzMenuComponent.isInDropDown; });
+    setTimeout(_ => {
+      this.isInDropDown = this.nzMenuComponent.isInDropDown;
+    });
   }
 }

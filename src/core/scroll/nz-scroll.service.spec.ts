@@ -28,7 +28,9 @@ describe('NzScrollService', () => {
     hash: string;
   }
 
-  beforeEach(() => { spyOn(window, 'scrollBy'); });
+  beforeEach(() => {
+    spyOn(window, 'scrollBy');
+  });
 
   beforeEach(() => {
     injector = ReflectiveInjector.resolveAndCreate([

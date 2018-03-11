@@ -1,20 +1,4 @@
-import {
-  ComponentFactoryResolver,
-  ComponentRef,
-  Directive,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  Input,
-  NgZone,
-  OnChanges,
-  OnDestroy,
-  Output,
-  Renderer2,
-  SimpleChanges,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import {ComponentFactoryResolver, ComponentRef, Directive, ElementRef, EventEmitter, forwardRef, Input, NgZone, OnChanges, OnDestroy, Output, Renderer2, SimpleChanges, TemplateRef, ViewContainerRef} from '@angular/core';
 import {AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validator} from '@angular/forms';
 
 import {PlacementArray, positionElements} from '../util/positioning';
@@ -56,8 +40,7 @@ const NGB_DATEPICKER_VALIDATOR = {
   },
   providers: [NGB_DATEPICKER_VALUE_ACCESSOR, NGB_DATEPICKER_VALIDATOR, NgbDatepickerService]
 })
-export class NgbInputDatepicker implements OnChanges,
-    OnDestroy, ControlValueAccessor, Validator {
+export class NgbInputDatepicker implements OnChanges, OnDestroy, ControlValueAccessor, Validator {
   private _cRef: ComponentRef<NgbDatepicker> = null;
   private _disabled = false;
   private _model: NgbDate;
@@ -98,13 +81,13 @@ export class NgbInputDatepicker implements OnChanges,
    * Navigation type: `select` (default with select boxes for month and year), `arrows`
    * (without select boxes, only navigation arrows) or `none` (no navigation at all)
    */
-  @Input() navigation: 'select' | 'arrows' | 'none';
+  @Input() navigation: 'select'|'arrows'|'none';
 
   /**
    * The way to display days that don't belong to current month: `visible` (default),
    * `hidden` (not displayed) or `collapsed` (not displayed with empty space collapsed)
    */
-  @Input() outsideDays: 'visible' | 'collapsed' | 'hidden';
+  @Input() outsideDays: 'visible'|'collapsed'|'hidden';
 
   /**
    * Placement of a datepicker popup accepts:
@@ -160,7 +143,6 @@ export class NgbInputDatepicker implements OnChanges,
   private _onTouched = () => {};
   private _validatorChange = () => {};
 
-
   constructor(
       private _parserFormatter: NgbDateParserFormatter, private _elRef: ElementRef, private _vcRef: ViewContainerRef,
       private _renderer: Renderer2, private _cfr: ComponentFactoryResolver, ngZone: NgZone,
@@ -174,13 +156,21 @@ export class NgbInputDatepicker implements OnChanges,
     });
   }
 
-  registerOnChange(fn: (value: any) => any): void { this._onChange = fn; }
+  registerOnChange(fn: (value: any) => any): void {
+    this._onChange = fn;
+  }
 
-  registerOnTouched(fn: () => any): void { this._onTouched = fn; }
+  registerOnTouched(fn: () => any): void {
+    this._onTouched = fn;
+  }
 
-  registerOnValidatorChange(fn: () => void): void { this._validatorChange = fn; };
+  registerOnValidatorChange(fn: () => void): void {
+    this._validatorChange = fn;
+  };
 
-  setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   validate(c: AbstractControl): {[key: string]: any} {
     const value = c.value;
@@ -217,7 +207,9 @@ export class NgbInputDatepicker implements OnChanges,
     }
   }
 
-  isOpen() { return !!this._cRef; }
+  isOpen() {
+    return !!this._cRef;
+  }
 
   /**
    * Opens the datepicker with the selected date indicated by the ngModel value.
@@ -284,7 +276,9 @@ export class NgbInputDatepicker implements OnChanges,
     }
   }
 
-  onBlur() { this._onTouched(); }
+  onBlur() {
+    this._onTouched();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['minDate'] || changes['maxDate']) {
@@ -315,7 +309,9 @@ export class NgbInputDatepicker implements OnChanges,
 
   private _subscribeForDatepickerOutputs(datepickerInstance: NgbDatepicker) {
     datepickerInstance.navigate.subscribe(date => this.navigate.emit(date));
-    datepickerInstance.select.subscribe(() => { this.close(); });
+    datepickerInstance.select.subscribe(() => {
+      this.close();
+    });
   }
 
   private _writeModelValue(model: NgbDate) {

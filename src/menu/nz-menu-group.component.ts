@@ -1,7 +1,4 @@
-import {
-  Component,
-  HostBinding,
-} from '@angular/core';
+import {Component, HostBinding,} from '@angular/core';
 
 @Component({
   selector: '[nz-menu-group]',
@@ -15,5 +12,4 @@ import {
   `,
   host: {'[class.ant-menu-item-group]': 'true'}
 })
-export class NzMenuGroupComponent {
-}
+export class NzMenuGroupComponent {}

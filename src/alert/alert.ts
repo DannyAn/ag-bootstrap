@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output,} from '@angular/core';
 
 import {NgbAlertConfig} from './alert-config';
 
@@ -35,7 +29,8 @@ export class NgbAlert {
    */
   @Input() type: string;
   /**
-   * An event emitted when the close button is clicked. This event has no payload. Only relevant for dismissible alerts.
+   * An event emitted when the close button is clicked. This event has no payload. Only relevant for dismissible
+   * alerts.
    */
   @Output() close = new EventEmitter();
 
@@ -44,5 +39,7 @@ export class NgbAlert {
     this.type = config.type;
   }
 
-  closeHandler() { this.close.emit(null); }
+  closeHandler() {
+    this.close.emit(null);
+  }
 }

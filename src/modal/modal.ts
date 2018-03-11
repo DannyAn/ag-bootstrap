@@ -11,7 +11,7 @@ export interface NgbModalOptions {
    * Whether a backdrop element should be created for a given modal (true by default).
    * Alternatively, specify 'static' for a backdrop which doesn't close the modal on click.
    */
-  backdrop?: boolean | 'static';
+  backdrop?: boolean|'static';
 
   /**
    * Function called when a modal will be dismissed.
@@ -37,7 +37,7 @@ export interface NgbModalOptions {
   /**
    * Size of a new modal window.
    */
-  size?: 'sm' | 'lg';
+  size?: 'sm'|'lg';
 
   /**
    * Custom class to append to the modal window

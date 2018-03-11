@@ -56,8 +56,9 @@ function getButton(nativeEl: HTMLElement) {
 }
 
 describe('ngb-tabset', () => {
-  beforeEach(
-      () => { TestBed.configureTestingModule({declarations: [TestComponent], imports: [NgbTabsetModule.forRoot()]}); });
+  beforeEach(() => {
+    TestBed.configureTestingModule({declarations: [TestComponent], imports: [NgbTabsetModule.forRoot()]});
+  });
 
   it('should initialize inputs with default values', () => {
     const defaultConfig = new NgbTabsetConfig();
@@ -169,13 +170,11 @@ describe('ngb-tabset', () => {
     expect(tabTitles[2].textContent).toMatch(/bazbaz/);
   });
 
-
   it('should not crash for empty tabsets', () => {
     const fixture = createTestComponent(`<ngb-tabset activeId="2"></ngb-tabset>`);
 
     expectTabs(fixture.nativeElement, []);
   });
-
 
   it('should mark the requested tab as active', () => {
     const fixture = createTestComponent(`
@@ -188,7 +187,6 @@ describe('ngb-tabset', () => {
     expectTabs(fixture.nativeElement, [false, true]);
   });
 
-
   it('should auto-correct requested active tab id', () => {
     const fixture = createTestComponent(`
       <ngb-tabset activeId="doesntExist">
@@ -200,7 +198,6 @@ describe('ngb-tabset', () => {
     expectTabs(fixture.nativeElement, [true, false]);
   });
 
-
   it('should auto-correct requested active tab id for undefined ids', () => {
     const fixture = createTestComponent(`
       <ngb-tabset [activeId]="activeTabId">
@@ -211,7 +208,6 @@ describe('ngb-tabset', () => {
 
     expectTabs(fixture.nativeElement, [true, false]);
   });
-
 
   it('should change active tab on tab title click', () => {
     const fixture = createTestComponent(`
@@ -232,7 +228,6 @@ describe('ngb-tabset', () => {
     expectTabs(fixture.nativeElement, [true, false]);
   });
 
-
   it('should support disabled tabs', () => {
     const fixture = createTestComponent(`
          <ngb-tabset>
@@ -243,7 +238,6 @@ describe('ngb-tabset', () => {
 
     expectTabs(fixture.nativeElement, [true, false], [false, true]);
   });
-
 
   it('should not change active tab on disabled tab title click', () => {
     const fixture = createTestComponent(`
@@ -260,7 +254,6 @@ describe('ngb-tabset', () => {
     expectTabs(fixture.nativeElement, [true, false], [false, true]);
   });
 
-
   it('should allow initially active and disabled tabs', () => {
     const fixture = createTestComponent(`
          <ngb-tabset>
@@ -270,7 +263,6 @@ describe('ngb-tabset', () => {
 
     expectTabs(fixture.nativeElement, [true], [true]);
   });
-
 
   it('should have nav-tabs default', () => {
     const fixture = createTestComponent(`
@@ -282,7 +274,6 @@ describe('ngb-tabset', () => {
     expect(fixture.nativeElement.querySelector('ul')).toHaveCssClass('nav-tabs');
     expect(fixture.nativeElement.querySelector('ul')).not.toHaveCssClass('nav-pills');
   });
-
 
   it('should have pills upon setting pills', () => {
     const fixture = createTestComponent(`
@@ -367,7 +358,6 @@ describe('ngb-tabset', () => {
     expect(fixture.nativeElement.querySelector('ul')).not.toHaveCssClass('justify-content-start');
   });
 
-
   it('should change active tab by calling select on an exported directive instance', () => {
     const fixture = createTestComponent(`
           <ngb-tabset #myTabSet="ngbTabset">
@@ -390,7 +380,6 @@ describe('ngb-tabset', () => {
     fixture.detectChanges();
     expectTabs(fixture.nativeElement, [true, false]);
   });
-
 
   it('should not change active tab by calling select on an exported directive instance in case of disable tab', () => {
     const fixture = createTestComponent(`
@@ -508,7 +497,9 @@ describe('ngb-tabset', () => {
   describe('Custom config', () => {
     let config: NgbTabsetConfig;
 
-    beforeEach(() => { TestBed.configureTestingModule({imports: [NgbTabsetModule.forRoot()]}); });
+    beforeEach(() => {
+      TestBed.configureTestingModule({imports: [NgbTabsetModule.forRoot()]});
+    });
 
     beforeEach(inject([NgbTabsetConfig], (c: NgbTabsetConfig) => {
       config = c;

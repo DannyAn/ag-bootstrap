@@ -1,19 +1,4 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ContentChild,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  HostListener,
-  Input,
-  Output,
-  Renderer2,
-  TemplateRef,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ContentChild, ElementRef, EventEmitter, forwardRef, HostListener, Input, Output, Renderer2, TemplateRef, ViewChild, ViewEncapsulation,} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import calculateNodeHeight from '../util/calculate-node-height';
@@ -80,8 +65,7 @@ export interface AutoSizeType {
   providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NzInputComponent), multi: true}],
   styleUrls: []
 })
-export class NzInputComponent implements AfterContentInit,
-    ControlValueAccessor, AfterViewInit {
+export class NzInputComponent implements AfterContentInit, ControlValueAccessor, AfterViewInit {
   private _disabled = false;
   private _readonly = false;
 
@@ -91,7 +75,7 @@ export class NzInputComponent implements AfterContentInit,
   _prefixCls = 'ant-input';
   _composing = false;
   _classMap;
-  _autosize: boolean | AutoSizeType = false;
+  _autosize: boolean|AutoSizeType = false;
 
   // ngModel Access
   onChange: (value: string) => void = () => null;
@@ -109,7 +93,9 @@ export class NzInputComponent implements AfterContentInit,
     this.setClassMap();
   }
 
-  get nzSize(): string { return this._size; }
+  get nzSize(): string {
+    return this._size;
+  }
 
   @Input()
   set nzDisabled(value: boolean) {
@@ -117,17 +103,21 @@ export class NzInputComponent implements AfterContentInit,
     this.setClassMap();
   }
 
-  get nzDisabled(): boolean { return this._disabled; }
+  get nzDisabled(): boolean {
+    return this._disabled;
+  }
 
   @Input()
   set nzReadonly(value: boolean) {
     this._readonly = toBoolean(value);
   }
 
-  get nzReadonly(): boolean { return this._readonly; }
+  get nzReadonly(): boolean {
+    return this._readonly;
+  }
 
   @Input()
-  set nzAutosize(value: string | boolean | AutoSizeType) {
+  set nzAutosize(value: string|boolean|AutoSizeType) {
     if (typeof value === 'string') {
       this._autosize = true;
     } else {
@@ -138,7 +128,9 @@ export class NzInputComponent implements AfterContentInit,
     }
   }
 
-  get nzAutosize(): string | boolean | AutoSizeType { return this._autosize; }
+  get nzAutosize(): string|boolean|AutoSizeType {
+    return this._autosize;
+  }
 
   @Output() nzBlur: EventEmitter<FocusEvent> = new EventEmitter();
   @Output() nzFocus: EventEmitter<FocusEvent> = new EventEmitter();
@@ -161,7 +153,9 @@ export class NzInputComponent implements AfterContentInit,
     this.onChange(this._value);
   }
 
-  get nzValue(): string { return this._value; }
+  get nzValue(): string {
+    return this._value;
+  }
 
   set nzValue(value: string) {
     if ((this._value === value) || ((this._value == null) && (value == null))) {
@@ -178,7 +172,9 @@ export class NzInputComponent implements AfterContentInit,
     this.onTouched();
   }
 
-  _emitFocus($event: FocusEvent): void { this.nzFocus.emit($event); }
+  _emitFocus($event: FocusEvent): void {
+    this.nzFocus.emit($event);
+  }
 
   _onPressEnter(): void {
     if (this.nzType === 'search') {
@@ -186,7 +182,9 @@ export class NzInputComponent implements AfterContentInit,
     }
   }
 
-  _emitSearch(): void { this.nzOnSearch.emit(this._value); }
+  _emitSearch(): void {
+    this.nzOnSearch.emit(this._value);
+  }
 
   setClassMap(): void {
     this._classMap = {[`${this._prefixCls}-${this._size}`]: true, [`${this._prefixCls}-disabled`]: this._disabled};
@@ -231,13 +229,20 @@ export class NzInputComponent implements AfterContentInit,
   }
 
   writeValue(value: string): void {
-    // this.nzValue = value; // [NOTE] nzValue will trigger the onChange which leads to a new "VIEW -> MODEL updating"
+    // this.nzValue = value; // [NOTE] nzValue will trigger the onChange which leads to a new "VIEW -> MODEL
+    // updating"
     this._value = value;
   }
 
-  registerOnChange(fn: (_: string) => void): void { this.onChange = fn; }
+  registerOnChange(fn: (_: string) => void): void {
+    this.onChange = fn;
+  }
 
-  registerOnTouched(fn: () => void): void { this.onTouched = fn; }
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 
-  setDisabledState(isDisabled: boolean): void { this.nzDisabled = isDisabled; }
+  setDisabledState(isDisabled: boolean): void {
+    this.nzDisabled = isDisabled;
+  }
 }

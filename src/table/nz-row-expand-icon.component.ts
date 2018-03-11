@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  Output,
-} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, Output,} from '@angular/core';
 import {toBoolean} from '../util/convert';
 
 @Component({selector: 'nz-row-expand-icon', template: ``, host: {'[class.ant-table-row-expand-icon]': 'true'}})
@@ -20,14 +13,18 @@ export class NzRowExpandIconComponent {
     this._expand = toBoolean(value);
   }
 
-  get nzExpand(): boolean { return this._expand; }
+  get nzExpand(): boolean {
+    return this._expand;
+  }
 
   @Input()
   set nzShowExpand(value: boolean) {
     this._showExpand = toBoolean(value);
   }
 
-  get nzShowExpand(): boolean { return this._showExpand; }
+  get nzShowExpand(): boolean {
+    return this._showExpand;
+  }
 
   @HostBinding('class.ant-table-row-spaced')
   get hidden(): boolean {

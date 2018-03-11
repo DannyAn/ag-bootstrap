@@ -237,7 +237,9 @@ class TestAppComponent {
 
   clickButton = (value) => {
     this.isLoading = true;
-    setTimeout(_ => { this.isLoading = false; }, 5000);
+    setTimeout(_ => {
+      this.isLoading = false;
+    }, 5000);
   }
 }
 
@@ -255,7 +257,9 @@ class TestAppDisabledComponent {
 
   clickButton = (value) => {
     this.isLoading = true;
-    setTimeout(_ => { this.isLoading = false; }, 5000);
+    setTimeout(_ => {
+      this.isLoading = false;
+    }, 5000);
   }
 }
 

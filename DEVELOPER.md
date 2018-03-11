@@ -128,6 +128,9 @@ to some whitespace difference.
   Use `clang-format -version` in case you get confused.
 * Use `gulp enforce-format` to check if your code is `clang-format` clean. This also gives
   you a command line to format your code.
+* you have to use `sudo` to execute genrated command lines.--
+  sudo node_modules/clang-format/index.js -i -style="file"  filelists
+  node_modules/clang-format/index.js -i -style="file" /Users/kongan/Documents/GitHub/ag-bootstrap/src/menu/nz-menu.module.ts
 * `clang-format` also includes a git hook, run `git clang-format` to format all files you
   touched.
 * You can run this as a **git pre-commit hook** to automatically format your delta regions when you
@@ -165,3 +168,10 @@ npm install @angular/animations --save
 
 Datetime formatter:
 npm install moment --save
+
+gulp build报错总是找不到新引入的cdk
+修改方法：在karma-test-shim.js中修正
+(SystemJS) XHR error (404 Not Found) loading @angular/cdk/overlay
+'@angular/cdk': 'npm:@angular/cdk/bundles/cdk.umd.js',
+
+'@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',

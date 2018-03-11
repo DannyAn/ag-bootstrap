@@ -15,5 +15,4 @@ import {NzTranslatePipe} from './nz-translate.pipe';
     NZ_LOCALE_SERVICE_PROVIDER,
   ],
 })
-export class NzLocaleModule {
-}
+export class NzLocaleModule {}

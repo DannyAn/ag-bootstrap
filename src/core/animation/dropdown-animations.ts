@@ -1,11 +1,4 @@
-import {
-  animate,
-  AnimationTriggerMetadata,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import {animate, AnimationTriggerMetadata, state, style, transition, trigger,} from '@angular/animations';
 
 export const dropDownAnimation: AnimationTriggerMetadata = trigger('dropDownAnimation', [
   state('bottom', style({opacity: 1, transform: 'scaleY(1)', transformOrigin: '0% 0%'})),

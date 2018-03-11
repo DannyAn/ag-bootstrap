@@ -44,7 +44,7 @@ function getDbgStar(element, num: number) {
   return element.queryAll(By.css('span:not(.sr-only)'))[num - 1];
 }
 
-function getState(element: DebugElement | HTMLElement) {
+function getState(element: DebugElement|HTMLElement) {
   const stars = getStars(element instanceof DebugElement ? element.nativeElement : element);
   return stars.map(star => star.textContent.trim() === String.fromCharCode(9733));
 }
@@ -670,7 +670,9 @@ describe('ngb-rating', () => {
   describe('Custom config', () => {
     let config: NgbRatingConfig;
 
-    beforeEach(() => { TestBed.configureTestingModule({imports: [NgbRatingModule.forRoot()]}); });
+    beforeEach(() => {
+      TestBed.configureTestingModule({imports: [NgbRatingModule.forRoot()]});
+    });
 
     beforeEach(inject([NgbRatingConfig], (c: NgbRatingConfig) => {
       config = c;

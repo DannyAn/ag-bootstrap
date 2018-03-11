@@ -30,7 +30,9 @@ export class NgbDatepickerService {
     return filter.call(this._model$.asObservable(), model => model.months.length > 0);
   }
 
-  get select$(): Observable<NgbDate> { return filter.call(this._select$.asObservable(), date => date !== null); }
+  get select$(): Observable<NgbDate> {
+    return filter.call(this._select$.asObservable(), date => date !== null);
+  }
 
   set disabled(disabled: boolean) {
     if (this._state.disabled !== disabled) {
@@ -74,7 +76,7 @@ export class NgbDatepickerService {
     }
   }
 
-  set navigation(navigation: 'select' | 'arrows' | 'none') {
+  set navigation(navigation: 'select'|'arrows'|'none') {
     if (this._state.navigation !== navigation) {
       this._nextState({navigation: navigation});
     }

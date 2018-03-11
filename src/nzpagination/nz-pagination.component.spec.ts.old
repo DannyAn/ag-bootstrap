@@ -25,42 +25,35 @@ describe('NzPaginationComponent', () => {
       const testComponent = fixture.debugElement.componentInstance;
       const debugElement = fixture.debugElement.query(By.directive(NzPaginationComponent));
       fixture.detectChanges();
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-prev')
-              .classList.contains('ant-pagination-item-active'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-prev')
+                 .classList.contains('ant-pagination-item-active'))
           .toBe(false);
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-prev')
-              .classList.contains('ant-pagination-disabled'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-prev')
+                 .classList.contains('ant-pagination-disabled'))
           .toBe(true);
       expect(debugElement.nativeElement.querySelectorAll('.ant-pagination-item').length).toBe(5);
 
       testComponent._nzPageIndex = 5;
       testComponent._nzTotal = 50;
       fixture.detectChanges();
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-next')
-              .classList.contains('ant-pagination-item-active'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-next')
+                 .classList.contains('ant-pagination-item-active'))
           .toBe(false);
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-next')
-              .classList.contains('ant-pagination-disabled'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-next')
+                 .classList.contains('ant-pagination-disabled'))
           .toBe(true);
 
       testComponent._nzPageIndex = 3;
       testComponent._nzTotal = 50;
       fixture.detectChanges();
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-item:nth-child(4)')
-              .classList.contains('ant-pagination-item-active'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-item:nth-child(4)')
+                 .classList.contains('ant-pagination-item-active'))
           .toBe(true);
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-prev')
-              .classList.contains('ant-pagination-disabled'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-prev')
+                 .classList.contains('ant-pagination-disabled'))
           .toBe(false);
-      expect(
-          debugElement.nativeElement.querySelector('.ant-pagination-next')
-              .classList.contains('ant-pagination-disabled'))
+      expect(debugElement.nativeElement.querySelector('.ant-pagination-next')
+                 .classList.contains('ant-pagination-disabled'))
           .toBe(false);
 
       testComponent._nzPageIndex = 3;
@@ -188,8 +181,7 @@ describe('NzPaginationComponent', () => {
       <nz-pagination [nzPageIndex]="2" [nzTotal]="50" nzSimple></nz-pagination>`,
     styles: []
   })
-  class TestPaginationSimpleComponent {
-  }
+  class TestPaginationSimpleComponent {}
 
   @Component({
     selector: 'nz-test-pagination-total',

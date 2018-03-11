@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ngbd-grid-flex-order',
   templateUrl: 'grid-flex-order.html',
-  styles  : []
+  styles: []
 })
 export class NgbdGridFlexOrder implements OnInit {
-  orderList = [ 1, 2, 3, 4 ];
+  orderList = [1, 2, 3, 4];
 
   ngOnInit() {
     setTimeout(_ => {
-      this.orderList = [ ...this.orderList.reverse() ];
-    }, 10000)
+      this.orderList = [...this.orderList.reverse()];
+    }, 10000);
   }
 }

@@ -206,5 +206,7 @@ class TestComponent {
 
   @ViewChild(NgbTypeaheadWindow) popup: NgbTypeaheadWindow;
 
-  formatterFn = (result) => { return result.toUpperCase(); };
+  formatterFn = (result) => {
+    return result.toUpperCase();
+  };
 }

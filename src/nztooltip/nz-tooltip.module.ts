@@ -10,5 +10,4 @@ import {NzTooltipDirective} from './nz-tooltip.directive';
   imports: [CommonModule, OverlayModule],
   entryComponents: [NzToolTipComponent]
 })
-export class NzToolTipModule {
-}
+export class NzToolTipModule {}

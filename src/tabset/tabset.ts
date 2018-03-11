@@ -1,15 +1,4 @@
-import {
-  AfterContentChecked,
-  Component,
-  ContentChild,
-  ContentChildren,
-  Directive,
-  EventEmitter,
-  Input,
-  Output,
-  QueryList,
-  TemplateRef
-} from '@angular/core';
+import {AfterContentChecked, Component, ContentChild, ContentChildren, Directive, EventEmitter, Input, Output, QueryList, TemplateRef} from '@angular/core';
 
 import {NgbTabsetConfig} from './tabset-config';
 
@@ -125,7 +114,7 @@ export class NgbTabset implements AfterContentChecked {
    * The default value is 'start'.
    */
   @Input()
-  set justify(className: 'start' | 'center' | 'end' | 'fill' | 'justified') {
+  set justify(className: 'start'|'center'|'end'|'fill'|'justified') {
     if (className === 'fill' || className === 'justified') {
       this.justifyClass = `nav-${className}`;
     } else {
@@ -137,12 +126,12 @@ export class NgbTabset implements AfterContentChecked {
    * The orientation of the nav (horizontal or vertical).
    * The default value is 'horizontal'.
    */
-  @Input() orientation: 'horizontal' | 'vertical';
+  @Input() orientation: 'horizontal'|'vertical';
 
   /**
    * Type of navigation to be used for tabs. Can be one of 'tabs' or 'pills'.
    */
-  @Input() type: 'tabs' | 'pills';
+  @Input() type: 'tabs'|'pills';
 
   /**
    * A tab change event fired right before the tab selection happens. See NgbTabChangeEvent for payload details
@@ -164,8 +153,13 @@ export class NgbTabset implements AfterContentChecked {
     if (selectedTab && !selectedTab.disabled && this.activeId !== selectedTab.id) {
       let defaultPrevented = false;
 
-      this.tabChange.emit(
-          {activeId: this.activeId, nextId: selectedTab.id, preventDefault: () => { defaultPrevented = true; }});
+      this.tabChange.emit({
+        activeId: this.activeId,
+        nextId: selectedTab.id,
+        preventDefault: () => {
+          defaultPrevented = true;
+        }
+      });
 
       if (!defaultPrevented) {
         this.activeId = selectedTab.id;

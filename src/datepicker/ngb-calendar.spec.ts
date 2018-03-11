@@ -11,9 +11,13 @@ describe('ngb-calendar-gregorian', () => {
     expect(calendar.getToday()).toEqual(today);
   });
 
-  it('should return number of days per week', () => { expect(calendar.getDaysPerWeek()).toBe(7); });
+  it('should return number of days per week', () => {
+    expect(calendar.getDaysPerWeek()).toBe(7);
+  });
 
-  it('should return number of weeks per month', () => { expect(calendar.getWeeksPerMonth()).toBe(6); });
+  it('should return number of weeks per month', () => {
+    expect(calendar.getWeeksPerMonth()).toBe(6);
+  });
 
   it('should return months of a year', () => {
     expect(calendar.getMonths()).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);

@@ -62,7 +62,6 @@ describe('ngb-carousel', () => {
        discardPeriodicTasks();
      }));
 
-
   it('should mark the first slide as active by default', fakeAsync(() => {
        const html = `
       <ngb-carousel>
@@ -76,7 +75,6 @@ describe('ngb-carousel', () => {
 
        discardPeriodicTasks();
      }));
-
 
   it('should mark the requested slide as active', fakeAsync(() => {
        const html = `
@@ -108,7 +106,6 @@ describe('ngb-carousel', () => {
 
        discardPeriodicTasks();
      }));
-
 
   it('should change slide on indicator click', fakeAsync(() => {
        const html = `
@@ -439,7 +436,6 @@ describe('ngb-carousel', () => {
        fixture.detectChanges();
        expectActiveSlides(fixture.nativeElement, [true, false]);
 
-
        discardPeriodicTasks();
      }));
 
@@ -472,7 +468,9 @@ describe('ngb-carousel', () => {
   describe('Custom config', () => {
     let config: NgbCarouselConfig;
 
-    beforeEach(() => { TestBed.configureTestingModule({imports: [NgbCarouselModule.forRoot()]}); });
+    beforeEach(() => {
+      TestBed.configureTestingModule({imports: [NgbCarouselModule.forRoot()]});
+    });
 
     beforeEach(inject([NgbCarouselConfig], (c: NgbCarouselConfig) => {
       config = c;

@@ -1,0 +1,16 @@
+<nz-select style="width: 120px;" [(ngModel)]="selectedOption" [nzPlaceHolder]="'choose option'" nzAllowClear>
+      <nz-option
+        *ngFor="let option of options"
+        [nzLabel]="option.label"
+        [nzValue]="option"
+        [nzDisabled]="option.disabled">
+      </nz-option>
+    </nz-select>
+    <nz-select style="width: 120px;" [(ngModel)]="selectedOption" [nzPlaceHolder]="'choose option'" nzDisabled>
+      <nz-option
+        *ngFor="let option of options"
+        [nzLabel]="option.label"
+        [nzValue]="option"
+        [nzDisabled]="option.disabled">
+      </nz-option>
+    </nz-select>

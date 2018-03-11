@@ -7,5 +7,4 @@ import {Component, HostBinding} from '@angular/core';
   `,
   host: {'[class.ant-layout-header]': 'true'}
 })
-export class NzHeaderComponent {
-}
+export class NzHeaderComponent {}

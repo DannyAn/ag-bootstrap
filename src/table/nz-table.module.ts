@@ -26,5 +26,4 @@ import {NzTheadDirective} from './nz-thead.directive';
   ],
   imports: [CommonModule, NzPaginationModule, NzSpinModule, NzLocaleModule]
 })
-export class NzTableModule {
-}
+export class NzTableModule {}
