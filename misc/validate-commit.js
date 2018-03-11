@@ -94,7 +94,6 @@ if (process.argv.join('').indexOf('jasmine-node') === -1) {
   {
     return;
   }
-  console.log("abc:"+commitMsgFile);
   var incorrectLogFile = commitMsgFile.replace('COMMIT_EDITMSG', 'logs/incorrect-commit-msgs');
 
   fs.readFile(commitMsgFile, function(err, buffer) {

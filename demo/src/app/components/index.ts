@@ -17,7 +17,6 @@ export * from './typeahead';
 
 export * from './checkbox';
 export * from './radio';
-export * from './grid';
 export * from './table';
 export * from './switch';
 export * from './menu';

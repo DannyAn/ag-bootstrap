@@ -107,4 +107,49 @@ Button测试用例编译不过，不能采用templateUrl引入html文件，而�
  Error: This test module uses the component NzButtonComponent which is using a "templateUrl" or "styleUrls", but they were never compiled. Please call "TestBed.compileComponents" before your test.
 
  husky > commit-msg hook failed (add --no-verify to bypass)
+看样子是在处理index.ts时碰到了错误，用gulp-demo-server启动果然出错，尝试提交验证发现依旧出错，问题不在这里
+git show :demo/src/app/components/index.ts
+> git show :misc/validate-commit.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name --abbrev-ref master@{u}
+> git rev-list --left-right master...origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git add -A -- /Users/kongan/Documents/GitHub/ag-bootstrap/misc/validate-commit.js
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name --abbrev-ref master@{u}
+> git rev-list --left-right master...origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name --abbrev-ref master@{u}
+> git rev-list --left-right master...origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show :misc/validate-commit.js
+> git commit --quiet --allow-empty-message --file -
+> git show :misc/validate-commit.js
+husky > npm run -s commitmsg (node v9.5.0)
 
+/Users/kongan/Documents/GitHub/ag-bootstrap/misc/validate-commit.js:97
+  var incorrectLogFile = commitMsgFile.replace('COMMIT_EDITMSG', 'logs/incorrect-commit-msgs');
+                                       ^
+
+TypeError: Cannot read property 'replace' of undefined
+    at Object.<anonymous> (/Users/kongan/Documents/GitHub/ag-bootstrap/misc/validate-commit.js:97:40)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+    at tryModuleLoad (module.js:513:12)
+    at Function.Module._load (module.js:505:3)
+    at Function.Module.runMain (module.js:701:10)
+    at startup (bootstrap_node.js:190:16)
+    at bootstrap_node.js:662:3
+
+husky > commit-msg hook failed (add --no-verify to bypass)
