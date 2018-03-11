@@ -153,3 +153,6 @@ TypeError: Cannot read property 'replace' of undefined
     at bootstrap_node.js:662:3
 
 husky > commit-msg hook failed (add --no-verify to bypass)
+
+您希望 Code [定期运行 "git fetch"](https://go.microsoft.com/fwlink/?linkid=865294) 吗?
+我选择否，因为无需与多人协作
