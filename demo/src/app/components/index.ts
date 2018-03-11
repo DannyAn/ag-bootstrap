@@ -48,7 +48,6 @@ import { NgbdTypeaheadModule } from './typeahead';
 
 import { NgbdCheckboxModule } from './checkbox';
 import { NgbdRadioModule } from './radio';
-import { NgbdGridModule } from './grid';
 import { NgbdTableModule } from './table';
 import { NgbdSwitchModule } from './switch';
 import { NgbdMenuModule } from './menu';
@@ -77,7 +76,6 @@ import { NgbdSelectModule } from './select';
     NgbdTypeaheadModule,
     NgbdCheckboxModule,
     NgbdRadioModule,
-    NgbdGridModule,
     NgbdTableModule,
     NgbdSwitchModule,
     NgbdMenuModule,
@@ -104,7 +102,6 @@ import { NgbdSelectModule } from './select';
     NgbdTypeaheadModule,
     NgbdCheckboxModule,
     NgbdRadioModule,
-    NgbdGridModule,
     NgbdTableModule,
     NgbdSwitchModule,
     NgbdMenuModule,

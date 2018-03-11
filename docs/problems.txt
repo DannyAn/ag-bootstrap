@@ -102,3 +102,9 @@ import { HttpModule, JsonpModule } from '@angular/http';
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
+
+Button测试用例编译不过，不能采用templateUrl引入html文件，而需要合并到组件中，这部分做课题后续研究
+ Error: This test module uses the component NzButtonComponent which is using a "templateUrl" or "styleUrls", but they were never compiled. Please call "TestBed.compileComponents" before your test.
+
+ husky > commit-msg hook failed (add --no-verify to bypass)
+

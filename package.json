@@ -32,8 +32,8 @@
   "scripts": {
     "commitmsg": "node misc/validate-commit.js",
     "test": "gulp",
-    "api-doc-tdd": "jasmine-node misc/api-doc.spec.js --autotest --watch misc/api-doc-test-cases/*.ts misc/api-doc.js",
-    "api-doc-test": "jasmine-node misc/api-doc.spec.js"
+    "apidoctdd": "jasmine-node misc/api-doc.spec.js --autotest --watch misc/api-doc-test-cases/*.ts misc/api-doc.js",
+    "apidoctest": "jasmine-node misc/api-doc.spec.js"
   },
   "repository": {
     "type": "git",
@@ -45,8 +45,6 @@
   },
   "homepage": "https://github.com/ag-bootstrap/ag-bootstrap#readme",
   "dependencies": {
-    "@angular/animations": "^5.2.7",
-    "@angular/cdk": "^5.0.2",
     "@angular/common": "5.0.2",
     "@angular/core": "5.0.2",
     "@angular/forms": "5.0.2",
@@ -54,7 +52,8 @@
     "moment": "^2.21.0"
   },
   "devDependencies": {
-    "@angular/animations": "^5.2.7",
+    "@angular/animations": "^5.2.8",
+    "@angular/cdk": "^5.0.2",
     "@angular/compiler": "5.0.2",
     "@angular/compiler-cli": "5.0.2",
     "@angular/http": "5.0.2",
@@ -63,12 +62,12 @@
     "@angular/router": "5.0.2",
     "@ngtools/webpack": "1.8.2",
     "@types/jasmine": "2.5.41",
-    "@types/node": "^6.0.46",
+    "@types/node": "^6.0.102",
     "angular2-template-loader": "^0.6.0",
     "async-done": "^1.2.2",
     "autoprefixer": "^7.2.2",
     "bootstrap": "4.0.0",
-    "copy-webpack-plugin": "^4.2.3",
+    "copy-webpack-plugin": "^4.5.1",
     "core-js": "^2.4.1",
     "css-loader": "^0.28.7",
     "del": "^2.2.2",
@@ -100,10 +99,11 @@
     "karma-jasmine": "^1.0.2",
     "karma-sauce-launcher": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
+    "minimatch": "^3.0.4",
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.8.1",
     "postcss-loader": "^2.0.9",
-    "prismjs": "^1.5.1",
+    "prismjs": "^1.12.2",
     "prismjs-loader": "0.0.4",
     "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.8",

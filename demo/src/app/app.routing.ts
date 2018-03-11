@@ -21,7 +21,6 @@ import {
   NgbdTypeahead,
   NgbdCheckbox,
   NgbdRadio,
-  NgbdGrid,
   NgbdTable,
   NgbdMenu,
   NgbdSwitch,
@@ -148,12 +147,6 @@ const componentRoutes = [{
     children: [
       DEFAULT_API_PATH,
       {path: ':tab', component: NgbdRadio}
-    ]
-  }, {
-    path: 'components/grid',
-    children: [
-      DEFAULT_API_PATH,
-      {path: ':tab', component: NgbdGrid}
     ]
   },
   {

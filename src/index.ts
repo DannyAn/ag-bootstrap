@@ -11,7 +11,6 @@ import {NgbCollapseModule} from './collapse/collapse.module';
 import {NgbDatepickerModule} from './datepicker/datepicker.module';
 import {NgbDropdownModule} from './dropdown/dropdown.module';
 import {NzFormModule} from './form/nz-form.module';
-import {NzGridModule} from './grid/nz-grid.module';
 import {NzInputModule} from './input/nz-input.module';
 import {NzLayoutModule} from './layout/nz-layout.module';
 import {NzMenuModule} from './menu/nz-menu.module';
@@ -55,13 +54,13 @@ export {NgbHighlight, NgbTypeahead, NgbTypeaheadConfig, NgbTypeaheadModule, NgbT
 export {Placement} from './util/positioning';
 
 const NGB_MODULES = [
-  NgbAccordionModule,   NgbAlertModule,    NgbButtonsModule, NgbCarouselModule,   NgbCollapseModule,
-  NgbDatepickerModule,  NgbDropdownModule, NgbModalModule,   NgbPaginationModule, NgbPopoverModule,
-  NgbProgressbarModule, NgbRatingModule,   NgbTabsetModule,  NgbTimepickerModule, NgbTooltipModule,
-  NgbTypeaheadModule,   NzCheckboxModule,  NzRadioModule,    NzGridModule,        NzSliderModule,
-  NzTableModule,        NzDropDownModule,  NzButtonModule,   NzInputModule,       NzSelectModule,
-  NzSwitchModule,       NzLayoutModule,    NzFormModule,     NzPopconfirmModule,  NzToolTipModule,
-  NzMenuModule,         NzTransferModule
+  NgbAccordionModule,   NgbAlertModule,    NgbButtonsModule,   NgbCarouselModule,   NgbCollapseModule,
+  NgbDatepickerModule,  NgbDropdownModule, NgbModalModule,     NgbPaginationModule, NgbPopoverModule,
+  NgbProgressbarModule, NgbRatingModule,   NgbTabsetModule,    NgbTimepickerModule, NgbTooltipModule,
+  NgbTypeaheadModule,   NzCheckboxModule,  NzRadioModule,      NzSliderModule,      NzTableModule,
+  NzDropDownModule,     NzButtonModule,    NzInputModule,      NzSelectModule,      NzSwitchModule,
+  NzLayoutModule,       NzFormModule,      NzPopconfirmModule, NzToolTipModule,     NzMenuModule,
+  NzTransferModule
 ];
 
 @NgModule({

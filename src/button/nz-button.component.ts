@@ -8,7 +8,10 @@ export type NzButtonSize = 'small'|'large'|'default';
 @Component({
   selector: '[nz-button]',
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './nz-button.component.html',
+  template: `
+  <i class="anticon anticon-spin anticon-loading" *ngIf="nzLoading"></i>
+  <ng-content></ng-content>
+  `,
   styleUrls: []
 })
 export class NzButtonComponent implements AfterContentInit {
