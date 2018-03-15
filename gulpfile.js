@@ -281,9 +281,8 @@ gulp.task(
     shell.task([`webpack-dev-server --port ${docsConfig.port} --config webpack.demo.js --inline --progress`]));
 
 gulp.task(
-    'build:demo', ['clean:demo', 'generate-docs', 'generate-plunks'],
-    shell.task(['webpack --config webpack.demo.js --progress --profile --bail'], {env: {MODE: 'build'}}));
-
+      'build:demo', ['clean:demo', 'generate-docs', 'generate-plunks'],
+      shell.task(['webpack --config webpack.demo.js --progress --profile --bail'], {env: {MODE: 'build'}}));
 gulp.task(
     'demo-server:aot', ['generate-docs', 'generate-plunks'],
     shell.task(
@@ -291,8 +290,10 @@ gulp.task(
         {env: {MODE: 'build'}}));
 
 gulp.task('demo-push', function() {
+  // return gulp.src(PATHS.demoDist)
+  //     .pipe(ghPages({remoteUrl: 'https://github.com/ng-bootstrap/ng-bootstrap.github.io.git', branch: 'master'}));
   return gulp.src(PATHS.demoDist)
-      .pipe(ghPages({remoteUrl: 'https://github.com/ng-bootstrap/ng-bootstrap.github.io.git', branch: 'master'}));
+      .pipe(ghPages({remoteUrl: 'https://github.com/DannyAn/ag-bootstrap.github.io.git', branch: 'master'}));
 });
 
 // Public Tasks

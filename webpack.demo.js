@@ -54,7 +54,7 @@ module.exports = function makeWebpackConfig() {
   config.entry = {
     polyfills: './demo/src/polyfills.ts',
     vendorStyles: [
-      './node_modules/prismjs/themes/prism.css'
+      './node_modules/prismjs/themes/prism.css',
     ],
     main: './demo/src/main.ts'
   };
@@ -260,6 +260,6 @@ function root(args) {
   //return path.join.apply(path, [__dirname].concat(args));
   let retVal = path.join.apply(path, [__dirname].concat(args));
 
-  console.log('--------------',retVal)
+  //console.log('--------------',retVal)
   return retVal;
 }

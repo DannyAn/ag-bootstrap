@@ -1,0 +1,28 @@
+.btn-group-toggle{
+.btn-outline-primary:not(:active):not(.active):hover {
+    /*
+    color: #fff;
+    background-color: #1b8eb7;
+    border-color: #1985ac;
+    */
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+/*
+.btn-outline-primary:not(:disabled):not(.disabled):active:hover, .btn-outline-primary:not(:disabled):not(.disabled).active:hover{
+    
+    color: #fff;
+    background-color: #4f83be;
+    border-color: #007bff;
+    
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+*/
+}
+
+// .btn {
+//     @include button-size($btn-padding-y, $btn-padding-x, $font-size-base*0.75, $btn-line-height, $btn-border-radius);
+// }
