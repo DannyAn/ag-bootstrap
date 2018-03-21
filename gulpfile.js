@@ -278,15 +278,15 @@ gulp.task('clean:demo-cache', function() {
 
 gulp.task(
     'demo-server', ['generate-docs', 'generate-plunks'],
-    shell.task([`webpack-dev-server --port ${docsConfig.port} --config webpack.demo.js --inline --progress`]));
+    shell.task([`webpack-dev-server --port ${docsConfig.port} --config webpack.dev.config.js --inline --progress --mode development`]));
 
 gulp.task(
-      'build:demo', ['clean:demo', 'generate-docs', 'generate-plunks'],
-      shell.task(['webpack --config webpack.demo.js --progress --profile --bail'], {env: {MODE: 'build'}}));
+    'build:demo', ['clean:demo', 'generate-docs', 'generate-plunks'],
+    shell.task(['webpack --config webpack.config.js --progress --profile --bail --mode production'], {env: {MODE: 'build'}}));
 gulp.task(
     'demo-server:aot', ['generate-docs', 'generate-plunks'],
     shell.task(
-        [`webpack-dev-server --port ${docsConfig.port} --config webpack.demo.js --inline --progress`],
+        [`webpack-dev-server --port ${docsConfig.port} --config webpack.dev.config.js --inline --progress`],
         {env: {MODE: 'build'}}));
 
 gulp.task('demo-push', function() {

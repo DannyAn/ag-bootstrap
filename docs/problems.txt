@@ -156,3 +156,47 @@ husky > commit-msg hook failed (add --no-verify to bypass)
 
 您希望 Code [定期运行 "git fetch"](https://go.microsoft.com/fwlink/?linkid=865294) 吗?
 我选择否，因为无需与多人协作
+
+/*
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1",
+*/
+
+
+今天捣鼓webpack4踩到一个弥天大坑：使用html-webpack-plugin打包html的时候一直报错：
+ compilation.mainTemplate.applyPluginsWaterfall is not a function ，百度了半天没结果，
+谷歌一下终于在github上找到了解决方案：https://github.com/jantimon/html-webpack-plugin/issues/841
+
+解决：先安装yarn，然后在项目跟目录下运行：
+
+yarn add webpack-contrib/html-webpack-plugin -D
+简单来说就是使用webpack官方维护的html-webpack-plugin来代替第三方的。
+ 系统当前采用的2.30.1会报错
+  "html-webpack-plugin": "2.30.1",升级成3.0.6再验证一次，bug解除。
+
+  Module build failed: Error: "extract-text-webpack-plugin" loader is used without the corresponding plugin,
+package.json版本
+  "extract-text-webpack-plugin": "^3.0.2",没用
+
+    "prismjs": "^1.12.2",
+    "prismjs-loader": "0.0.4",
+
+    还遇到错误提示
+
+WARNING in configuration
+The 'mode' option has not been set. Set 'mode' option to 'development' or 'production' to enable defaults for this environment.
+
+只需要在package.json中添加配置项：
+
+"scripts": {
+
+　　"dev": "webpack --mode development",
+
+　　"build": "webpack --mode production"
+
+}
+
+tsloader要从3.x升级到4.x版本，否则webpack4会报错
+
+npm install extract-text-webpack-plugin@next
