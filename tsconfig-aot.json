@@ -1,4 +1,3 @@
-   // "baseUrl": "./node_modules",
 {
   "compilerOptions": {
     "target": "ES5",
@@ -11,7 +10,7 @@
     "noEmitOnError": true,
     "outDir": "temp",
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./node_modules",
     "paths": {
       "@ag-bootstrap/ag-bootstrap": ["../src/index"]
     }
