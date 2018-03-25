@@ -200,3 +200,8 @@ The 'mode' option has not been set. Set 'mode' option to 'development' or 'produ
 tsloader要从3.x升级到4.x版本，否则webpack4会报错
 
 npm install extract-text-webpack-plugin@next
+
+
+The webpack >= v4.0.0 'support' for extract-text-webpack-plugin was moved to mini-css-extract-plugin as more lightweight approach 
+for webpack >= v4.0.0 and ETWP entered maintenance mode
+npm install --save-dev mini-css-extract-plugin

@@ -132,17 +132,6 @@ module.exports = {
             query: {
             }
         }]),
-        // createHappyPlugin('happy-font', [{
-        //     loader: "file-loader",
-        //     query: {
-        //         limit: 8192,
-        //         name: 'font/[name].[hash:8].[ext]'
-        //     }
-        // }]),
-        new ProgressBarPlugin({
-            format: chalk.blue.bold("build  ") + chalk.cyan("[:bar]") + chalk.green.bold(':percent') + ' (' + chalk.magenta(":elapsed") + ' seconds) ',
-            clear: false
-        }),
         new webpack.NamedModulesPlugin(),
         new LodashModuleReplacementPlugin(),
         // new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'js/[name].js' })

@@ -199,7 +199,7 @@ module.exports = function makeWebpackConfig() {
       // Workaround to remove Webpack warning in system_js_ng_module_factory_loader.js
       // See https://github.com/angular/angular/issues/11580
       new webpack.ContextReplacementPlugin(
-        /\@angular(\\|\/)core(\\|\/)esm5/,
+        /\@angular(\\|\/)core(\\|\/)\|esm5/,
         root('demo', 'src', 'app')
       )
     ];

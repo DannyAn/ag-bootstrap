@@ -58,15 +58,13 @@ module.exports = function makeWebpackConfig() {
    * Reference: https://webpack.js.org/configuration/resolve/
    */
   config.resolve = {
-    modules: [root('demo'), 'node_modules'],
+    modules: [root("demo"), 'node_modules'],
     // only discover files that have those extensions
     extensions: ['.ts', '.js', '.css', '.scss', 'less','.html'],
-
     alias: {
-      '@ag-bootstrap/ag-bootstrap': root('src/index.ts')
-    }
+        '@ag-bootstrap/ag-bootstrap': root('src/index.ts')
+      }
   };
-
 /**
    * Loaders
    * Reference: https://webpack.js.org/concepts/loaders/
@@ -142,7 +140,7 @@ module.exports = function makeWebpackConfig() {
           minSize: 0
         },
         vendor: {
-          test: /node_modules/,
+          test:  /node_modules/,
           chunks: 'initial',
           name: 'vendor',
           priority: 10,
@@ -195,7 +193,8 @@ module.exports = function makeWebpackConfig() {
         // Options similar to the same options in webpackOptions.output
         // both options are optional
         filename: "css/[name].[hash].css",
-        chunkFilename: "css/[id].[hash].css"
+        chunkFilename: "css/[id].[hash].css",
+        disable:false
       }),
       new webpack.LoaderOptionsPlugin({
         // add debug messages
@@ -240,6 +239,7 @@ module.exports = function makeWebpackConfig() {
         // Only emit files when there are no errors
         new webpack.NoEmitOnErrorsPlugin(),
   
+        new webpack.NamedModulesPlugin(),
         // Reference: https://webpack.js.org/plugins/uglifyjs-webpack-plugin/
         // Minify all javascript, switch loaders to minimizing mode
  /*
