@@ -23,6 +23,8 @@ export * from './menu';
 export * from './nzdropdown';
 export * from './transfer';
 export * from './select';
+export * from './steps';
+export * from './timeline';
 
 import { NgModule } from '@angular/core';
 
@@ -53,6 +55,8 @@ import { NgbdMenuModule } from './menu';
 import { NgbdTransferModule } from './transfer';
 import { NgbdDropDownExtModule } from './nzdropdown';
 import { NgbdSelectModule } from './select';
+import { NgbdTimelineModule } from './timeline';
+import { NgbdStepsModule } from './steps';
 
 @NgModule({
   imports: [
@@ -80,7 +84,9 @@ import { NgbdSelectModule } from './select';
     NgbdMenuModule,
     NgbdDropDownExtModule,
     NgbdTransferModule,
-    NgbdSelectModule
+    NgbdSelectModule,
+    NgbdTimelineModule,
+    NgbdStepsModule,
   ],
   exports: [
     NgbdAccordionModule,
@@ -106,7 +112,9 @@ import { NgbdSelectModule } from './select';
     NgbdMenuModule,
     NgbdDropDownExtModule,
     NgbdTransferModule,
-    NgbdSelectModule
+    NgbdSelectModule,
+    NgbdTimelineModule,
+    NgbdStepsModule
   ]
 })
 export class NgbdDemoModule { }

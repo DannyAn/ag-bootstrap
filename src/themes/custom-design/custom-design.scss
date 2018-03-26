@@ -1,8 +1,8 @@
 @charset "UTF-8";
 // 导入文件
-@import "../../../node_modules/bootstrap/scss/functions";
+@import "../bootstrap/functions";
 @import "custom-variables";
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../bootstrap/bootstrap";
 @import "custom-datepicker";
 @import "custom-select";
 @import "custom-btn-toggle";

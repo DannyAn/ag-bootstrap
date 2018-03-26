@@ -21,6 +21,8 @@ export const componentsList = [
   { name: 'Transfer', href: 'transfer', title: 'Transfer' },
   { name: 'DropDownExt', href: 'dropdownext', title: 'DropDown' },
   { name: 'Menu', href: 'menu', title: 'Menu' },
+  { name: 'Timeline', href: 'timeline', title: 'Timeline' },
+  { name: 'Steps', href: 'steps', title: 'Steps' },
 ];
 
 export const directivesList = [

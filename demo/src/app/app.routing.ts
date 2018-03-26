@@ -27,6 +27,8 @@ import {
   NgbdDropDownExt,
   NgbdTransfer,
   NgbdSelect,
+  NgbdSteps,
+  NgbdTimeline,
 } from './components';
 import {DEFAULT_TAB} from './shared/component-wrapper/component-wrapper.component';
 // import { NgbdSwitch } from './components/switch';
@@ -182,6 +184,20 @@ const componentRoutes = [{
     children: [
       DEFAULT_API_PATH,
       {path: ':tab', component: NgbdSelect}
+    ]
+  },
+  {
+    path: 'components/steps',
+    children: [
+      DEFAULT_API_PATH,
+      {path: ':tab', component: NgbdSteps}
+    ]
+  },
+  {
+    path: 'components/timeline',
+    children: [
+      DEFAULT_API_PATH,
+      {path: ':tab', component: NgbdTimeline}
     ]
   }
 ];

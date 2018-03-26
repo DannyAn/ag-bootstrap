@@ -276,13 +276,14 @@ gulp.task('clean:demo-cache', function() {
   return del('.publish/');
 });
 
-gulp.task(
-    'demo-server', ['generate-docs', 'generate-plunks'],
-    shell.task([`webpack-dev-server --port ${docsConfig.port} --config webpack.dev.config.js --inline --progress --mode development`]));
+gulp.task('demo-server', ['generate-docs', 'generate-plunks'], shell.task([
+  `webpack-dev-server --port ${docsConfig.port} --config webpack.dev.config.js --inline --progress --mode development`
+]));
 
 gulp.task(
     'build:demo', ['clean:demo', 'generate-docs', 'generate-plunks'],
-    shell.task(['webpack --config webpack.config.js --progress --profile --bail --mode production'], {env: {MODE: 'build'}}));
+    shell.task(
+        ['webpack --config webpack.config.js --progress --profile --bail --mode production'], {env: {MODE: 'build'}}));
 gulp.task(
     'demo-server:aot', ['generate-docs', 'generate-plunks'],
     shell.task(
