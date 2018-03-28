@@ -6,14 +6,14 @@ import { DEMO_SNIPPETS } from './demos';
   selector: 'ngbd-timeline',
   template: `
     <ngbd-component-wrapper component="Timeline">
-      <ngbd-api-docs directive="NzSelectComponent"></ngbd-api-docs>
-      <ngbd-example-box demoTitle="Basic Select" [snippets]="snippets" component="select" demo="basic">
+      <ngbd-api-docs directive="NzTimelineComponent"></ngbd-api-docs>
+      <ngbd-example-box demoTitle="Basic Timeline" [snippets]="snippets" component="timeline" demo="basic">
         <ngbd-timeline-basic></ngbd-timeline-basic>
       </ngbd-example-box>
-      <ngbd-example-box demoTitle="Timeline Color" [snippets]="snippets" component="select" demo="color">
+      <ngbd-example-box demoTitle="Timeline Color" [snippets]="snippets" component="timeline" demo="color">
         <ngbd-timeline-color></ngbd-timeline-color>
       </ngbd-example-box>
-      <ngbd-example-box demoTitle="Timeline Pending" [snippets]="snippets" component="select" demo="pending">
+      <ngbd-example-box demoTitle="Timeline Pending" [snippets]="snippets" component="timeline" demo="pending">
       <ngbd-timeline-pending></ngbd-timeline-pending>
     </ngbd-example-box>
     </ngbd-component-wrapper>

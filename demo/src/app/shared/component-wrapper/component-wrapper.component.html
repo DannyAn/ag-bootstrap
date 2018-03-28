@@ -16,17 +16,17 @@
       >
         <ngb-tab title="Examples" id="examples">
           <ng-template ngbTabContent>
-            <div class="examples-legend">
-               <div style="float:right;margin-top:20px">
-              <strong>Legend</strong>
-                <ng-container *ngFor="let type of fileTypes; last as last">
-                  <small class="badge {{type[2]}}">{{type[0]}}</small> {{type[1]}}
-                  <ng-container *ngIf="!last">&nbsp;</ng-container>
-                </ng-container>
-              </div>
-            </div>
-            <ng-content select="ngbd-example-box"></ng-content>
             
+            <ng-content select="ngbd-example-box"></ng-content>
+            <div class="examples-legend">
+              <div style="float:right;margin-top:20px">
+             <strong>Legend</strong>
+               <ng-container *ngFor="let type of fileTypes; last as last">
+                 <small class="badge {{type[2]}}">{{type[0]}}</small> {{type[1]}}
+                 <ng-container *ngIf="!last">&nbsp;</ng-container>
+               </ng-container>
+             </div>
+           </div>
           </ng-template>
         </ngb-tab>
         <ngb-tab title="API" id="api">
