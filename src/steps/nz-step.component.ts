@@ -1,20 +1,9 @@
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  ElementRef,
-  Input,
-  Renderer2,
-  TemplateRef,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ContentChild, ElementRef, Input, Renderer2, TemplateRef, ViewChild, ViewEncapsulation,} from '@angular/core';
 
 @Component({
-  selector     : 'nz-step',
+  selector: 'nz-step',
   encapsulation: ViewEncapsulation.None,
-  template     : `
+  template: `
     <div class="ant-steps-tail" #stepsTail *ngIf="_last !== true">
       <i></i>
     </div>
@@ -44,7 +33,7 @@ import {
       </div>
     </div>
   `,
-  styleUrls    : [ ]
+  styleUrls: []
 })
 export class NzStepComponent implements AfterViewInit {
   _status = 'wait';
@@ -80,7 +69,7 @@ export class NzStepComponent implements AfterViewInit {
   _descriptionTpl: TemplateRef<void>;
 
   @Input()
-  set nzDescription(value: string | TemplateRef<void>) {
+  set nzDescription(value: string|TemplateRef<void>) {
     if (value instanceof TemplateRef) {
       this._descriptionTpl = value;
     } else {
@@ -112,17 +101,17 @@ export class NzStepComponent implements AfterViewInit {
 
   initClassMap(): void {
     this.stepStatusClass = {
-      ['ant-steps-item']          : true,
-      [`ant-steps-status-wait`]   : this._status === 'wait',
+      ['ant-steps-item']: true,
+      [`ant-steps-status-wait`]: this._status === 'wait',
       [`ant-steps-status-process`]: this._status === 'process',
-      [`ant-steps-status-finish`] : this._status === 'finish',
-      [`ant-steps-status-error`]  : this._status === 'error',
-      ['ant-steps-item-last']     : this._last,
-      ['ant-steps-custom']        : !!this.nzIcon,
-      ['ant-steps-next-error']    : (this._outStatus === 'error' && this._current === this.index - 1)
+      [`ant-steps-status-finish`]: this._status === 'finish',
+      [`ant-steps-status-error`]: this._status === 'error',
+      ['ant-steps-item-last']: this._last,
+      ['ant-steps-custom']: !!this.nzIcon,
+      ['ant-steps-next-error']: (this._outStatus === 'error' && this._current === this.index - 1)
     };
     for (const i in this.stepStatusClass) {
-      if (this.stepStatusClass[ i ]) {
+      if (this.stepStatusClass[i]) {
         this._renderer.addClass(this._el, i);
       } else {
         this._renderer.removeClass(this._el, i);
@@ -140,7 +129,8 @@ export class NzStepComponent implements AfterViewInit {
     this._renderer.setStyle(this.erf.nativeElement, 'margin-right', (-(width / (this._totalCount - 1) + 5)) + 'px');
     if (this._direction === 'horizontal') {
       if (this._stepsTail && this._stepsTail.nativeElement) {
-        this._renderer.setStyle(this._stepsTail.nativeElement, 'padding-right', ((width / (this._totalCount - 1) + 5)) + 'px');
+        this._renderer.setStyle(
+            this._stepsTail.nativeElement, 'padding-right', ((width / (this._totalCount - 1) + 5)) + 'px');
       }
     }
   }

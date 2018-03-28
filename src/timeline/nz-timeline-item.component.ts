@@ -1,16 +1,9 @@
-import {
-  Component,
-  ContentChild,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewEncapsulation,
-} from '@angular/core';
+import {Component, ContentChild, Input, OnInit, TemplateRef, ViewEncapsulation,} from '@angular/core';
 
 @Component({
-  selector     : 'nz-timeline-item',
+  selector: 'nz-timeline-item',
   encapsulation: ViewEncapsulation.None,
-  template     : `
+  template: `
     <li
       class="ant-timeline-item"
       [class.ant-timeline-item-last]="_lastItem">
@@ -25,10 +18,10 @@ import {
         <ng-content></ng-content>
       </div>
     </li>`,
-  styleUrls    : []
+  styleUrls: []
 })
 export class NzTimelineItemComponent implements OnInit {
-  itemHeadClass = { 'ant-timeline-item-head-blue': true };
+  itemHeadClass = {'ant-timeline-item-head-blue': true};
   _color: string = 'blue';
   _custom = false;
   _lastItem = false;
@@ -39,11 +32,11 @@ export class NzTimelineItemComponent implements OnInit {
     this._color = color;
     // TODO: There is no removal process, is the result correct?
     if (color === 'green') {
-      this.itemHeadClass[ 'ant-timeline-item-head-green' ] = true;
+      this.itemHeadClass['ant-timeline-item-head-green'] = true;
     } else if (color === 'red') {
-      this.itemHeadClass[ 'ant-timeline-item-head-red' ] = true;
+      this.itemHeadClass['ant-timeline-item-head-red'] = true;
     } else {
-      this.itemHeadClass[ 'ant-timeline-item-head-blue' ] = true;
+      this.itemHeadClass['ant-timeline-item-head-blue'] = true;
     }
   }
 
@@ -56,5 +49,4 @@ export class NzTimelineItemComponent implements OnInit {
       this._custom = true;
     }
   }
-
 }

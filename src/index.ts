@@ -25,15 +25,15 @@ import {NzRadioModule} from './radio/nz-radio.module';
 import {NgbRatingModule} from './rating/rating.module';
 import {NzSelectModule} from './select/nz-select.module';
 import {NzSliderModule} from './slider/nz-slider.module';
+import {NzStepsModule} from './steps/nz-steps.module';
 import {NzSwitchModule} from './switch/nz-switch.module';
 import {NzTableModule} from './table/nz-table.module';
 import {NgbTabChangeEvent, NgbTabsetModule} from './tabset/tabset.module';
+import {NzTimelineModule} from './timeline/nz-timeline.module';
 import {NgbTimepickerModule} from './timepicker/timepicker.module';
 import {NgbTooltipModule} from './tooltip/tooltip.module';
 import {NzTransferModule} from './transfer/nz-transfer.module';
 import {NgbTypeaheadModule, NgbTypeaheadSelectItemEvent} from './typeahead/typeahead.module';
-import { NzTimelineModule } from './timeline/nz-timeline.module';
-import { NzStepsModule } from './steps/nz-steps.module';
 
 export {NgbAccordion, NgbAccordionConfig, NgbAccordionModule, NgbPanel, NgbPanelChangeEvent, NgbPanelContent, NgbPanelTitle} from './accordion/accordion.module';
 export {NgbAlert, NgbAlertConfig, NgbAlertModule} from './alert/alert.module';
@@ -62,7 +62,7 @@ const NGB_MODULES = [
   NgbTypeaheadModule,   NzCheckboxModule,  NzRadioModule,      NzSliderModule,      NzTableModule,
   NzDropDownModule,     NzButtonModule,    NzInputModule,      NzSelectModule,      NzSwitchModule,
   NzLayoutModule,       NzFormModule,      NzPopconfirmModule, NzToolTipModule,     NzMenuModule,
-  NzTransferModule,    NzTimelineModule,  NzStepsModule
+  NzTransferModule,     NzTimelineModule,  NzStepsModule
 ];
 
 @NgModule({

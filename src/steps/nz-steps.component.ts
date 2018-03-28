@@ -1,27 +1,18 @@
-import {
-  AfterViewInit,
-  Component,
-  ContentChildren,
-  Input,
-  OnDestroy,
-  OnInit,
-  QueryList,
-  ViewEncapsulation,
-} from '@angular/core';
-import { toBoolean } from '../util/convert';
-import { NzStepComponent } from './nz-step.component';
+import {AfterViewInit, Component, ContentChildren, Input, OnDestroy, OnInit, QueryList, ViewEncapsulation,} from '@angular/core';
+import {toBoolean} from '../util/convert';
+import {NzStepComponent} from './nz-step.component';
 
-export type NzDirection = 'horizontal' | 'vertical';
+export type NzDirection = 'horizontal'|'vertical';
 
 @Component({
-  selector     : 'nz-steps',
+  selector: 'nz-steps',
   encapsulation: ViewEncapsulation.None,
-  template     : `
+  template: `
     <div class="ant-steps" [ngClass]="_stepsClassMap" [hidden]="!_afterViewInit">
       <ng-content></ng-content>
     </div>
   `,
-  styleUrls    : []
+  styleUrls: []
 })
 export class NzStepsComponent implements OnInit, OnDestroy, AfterViewInit {
   private _progressDot = false;
@@ -43,7 +34,7 @@ export class NzStepsComponent implements OnInit, OnDestroy, AfterViewInit {
     return this._direction;
   }
 
-  @Input() nzSize: 'default' | 'small';
+  @Input() nzSize: 'default'|'small';
 
   @Input()
   set nzProgressDot(value: boolean) {
@@ -78,10 +69,10 @@ export class NzStepsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   setDirectionClass(): void {
     this._stepsClassMap = {
-      [`ant-steps-${this.nzDirection}`]      : true,
+      [`ant-steps-${this.nzDirection}`]: true,
       [`ant-steps-label-${this.nzDirection}`]: true,
-      [`ant-steps-dot`]                      : this.nzProgressDot,
-      ['ant-steps-small']                    : this.nzSize === 'small'
+      [`ant-steps-dot`]: this.nzProgressDot,
+      ['ant-steps-small']: this.nzSize === 'small'
     };
   }
 
