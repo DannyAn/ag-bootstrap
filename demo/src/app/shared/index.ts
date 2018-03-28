@@ -12,6 +12,7 @@ import {SideNavComponent} from './side-nav/side-nav.component';
 import {Analytics} from './analytics/analytics';
 
 export {componentsList} from './side-nav/side-nav.component';
+export {directivesList} from './side-nav/side-nav.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, NgbModule],
