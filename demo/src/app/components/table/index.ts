@@ -7,9 +7,10 @@ import { NgbdTable } from './table.component';
 import { DEMO_DIRECTIVES } from './demos';
 import { NgbdSharedModule } from '../../shared';
 import { NgbdComponentsSharedModule } from '../shared';
+import { NgbdTableRoutingModule } from './table.routing';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule],
+  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule, NgbdTableRoutingModule],
   exports: [NgbdTable],
   declarations: [NgbdTable, ...DEMO_DIRECTIVES]
 })

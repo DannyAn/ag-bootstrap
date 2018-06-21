@@ -1,21 +1,20 @@
 /* tslint:disable:variable-name */
 import {Component, ElementRef, EventEmitter, forwardRef, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation,} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
+// import {Observable} from 'rxjs/Observable';
 import {fromEvent} from 'rxjs/observable/fromEvent';
-import {merge} from 'rxjs/observable/merge';
+// import {merge} from 'rxjs/observable/merge';
 import {distinctUntilChanged} from 'rxjs/operators/distinctUntilChanged';
 import {filter} from 'rxjs/operators/filter';
 import {map} from 'rxjs/operators/map';
 import {pluck} from 'rxjs/operators/pluck';
 import {takeUntil} from 'rxjs/operators/takeUntil';
 import {tap} from 'rxjs/operators/tap';
-import {Subscription} from 'rxjs/Subscription';
-
 import {toBoolean} from '../util/convert';
 
 import {Marks, MarksArray} from './nz-slider-marks.component';
 import {NzSliderService} from './nz-slider.service';
+import { Observable, Subscription, merge } from 'rxjs';
 
 export type SliderValue = number[]|number;
 
@@ -418,8 +417,8 @@ export class NzSliderComponent implements ControlValueAccessor, OnInit, OnChange
                                  .pipe(
                                      filter(filterFunc), tap(this.utils.pauseEvent), pluck(...pluckKey),
                                      map((position: number) => this.findClosestValue(position)));
-      // end
-      source.end$ = fromEvent(document, end);
+      // end TODO:
+      // source.end$ = fromEvent(document, end);
       // resolve move
       source.moveResolved$ = fromEvent(document, move)
                                  .pipe(

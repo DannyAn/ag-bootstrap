@@ -7,9 +7,10 @@ import { NgbdMenu } from './menu.component';
 import { DEMO_DIRECTIVES } from './demos';
 import { NgbdSharedModule } from '../../shared';
 import { NgbdComponentsSharedModule } from '../shared';
+import { NgbdMenuRoutingModule } from './menu.routing';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule],
+  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule,NgbdMenuRoutingModule],
   exports: [NgbdMenu],
   declarations: [NgbdMenu, ...DEMO_DIRECTIVES]
 })

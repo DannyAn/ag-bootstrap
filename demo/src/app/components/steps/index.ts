@@ -8,10 +8,11 @@ import { NgbdSteps } from './steps.component';
 import { DEMO_DIRECTIVES } from './demos';
 import { NgbdSharedModule } from '../../shared';
 import { NgbdComponentsSharedModule } from '../shared';
+import { NgbdStepsRoutingModule } from './steps.routing';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpModule,
-    JsonpModule, NgbdSharedModule, NgbdComponentsSharedModule],
+    JsonpModule, NgbdSharedModule, NgbdComponentsSharedModule, NgbdStepsRoutingModule],
   exports: [NgbdSteps],
   declarations: [NgbdSteps, ...DEMO_DIRECTIVES]
 })

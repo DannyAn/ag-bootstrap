@@ -1,11 +1,13 @@
-import {AnimationEvent,} from '@angular/animations';
-import {ConnectedOverlayDirective, ConnectedOverlayPositionChange, ConnectionPositionPair, OverlayOrigin,} from '@angular/cdk/overlay';
-import {AfterViewInit, ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewChild, ViewEncapsulation,} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
-import {fadeAnimation} from '../core/animation/fade-animations';
-import {DEFAULT_4_POSITIONS, POSITION_MAP} from '../core/overlay/overlay-position-map';
-import {toBoolean} from '../util/convert';
+import { AnimationEvent, } from '@angular/animations';
+// import {ConnectedOverlayDirective, ConnectedOverlayPositionChange, ConnectionPositionPair, OverlayOrigin,} from '@angular/cdk/overlay';
+//import { ConnectedOverlayPositionChange, ConnectionPositionPair } from '@angular/cdk/overlay';
+import { CdkConnectedOverlay, ConnectedOverlayPositionChange, ConnectionPositionPair, CdkOverlayOrigin, } from '@angular/cdk/overlay';
+import { AfterViewInit, ChangeDetectorRef, Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewChild, ViewEncapsulation, } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
+import { fadeAnimation } from '../core/animation/fade-animations';
+import { DEFAULT_4_POSITIONS, POSITION_MAP } from '../core/overlay/overlay-position-map';
+import { toBoolean } from '../util/convert';
 
 @Component({
   selector: 'nz-tooltip',
@@ -49,9 +51,10 @@ export class NzToolTipComponent {
   @Input() nzMouseLeaveDelay = 0.1;  // Unit: second
   @Output() nzVisibleChange: EventEmitter<boolean> = new EventEmitter();
   @ContentChild('nzTemplate') nzTemplate: TemplateRef<void>;
-  @ViewChild('overlay') overlay: ConnectedOverlayDirective;
-
-  overlayOrigin: OverlayOrigin;
+  // @ViewChild('overlay') overlay: ConnectedOverlayDirective;
+  @ViewChild('overlay') overlay: CdkConnectedOverlay
+  // overlayOrigin: OverlayOrigin;
+  overlayOrigin: CdkOverlayOrigin;
 
   @Input()
   set nzVisible(value: boolean) {
@@ -135,22 +138,25 @@ export class NzToolTipComponent {
   }
 
   setClassMap(): void {
-    this._classMap = {[this.nzOverlayClassName]: true, [`${this._prefix}-${this._placement}`]: true};
+    this._classMap = { [this.nzOverlayClassName]: true, [`${this._prefix}-${this._placement}`]: true };
   }
 
-  setOverlayOrigin(origin: OverlayOrigin): void {
-    this.overlayOrigin = origin;
-  }
+  // setOverlayOrigin(origin: OverlayOrigin): void {
+  //   this.overlayOrigin = origin;
+  // }
+   setOverlayOrigin(origin: CdkOverlayOrigin): void {
+     this.overlayOrigin = origin;
+   }
 
-  constructor(private _cdr: ChangeDetectorRef) {}
+  constructor(private _cdr: ChangeDetectorRef) { }
 
   private isContentEmpty(): boolean {
     // return this.nzTemplate ? !(this.nzTemplate.elementRef.nativeElement as HTMLElement).hasChildNodes() :
     // this.nzTitle === '';
     return this.nzTemplate ?
-        false :
-        (this.nzTitle === '' ||
-         this.nzTitle ==
-             null);  // Pity, can't detect whether nzTemplate is empty due to can't get it's content before shown up
+      false :
+      (this.nzTitle === '' ||
+        this.nzTitle ==
+        null);  // Pity, can't detect whether nzTemplate is empty due to can't get it's content before shown up
   }
 }

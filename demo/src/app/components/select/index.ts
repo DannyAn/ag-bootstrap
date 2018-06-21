@@ -8,10 +8,11 @@ import { NgbdSelect } from './select.component';
 import { DEMO_DIRECTIVES } from './demos';
 import { NgbdSharedModule } from '../../shared';
 import { NgbdComponentsSharedModule } from '../shared';
+import { NgbdSelectRoutingModule } from './select.routing';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpModule,
-    JsonpModule, NgbdSharedModule, NgbdComponentsSharedModule],
+    JsonpModule, NgbdSharedModule, NgbdComponentsSharedModule, NgbdSelectRoutingModule],
   exports: [NgbdSelect],
   declarations: [NgbdSelect, ...DEMO_DIRECTIVES]
 })

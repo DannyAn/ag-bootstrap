@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {fromEvent} from 'rxjs/observable/fromEvent';
 import {_do} from 'rxjs/operator/do';
 import {letProto} from 'rxjs/operator/let';
-import {switchMap} from 'rxjs/operator/switchMap';
+ import {switchMap} from 'rxjs/operator/switchMap';
 import {Subscription} from 'rxjs/Subscription';
 
 import {PopupService} from '../util/popup';
@@ -14,6 +14,7 @@ import {isDefined, toString} from '../util/util';
 
 import {NgbTypeaheadConfig} from './typeahead-config';
 import {NgbTypeaheadWindow, ResultTemplateContext} from './typeahead-window';
+//import { Subscription, Observable, BehaviorSubject, fromEvent } from 'rxjs';
 
 enum Key {
   Tab = 9,

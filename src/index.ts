@@ -1,5 +1,6 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
 
 import {NgbAccordionModule, NgbPanelChangeEvent} from './accordion/accordion.module';
 import {NgbAlertModule} from './alert/alert.module';
@@ -73,7 +74,7 @@ const NGB_MODULES = [
     NgbDropdownModule.forRoot(),    NgbModalModule.forRoot(),       NgbPaginationModule.forRoot(),
     NgbPopoverModule.forRoot(),     NgbProgressbarModule.forRoot(), NgbRatingModule.forRoot(),
     NgbTabsetModule.forRoot(),      NgbTimepickerModule.forRoot(),  NgbTooltipModule.forRoot(),
-    NzTransferModule.forRoot(),     BrowserAnimationsModule
+    NzTransferModule.forRoot(),     CommonModule
   ],
   exports: NGB_MODULES
 })

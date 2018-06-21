@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 const statesWithFlags = [
   {'name': 'Alabama', 'flag': '5/5c/Flag_of_Alabama.svg/45px-Flag_of_Alabama.svg.png'},

@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {NzButtonModule} from '../button/nz-button.module';
 import {NzCheckboxModule} from '../checkbox/nz-checkbox.module';
@@ -19,7 +19,8 @@ export {TransferItem} from './transfer-item';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, BrowserAnimationsModule, NzCheckboxModule, NzButtonModule, NzInputModule, NzLocaleModule
+    //CommonModule, FormsModule, BrowserAnimationsModule, NzCheckboxModule, NzButtonModule, NzInputModule, NzLocaleModule
+    CommonModule, FormsModule, NzCheckboxModule, NzButtonModule, NzInputModule, NzLocaleModule
   ],
   declarations: [NzTransferComponent, NzTransferListComponent, NzTransferSearchComponent],
   exports: [NzTransferComponent]

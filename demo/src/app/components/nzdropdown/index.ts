@@ -7,9 +7,10 @@ import { NgbdDropDownExt } from './dropdown.component';
 import { DEMO_DIRECTIVES } from './demos';
 import { NgbdSharedModule } from '../../shared';
 import { NgbdComponentsSharedModule } from '../shared';
+import { NgbdDropDownExtRoutingModule } from './dropdown.routing';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule],
+  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule, NgbdDropDownExtRoutingModule],
   exports: [NgbdDropDownExt],
   declarations: [NgbdDropDownExt, ...DEMO_DIRECTIVES]
 })

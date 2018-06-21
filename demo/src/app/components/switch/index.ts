@@ -7,9 +7,10 @@ import { NgbdSwitch } from './switch.component';
 import {DEMO_DIRECTIVES} from './demos';
 import {NgbdSharedModule} from '../../shared';
 import {NgbdComponentsSharedModule} from '../shared';
+import { NgbdSwitchRoutingModule } from './switch.routing';
 
 @NgModule({
-  imports: [ CommonModule, FormsModule,NgbdSharedModule, NgbdComponentsSharedModule],
+  imports: [ CommonModule, FormsModule,NgbdSharedModule, NgbdComponentsSharedModule, NgbdSwitchRoutingModule],
   exports: [ NgbdSwitch ],
   declarations: [ NgbdSwitch, ...DEMO_DIRECTIVES]
 })

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
 import {Location} from '@angular/common';
+import { filter } from 'rxjs/operators';
 
-import {filter} from 'rxjs/operator/filter';
 
 declare const ga: any;
 

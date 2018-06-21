@@ -11,7 +11,7 @@ export * from './popover';
 export * from './progressbar';
 export * from './rating';
 export * from './tabset';
-export * from './timepicker';
+//export * from './timepicker';
 export * from './tooltip';
 export * from './typeahead';
 
@@ -30,7 +30,8 @@ import { NgModule } from '@angular/core';
 
 import { NgbdSharedModule } from '../shared';
 
-import { NgbdAccordionModule } from './accordion';
+import { NgbdComponentsRoutingModule } from './components.routing';
+//import { NgbdAccordionModule } from './accordion';
 import { NgbdAlertModule } from './alert';
 import { NgbdButtonsModule } from './buttons';
 import { NgbdCarouselModule } from './carousel';
@@ -43,7 +44,7 @@ import { NgbdPopoverModule } from './popover';
 import { NgbdProgressbarModule } from './progressbar';
 import { NgbdRatingModule } from './rating';
 import { NgbdTabsModule } from './tabset';
-import { NgbdTimepickerModule } from './timepicker';
+// import { NgbdTimepickerModule } from './timepicker';
 import { NgbdTooltipModule } from './tooltip';
 import { NgbdTypeaheadModule } from './typeahead';
 
@@ -61,60 +62,61 @@ import { NgbdStepsModule } from './steps';
 @NgModule({
   imports: [
     NgbdSharedModule,
-    NgbdAccordionModule,
-    NgbdAlertModule,
-    NgbdButtonsModule,
-    NgbdCarouselModule,
-    NgbdCollapseModule,
-    NgbdDatepickerModule,
-    NgbdDropdownModule,
-    NgbdModalModule,
-    NgbdPaginationModule,
-    NgbdPopoverModule,
-    NgbdProgressbarModule,
-    NgbdRatingModule,
-    NgbdTabsModule,
-    NgbdTimepickerModule,
-    NgbdTooltipModule,
-    NgbdTypeaheadModule,
-    NgbdCheckboxModule,
-    NgbdRadioModule,
-    NgbdTableModule,
-    NgbdSwitchModule,
-    NgbdMenuModule,
-    NgbdDropDownExtModule,
-    NgbdTransferModule,
-    NgbdSelectModule,
-    NgbdTimelineModule,
-    NgbdStepsModule,
+    NgbdComponentsRoutingModule,
+    //NgbdAccordionModule,
+    // NgbdAlertModule,
+    // NgbdButtonsModule,
+    // NgbdCarouselModule,
+    // NgbdCollapseModule,
+    // NgbdDatepickerModule,
+    // NgbdDropdownModule,
+    // NgbdModalModule,
+    // NgbdPaginationModule,
+    // NgbdPopoverModule,
+    // NgbdProgressbarModule,
+    // NgbdRatingModule,
+    // NgbdTabsModule,
+    //NgbdTimepickerModule,
+    // NgbdTooltipModule,
+    // NgbdTypeaheadModule,
+    // NgbdCheckboxModule,
+    // NgbdRadioModule,
+    // NgbdTableModule,
+    // NgbdSwitchModule,
+    // NgbdMenuModule,
+    // NgbdDropDownExtModule,
+    // NgbdTransferModule,
+    // NgbdSelectModule,
+    // NgbdTimelineModule,
+    // NgbdStepsModule,
   ],
   exports: [
-    NgbdAccordionModule,
-    NgbdAlertModule,
-    NgbdButtonsModule,
-    NgbdCarouselModule,
-    NgbdCollapseModule,
-    NgbdDatepickerModule,
-    NgbdDropdownModule,
-    NgbdModalModule,
-    NgbdPaginationModule,
-    NgbdPopoverModule,
-    NgbdProgressbarModule,
-    NgbdRatingModule,
-    NgbdTabsModule,
-    NgbdTimepickerModule,
-    NgbdTooltipModule,
-    NgbdTypeaheadModule,
-    NgbdCheckboxModule,
-    NgbdRadioModule,
-    NgbdTableModule,
-    NgbdSwitchModule,
-    NgbdMenuModule,
-    NgbdDropDownExtModule,
-    NgbdTransferModule,
-    NgbdSelectModule,
-    NgbdTimelineModule,
-    NgbdStepsModule
+    //NgbdAccordionModule,
+    // NgbdAlertModule,
+    // NgbdButtonsModule,
+    // NgbdCarouselModule,
+    // NgbdCollapseModule,
+    // NgbdDatepickerModule,
+    // NgbdDropdownModule,
+    // NgbdModalModule,
+    // NgbdPaginationModule,
+    // NgbdPopoverModule,
+    // NgbdProgressbarModule,
+    // NgbdRatingModule,
+    // NgbdTabsModule,
+   // NgbdTimepickerModule,
+    // NgbdTooltipModule,
+    // NgbdTypeaheadModule,
+    // NgbdCheckboxModule,
+    // NgbdRadioModule,
+    // NgbdTableModule,
+    // NgbdSwitchModule,
+    // NgbdMenuModule,
+    // NgbdDropDownExtModule,
+    // NgbdTransferModule,
+    // NgbdSelectModule,
+    // NgbdTimelineModule,
+    // NgbdStepsModule,
   ]
 })
 export class NgbdDemoModule { }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { delay } from 'rxjs/operators';
 
 import { TransferItem } from '@ag-bootstrap/ag-bootstrap';
 import { TransferCanMove } from '@ag-bootstrap/ag-bootstrap';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'ngbd-transfer-can-move',

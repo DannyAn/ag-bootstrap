@@ -7,9 +7,10 @@ import { NgbdTransfer } from './transfer.component';
 import { DEMO_DIRECTIVES } from './demos';
 import { NgbdSharedModule } from '../../shared';
 import { NgbdComponentsSharedModule } from '../shared';
+import { NgbdTransferRoutingModule } from './transfer.routing';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule],
+  imports: [CommonModule, FormsModule, NgbdSharedModule, NgbdComponentsSharedModule, NgbdTransferRoutingModule],
   exports: [NgbdTransfer],
   declarations: [NgbdTransfer, ...DEMO_DIRECTIVES]
 })
