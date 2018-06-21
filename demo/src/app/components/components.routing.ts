@@ -136,7 +136,7 @@ const componentRoutes: Routes = [
   },
   {
     path: 'timepicker',
-    loadChildren: './timepicker/timepicker.module#NgbdTimepickerModule',
+    loadChildren: './timepicker/index#NgbdTimepickerModule',
     // children: [
     //   DEFAULT_API_PATH],
     // loadChildren: 'app/components/timepicker/timepicker.module#NgbdTimepickerModule'

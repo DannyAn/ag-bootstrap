@@ -87,7 +87,7 @@ module.exports = function makeWebpackConfig() {
         loaders: [
           'angular-router-loader'
         ]
-      },  
+      },
       // copy those assets to output
       {test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, use: 'file-loader?name=fonts/[name].[hash].[ext]?'},
 
