@@ -227,6 +227,16 @@ module.exports = function makeWebpackConfig() {
         /\@angular(\\|\/)core(\\|\/)esm5/,
         root('demo', 'src', 'app')
       ),
+      new webpack.ContextReplacementPlugin(
+        /(.+)?angular(\\|\/)core(.+)?/, // fixes WARNING Critical dependency: the request of a dependency is an expression
+        path.join(__dirname, 'src'), // location of your src
+        {} // a map of your routes
+    ),
+    new webpack.ContextReplacementPlugin(
+        /(.+)?express(\\|\/)(.+)?/, // fixes WARNING Critical dependency: the request of a dependency is an expression
+        path.join(__dirname, 'src'),
+        {}
+    )
 
      
       
