@@ -16,7 +16,7 @@
     }
   },
   "include": [
-    "./demo/src/*.ts"
+    "./demo/src/**/*.ts"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true

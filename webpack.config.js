@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-//var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -85,20 +84,19 @@ module.exports = function makeWebpackConfig() {
       {
         test: /\.(ts|js)$/,
         loaders: [
-          'angular-router-loader'
+          'angular-router-loader?aot=true'
         ]
       },
-      {
-        test: /\.ts$/,
-        use: 'source-map-loader'
-      },
+      // {
+      //   test: /\.ts$/,
+      //   use: 'source-map-loader'
+      // },
       // copy those assets to output
       {test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, use: 'file-loader?name=fonts/[name].[hash].[ext]?'},
 
       // Support for CSS as raw text
       // use 'null' loader in test mode (https://webpack.js.org/loaders/null-loader/)
       // all css in src/style will be bundled in an external css file
-     
       {
         test: /\.css$/,
         exclude: root('demo', 'src', 'app'),
@@ -120,17 +118,22 @@ module.exports = function makeWebpackConfig() {
       {
         test: /\.scss$/,
         exclude: root('src', 'app'),
-        // use: ExtractTextPlugin.extract({
-        //   fallback: 'style-loader',
-        //   use: 'css-loader?sourceMap-loader!postcss-loader!sass-loader'
-        // })
         use: [
             MiniCssExtractPlugin.loader,
             'css-loader?sourceMap-loader!postcss-loader!sass-loader'
           ]
       },
       // all css required in src/app files will be merged in js files
-      {test: /\.scss$/, exclude: root('demo', 'src', 'style'), use: 'raw-loader!postcss-loader!sass-loader'},
+      {
+        test: /\.scss$/, 
+        //exclude: root('demo', 'src', 'style'), 
+        //use: 'raw-loader!postcss-loader!sass-loader'
+        use: [
+          //"raw-loader", //
+          //"postcss-loader", // 
+          "sass-loader" // compiles Sass to CSS
+      ]
+      },
 
       // support for .html as raw text
       // todo: change the loader to something that adds a hash to images
@@ -194,10 +197,6 @@ module.exports = function makeWebpackConfig() {
         chunksSortMode: 'dependency'
       }),
   
-      // Extract css files
-      // Reference: https://webpack.js.org/plugins/extract-text-webpack-plugin/
-      // Disabled when in test mode or not in build mode
-      //new ExtractTextPlugin({filename: 'css/[name].[hash].css', disable: false}),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional

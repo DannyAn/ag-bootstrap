@@ -7,11 +7,12 @@ import { NgbdSelectSearch } from './search/select-search';
 import { NgbdSelectSearchChange } from './search-change/select-search-change';
 import { NgbdSelectSize } from './size/select-size';
 import { NgbdSelectTag } from './tag/select-tag';
+import {NgbdSelectTemplate} from './template/select-template';
 
 
 export const DEMO_DIRECTIVES =
-    [NgbdSelectBasic,NgbdSelectMultiple,NgbdSelectMultipleChange,NgbdSelectPagination,NgbdSelectSearch,
-        NgbdSelectSearchChange,NgbdSelectSize,NgbdSelectTag];
+    [NgbdSelectBasic, NgbdSelectMultiple, NgbdSelectMultipleChange, NgbdSelectPagination, NgbdSelectSearch,
+        NgbdSelectSearchChange, NgbdSelectSize, NgbdSelectTag,NgbdSelectTemplate];
 
 export const DEMO_SNIPPETS = {
     'basic': {
