@@ -27,7 +27,7 @@ Feel free to make comments there.
 
 ## Demo
 
-View all the directives in action at https://ag-bootstrap.github.io
+View all the directives in action at https://dannyan.github.io/ag-bootstrap.github.io/
 
 ## Dependencies
 * [Angular](https://angular.io) (tested with 5.0.2)
